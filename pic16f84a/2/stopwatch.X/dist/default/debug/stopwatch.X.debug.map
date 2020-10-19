@@ -1,0 +1,42 @@
+MPLINK 5.09, LINKER
+Linker Map File - Created Fri Sep 18 12:36:14 2020
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000002
+                   .cinit    romdata   0x000001    program   0x000004
+                   .org_1       code   0x000004    program   0x00006a
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000002      
+                            0x000004    0x000038      
+            56 out of 1094 program addresses used, program memory utilization is 5%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                INTE_EXIT   0x000034    program     static D:\mplab\stopwatch.X\stopwatch.asm
+                     LOOP   0x000012    program     static D:\mplab\stopwatch.X\stopwatch.asm
+                 NUM_MASS   0x000026    program     static D:\mplab\stopwatch.X\stopwatch.asm
+                    START   0x000005    program     static D:\mplab\stopwatch.X\stopwatch.asm
+                      TIC   0x000031    program     static D:\mplab\stopwatch.X\stopwatch.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    START   0x000005    program     static D:\mplab\stopwatch.X\stopwatch.asm
+                     LOOP   0x000012    program     static D:\mplab\stopwatch.X\stopwatch.asm
+                 NUM_MASS   0x000026    program     static D:\mplab\stopwatch.X\stopwatch.asm
+                      TIC   0x000031    program     static D:\mplab\stopwatch.X\stopwatch.asm
+                INTE_EXIT   0x000034    program     static D:\mplab\stopwatch.X\stopwatch.asm
+
+

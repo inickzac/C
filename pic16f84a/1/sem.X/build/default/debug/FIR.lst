@@ -1,0 +1,340 @@
+MPASM 5.86                           FIR.ASM   9-20-2020  14:07:11         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001            LIST p=16F84A
+                      00002            #INCLUDE <p16f84a.inc>
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Oct 24 2019
+                      00005 ;  MPASM PIC16F84A processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 1999-2019 Microchip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+                      00209         LIST
+  00000025            00003 DELAY_REG1 equ 25h
+  00000026            00004 DELAY_REG2 equ 26h
+  00000027            00005 DELAY_REG3 equ 27h
+  00000004            00006 NUMBER_OF_FLASHES equ 4 
+                      00007            org 0
+0000   1683           00008            bsf STATUS,5
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0001   0186           00009            clrf TRISB
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0002   0185           00010            clrf TRISA
+0003   1283           00011            bcf STATUS,5
+0004   0186           00012            clrf PORTB
+0005   0185           00013            clrf PORTA
+                      00014 ;----------------------------------------------
+0006   3084           00015 START      movlw b'10000100'
+0007   0086           00016            movwf PORTB
+0008   3001           00017            movlw b'0001'
+0009   0085           00018            movwf PORTA
+000A   2???           00019            call  LOOP3S
+                      00020 ;-----------------------------------------------
+000B   2???           00021            call  BLINC_TF1
+                      00022 ;-----------------------------------------------           
+000C   3044           00023            movlw b'01000100'
+000D   0086           00024            movwf PORTB
+000E   3001           00025            movlw b'0001'
+000F   0085           00026            movwf PORTA
+0010   2???           00027            call  LOOP1S
+                      00028 ;-----------------------------------------------
+0011   302C           00029            movlw b'00101100'
+0012   0086           00030            movwf PORTB
+0013   3001           00031            movlw b'0001'
+0014   0085           00032            movwf PORTA
+0015   2???           00033            call  LOOP1S
+                      00034 ;-----------------------------------------------
+0016   3030           00035            movlw b'00110000'
+0017   0086           00036            movwf PORTB
+0018   3001           00037            movlw b'0001'
+0019   0085           00038            movwf PORTA
+001A   2???           00039            call  LOOP3S
+                      00040 ;-----------------------------------------------
+001B   2???           00041            call  BLINC_TF2
+MPASM 5.86                           FIR.ASM   9-20-2020  14:07:11         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00042 ;-----------------------------------------------
+001C   3028           00043            movlw b'00101000'
+001D   0086           00044            movwf PORTB
+001E   3001           00045            movlw b'0001'
+001F   0085           00046            movwf PORTA
+0020   2???           00047            call  LOOP1S
+                      00048 ;-----------------------------------------------
+0021   3024           00049            movlw b'00100100'
+0022   0086           00050            movwf PORTB
+0023   3003           00051            movlw b'0011'
+0024   0085           00052            movwf PORTA
+0025   2???           00053            call  LOOP1S
+                      00054 ;-----------------------------------------------
+0026   3024           00055            movlw b'00100100'
+0027   0086           00056            movwf PORTB
+0028   3004           00057            movlw b'0100'
+0029   0085           00058            movwf PORTA
+002A   2???           00059            call  LOOP3S
+                      00060 ;-----------------------------------------------
+002B   2???           00061            call  BLINC_TF3
+                      00062 ;-----------------------------------------------
+002C   3024           00063            movlw b'00100100'
+002D   0086           00064            movwf PORTB
+002E   3002           00065            movlw b'0010'
+002F   0085           00066            movwf PORTA
+0030   2???           00067            call  LOOP1S
+                      00068 ;-----------------------------------------------
+0031   3064           00069            movlw b'01100100'
+0032   0086           00070            movwf PORTB
+0033   3001           00071            movlw b'0001'
+0034   0085           00072            movwf PORTA
+0035   2???           00073            call  LOOP1S
+                      00074 ;-----------------------------------------------
+0036   2???           00075            goto  START
+                      00076        
+0037                  00077 LOOP3S       
+0037   300D           00078             movlw       .13
+0038   00A5           00079             movwf       DELAY_REG1
+0039   3039           00080             movlw       .57
+003A   00A6           00081             movwf       DELAY_REG2
+003B   3010           00082             movlw       .16
+003C   00A7           00083             movwf       DELAY_REG3
+003D   0BA5           00084             decfsz      DELAY_REG1,F
+003E   2???           00085             goto        $-1
+003F   0BA6           00086             decfsz      DELAY_REG2,F
+0040   2???           00087             goto        $-3
+0041   0BA7           00088             decfsz      DELAY_REG3,F
+0042   2???           00089             goto        $-5
+0043   0000           00090             nop
+0044   0000           00091             nop
+0045   0008           00092             return
+                      00093             
+0046                  00094 LOOP0.5S       
+MPASM 5.86                           FIR.ASM   9-20-2020  14:07:11         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0046   3055           00095             movlw       .85
+0047   00A5           00096             movwf       DELAY_REG1
+0048   308A           00097             movlw       .138
+0049   00A6           00098             movwf       DELAY_REG2
+004A   3003           00099             movlw       .3
+004B   00A7           00100             movwf       DELAY_REG3
+004C   0BA5           00101             decfsz      DELAY_REG1,F
+004D   2???           00102             goto        $-1
+004E   0BA6           00103             decfsz      DELAY_REG2,F
+004F   2???           00104             goto        $-3
+0050   0BA7           00105             decfsz      DELAY_REG3,F
+0051   2???           00106             goto        $-5
+0052   0000           00107             nop
+0053   0000           00108             nop
+0054   0008           00109             return
+0055                  00110 LOOP1S       
+0055   30AD           00111             movlw       .173
+0056   00A5           00112             movwf       DELAY_REG1
+0057   3013           00113             movlw       .19
+0058   00A6           00114             movwf       DELAY_REG2
+0059   3006           00115             movlw       .6
+005A   00A7           00116             movwf       DELAY_REG3
+005B   0BA5           00117             decfsz      DELAY_REG1,F
+005C   2???           00118             goto        $-1
+005D   0BA6           00119             decfsz      DELAY_REG2,F
+005E   2???           00120             goto        $-3
+005F   0BA7           00121             decfsz      DELAY_REG3,F
+0060   2???           00122             goto        $-5
+0061   0000           00123             nop
+0062   0000           00124             nop
+0063   0008           00125             return
+                      00126 
+0064   3004           00127 BLINC_TF1   movlw       NUMBER_OF_FLASHES
+0065   00A0           00128             movwf       20h
+0066   1386           00129 LOOP_TF1    bcf         PORTB, 7
+0067   2???           00130             call        LOOP0.5S
+0068   1786           00131             bsf         PORTB, 7
+0069   2???           00132             call        LOOP0.5S
+006A   0BA0           00133             decfsz      20h, f
+006B   2???           00134             goto        LOOP_TF1
+006C   0008           00135             return
+                      00136 
+006D   3004           00137 BLINC_TF2   movlw       NUMBER_OF_FLASHES
+006E   00A0           00138             movwf       20h
+006F   1206           00139 LOOP_TF2    bcf         PORTB, 4
+0070   2???           00140             call        LOOP0.5S
+0071   1606           00141             bsf         PORTB, 4
+0072   2???           00142             call        LOOP0.5S
+0073   0BA0           00143             decfsz      20h, f
+0074   2???           00144             goto        LOOP_TF2
+0075   0008           00145             return
+                      00146             
+                      00147  
+MPASM 5.86                           FIR.ASM   9-20-2020  14:07:11         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0076   3004           00148 BLINC_TF3   movlw       NUMBER_OF_FLASHES
+0077   00A0           00149             movwf       20h
+0078   1105           00150 LOOP_TF3    bcf         PORTA, 2
+0079   2???           00151             call        LOOP0.5S
+007A   1505           00152             bsf         PORTA, 2
+007B   2???           00153             call        LOOP0.5S
+007C   0BA0           00154             decfsz      20h, f
+007D   2???           00155             goto        LOOP_TF3
+007E   0008           00156             return
+                      00157             end     
+MPASM 5.86                           FIR.ASM   9-20-2020  14:07:11         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+BLINC_TF1                         00000064
+BLINC_TF2                         0000006D
+BLINC_TF3                         00000076
+C                                 00000000
+DC                                00000001
+DELAY_REG1                        00000025
+DELAY_REG2                        00000026
+DELAY_REG3                        00000027
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+LOOP0.5S                          00000046
+LOOP1S                            00000055
+LOOP3S                            00000037
+LOOP_TF1                          00000066
+LOOP_TF2                          0000006F
+LOOP_TF3                          00000078
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+NUMBER_OF_FLASHES                 00000004
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+MPASM 5.86                           FIR.ASM   9-20-2020  14:07:11         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+START                             00000006
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+Z                                 00000002
+_.org_0_003E                      0000003E
+_.org_0_0040                      00000040
+_.org_0_0042                      00000042
+_.org_0_004D                      0000004D
+_.org_0_004F                      0000004F
+_.org_0_0051                      00000051
+_.org_0_005C                      0000005C
+_.org_0_005E                      0000005E
+_.org_0_0060                      00000060
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+MPASM 5.86                           FIR.ASM   9-20-2020  14:07:11         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     2 reported,     0 suppressed
+
+

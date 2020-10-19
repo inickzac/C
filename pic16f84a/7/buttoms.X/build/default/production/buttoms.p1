@@ -1,0 +1,154 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[p mainexit ]
+"455 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 455: extern volatile unsigned char TRISA __attribute__((address(0x085)));
+[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
+"499
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 499: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"167
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 167: extern volatile unsigned char PORTA __attribute__((address(0x005)));
+[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"217
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 217:     struct {
+[s S13 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S13 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"216
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 216: typedef union {
+[u S12 `S13 1 ]
+[n S12 . . ]
+"228
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 228: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
+[v _PORTBbits `VS12 ~T0 @X0 0 e@6 ]
+"173
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 173:     struct {
+[s S11 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S11 . RA0 RA1 RA2 RA3 RA4 ]
+"172
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 172: typedef union {
+[u S10 `S11 1 ]
+[n S10 . . ]
+"181
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 181: extern volatile PORTAbits_t PORTAbits __attribute__((address(0x005)));
+[v _PORTAbits `VS10 ~T0 @X0 0 e@5 ]
+[v F217 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:\Program Files\Microchip\xc8\v2.30\pic\include\builtins.h
+[v __delay `JF217 ~T0 @X0 0 e ]
+[p i __delay ]
+"55 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 55: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"62
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 62: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"69
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 69: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"76
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 76: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"162
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 162: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"169
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 169: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"213
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 213: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"275
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 275: __asm("EEDATA equ 08h");
+[; <" EEDATA equ 08h ;# ">
+"282
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 282: __asm("EEADR equ 09h");
+[; <" EEADR equ 09h ;# ">
+"289
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 289: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"309
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 309: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"387
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 387: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"457
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 457: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"501
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 501: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"563
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 563: __asm("EECON1 equ 088h");
+[; <" EECON1 equ 088h ;# ">
+"607
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 607: __asm("EECON2 equ 089h");
+[; <" EECON2 equ 089h ;# ">
+[v $root$_main `(v ~T0 @X0 0 e ]
+"13 buttoms.c
+[; ;buttoms.c: 13: int main(int argc, char** argv) {
+[v _main `(i ~T0 @X0 1 ef2`i`**uc ]
+{
+[e :U _main ]
+[v _argc `i ~T0 @X0 1 r1 ]
+[v _argv `**uc ~T0 @X0 1 r2 ]
+[f ]
+"15
+[; ;buttoms.c: 15:     TRISA=0;
+[e = _TRISA -> -> 0 `i `uc ]
+"16
+[; ;buttoms.c: 16:     TRISB=0xff;
+[e = _TRISB -> -> 255 `i `uc ]
+"17
+[; ;buttoms.c: 17:     PORTA=0b00001;
+[e = _PORTA -> -> 1 `i `uc ]
+"18
+[; ;buttoms.c: 18:     while(1)
+[e :U 30 ]
+"19
+[; ;buttoms.c: 19:     {
+{
+"20
+[; ;buttoms.c: 20:         if(PORTBbits.RB0==0 || PORTBbits.RB1==0)
+[e $ ! || == -> . . _PORTBbits 0 0 `i -> 0 `i == -> . . _PORTBbits 0 1 `i -> 0 `i 32  ]
+"21
+[; ;buttoms.c: 21:         {
+{
+"22
+[; ;buttoms.c: 22:             PORTAbits.RA0=!PORTAbits.RA0;
+[e = . . _PORTAbits 0 0 -> -> ! != -> . . _PORTAbits 0 0 `i -> 0 `i `i `uc ]
+"24
+[; ;buttoms.c: 24:             while(PORTBbits.RB0==0 || PORTBbits.RB1==0)
+[e $U 33  ]
+[e :U 34 ]
+"25
+[; ;buttoms.c: 25:             {
+{
+"26
+[; ;buttoms.c: 26:               _delay((unsigned long)((1)*(8000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000 `i `d .4000.0 `ul ]
+"27
+[; ;buttoms.c: 27:             }
+}
+[e :U 33 ]
+"24
+[; ;buttoms.c: 24:             while(PORTBbits.RB0==0 || PORTBbits.RB1==0)
+[e $ || == -> . . _PORTBbits 0 0 `i -> 0 `i == -> . . _PORTBbits 0 1 `i -> 0 `i 34  ]
+[e :U 35 ]
+"29
+[; ;buttoms.c: 29:         }
+}
+[e :U 32 ]
+"31
+[; ;buttoms.c: 31:     }
+}
+[e :U 29 ]
+[e $U 30  ]
+[e :U 31 ]
+"33
+[; ;buttoms.c: 33:     return (0);
+[e ) -> 0 `i ]
+[e $UE 28  ]
+"34
+[; ;buttoms.c: 34: }
+[e :UE 28 ]
+}

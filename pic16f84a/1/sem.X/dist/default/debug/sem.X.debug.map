@@ -1,0 +1,68 @@
+MPLINK 5.09, LINKER
+Linker Map File - Created Sun Sep 20 14:07:12 2020
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x0000fe
+                   .cinit    romdata   0x00007f    program   0x000004
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000080      
+            129 out of 1094 program addresses used, program memory utilization is 11%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                BLINC_TF1   0x000064    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                BLINC_TF2   0x00006d    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                BLINC_TF3   0x000076    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                 LOOP0.5S   0x000046    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                   LOOP1S   0x000055    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                   LOOP3S   0x000037    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                 LOOP_TF1   0x000066    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                 LOOP_TF2   0x00006f    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                 LOOP_TF3   0x000078    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                    START   0x000006    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_003E   0x00003e    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_0040   0x000040    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_0042   0x000042    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_004D   0x00004d    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_004F   0x00004f    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_0051   0x000051    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_005C   0x00005c    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_005E   0x00005e    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_0060   0x000060    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    START   0x000006    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                   LOOP3S   0x000037    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_003E   0x00003e    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_0040   0x000040    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_0042   0x000042    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                 LOOP0.5S   0x000046    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_004D   0x00004d    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_004F   0x00004f    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_0051   0x000051    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                   LOOP1S   0x000055    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_005C   0x00005c    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_005E   0x00005e    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+             _.org_0_0060   0x000060    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                BLINC_TF1   0x000064    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                 LOOP_TF1   0x000066    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                BLINC_TF2   0x00006d    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                 LOOP_TF2   0x00006f    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                BLINC_TF3   0x000076    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+                 LOOP_TF3   0x000078    program     static C:\Users\Ира\Desktop\Новая папка (3)\sem.X\FIR.asm
+
+

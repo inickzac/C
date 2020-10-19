@@ -1,0 +1,241 @@
+MPASM 5.87                     STOPWATCH.ASM   9-18-2020  12:36:13         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00001            LIST p=16F84A
+                      00002            #INCLUDE <p16f84a.inc>
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Jan 06 2020
+                      00005 ;  MPASM PIC16F84A processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 1999-2020 Microchip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+                      00209         LIST
+                      00003            org 0
+0000   2???           00004            goto START
+                      00005            org 4
+0004   2???           00006            goto TIC
+  00000010            00007 SEG_1      equ 10h
+  00000011            00008 SEG_2      equ 11h
+  00000012            00009 SEG_3      equ 12h
+  00000013            00010 SEG_4      equ 13h  
+  00000020            00011 STATUS_C   equ 20h
+  00000021            00012 W_C        equ 21h
+0005   1683           00013 START      bsf STATUS,RP0
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0006   0185           00014            clrf TRISA
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0007   0186           00015            clrf TRISB
+0008   3001           00016            movlw b'00000001'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0009   0081           00017            movwf OPTION_REG
+000A   1283           00018            bcf STATUS,RP0          
+000B   0185           00019            clrf PORTA
+000C   0186           00020            clrf PORTB
+000D   168B           00021            bsf INTCON, T0IE
+000E   160B           00022            bsf INTCON, INTE
+000F   178B           00023            bsf INTCON, GIE
+0010   1605           00024            bsf PORTA, 4
+0011   0181           00025            clrf TMR0
+                      00026 
+0012   0810           00027 LOOP       movfw SEG_1
+0013   2???           00028            call NUM_MASS
+0014   0086           00029            movwf PORTB
+0015   1405           00030            bsf PORTA, 0
+                      00031 ;-------------------------------------------       
+0016   0811           00032            movfw SEG_2
+0017   2???           00033            call NUM_MASS
+0018   0086           00034            movwf PORTB
+0019   1485           00035            bsf PORTA, 1
+001A   1085           00036            bcf PORTA, 1
+                      00037 ;-------------------------------------------
+001B   0812           00038            movfw SEG_3
+001C   2???           00039            call NUM_MASS
+001D   0086           00040            movwf PORTB
+MPASM 5.87                     STOPWATCH.ASM   9-18-2020  12:36:13         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+001E   1505           00041            bsf PORTA, 2
+001F   1105           00042            bcf PORTA, 2
+                      00043 ;-------------------------------------------
+0020   0813           00044            movfw SEG_4
+0021   2???           00045            call NUM_MASS
+0022   0086           00046            movwf PORTB
+0023   1585           00047            bsf PORTA, 3
+0024   1185           00048            bcf PORTA, 3
+                      00049 ;-------------------------------------------
+0025   2???           00050            goto LOOP
+                      00051            
+                      00052            
+0026   0782           00053 NUM_MASS   addwf PCL,f     
+0027   3480           00054            retlw b'10000000'
+0028   34F2           00055            retlw b'11110010'
+0029   3448           00056            retlw b'01001000'
+002A   3460           00057            retlw b'01100000'
+002B   3432           00058            retlw b'00110010'
+002C   3424           00059            retlw b'00100100'
+002D   3404           00060            retlw b'00000100'
+002E   34F0           00061            retlw b'11110000'
+002F   3400           00062            retlw b'00000000'
+0030   3420           00063            retlw b'00100000'
+                      00064            
+0031   00A1           00065 TIC        movwf W_C
+0032   0E03           00066            swapf STATUS,w
+0033   00A0           00067            movwf STATUS_C
+                      00068 ;-------------------------------------
+                      00069 ;           incf  SEG_1
+                      00070 ;          movlw d'10'
+                      00071 ;          subwf SEG_1,w
+                      00072 ;          btfsc STATUS,Z
+                      00073 ;          clrf SEG_1
+                      00074 ;-------------------------------------
+0034   0E20           00075 INTE_EXIT  swapf STATUS_C,w
+0035   0083           00076            movwf STATUS
+0036   0EA1           00077            swapf W_C,f
+0037   0E21           00078            swapf W_C,w
+0038   0009           00079            retfie
+                      00080            
+                      00081            end
+MPASM 5.87                     STOPWATCH.ASM   9-18-2020  12:36:13         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+DC                                00000001
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTE_EXIT                         00000034
+INTF                              00000001
+IRP                               00000007
+LOOP                              00000012
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+NUM_MASS                          00000026
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+SEG_1                             00000010
+SEG_2                             00000011
+SEG_3                             00000012
+MPASM 5.87                     STOPWATCH.ASM   9-18-2020  12:36:13         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+SEG_4                             00000013
+START                             00000005
+STATUS                            00000003
+STATUS_C                          00000020
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TIC                               00000031
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+W_C                               00000021
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+MPASM 5.87                     STOPWATCH.ASM   9-18-2020  12:36:13         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+
+Errors   :     0
+Warnings :     0 reported,     0 suppressed
+Messages :     3 reported,     0 suppressed
+
+

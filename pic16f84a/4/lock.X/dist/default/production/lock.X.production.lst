@@ -1,0 +1,1107 @@
+
+
+Microchip MPLAB XC8 Assembler V2.30 build 20200825195618 
+                                                                                               Fri Oct 02 12:06:16 2020
+
+Microchip MPLAB XC8 C Compiler v2.30 (Free license) build 20200825195618 Og1 
+     1                           	processor	16F84A
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	eeprom_data,global,class=EEDATA,space=3,delta=2,noexec
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     7                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     8                           	psect	maintext,global,class=CODE,split=1,delta=2
+     9                           	psect	text1,local,class=CODE,merge=1,delta=2
+    10                           	psect	text2,local,class=CODE,merge=1,delta=2
+    11                           	psect	text3,local,class=CODE,merge=1,delta=2
+    12                           	psect	text4,local,class=CODE,merge=1,delta=2
+    13                           	dabs	1,0x4E,2
+    14  0000                     
+    15                           ; Version 2.30
+    16                           ; Generated 26/08/2020 GMT
+    17                           ; 
+    18                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    19                           ; All rights reserved.
+    20                           ; 
+    21                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    22                           ; 
+    23                           ; Redistribution and use in source and binary forms, with or without modification, are
+    24                           ; permitted provided that the following conditions are met:
+    25                           ; 
+    26                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    27                           ;        conditions and the following disclaimer.
+    28                           ; 
+    29                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    30                           ;        of conditions and the following disclaimer in the documentation and/or other
+    31                           ;        materials provided with the distribution. Publication is not required when
+    32                           ;        this file is used in an embedded application.
+    33                           ; 
+    34                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    35                           ;        software without specific prior written permission.
+    36                           ; 
+    37                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    38                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    39                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    40                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    41                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    42                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    43                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    44                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    45                           ; 
+    46                           ; 
+    47                           ; Code-generator required, PIC16F84A Definitions
+    48                           ; 
+    49                           ; SFR Addresses
+    50  0000                     	;# 
+    51  0001                     	;# 
+    52  0002                     	;# 
+    53  0003                     	;# 
+    54  0004                     	;# 
+    55  0005                     	;# 
+    56  0006                     	;# 
+    57  0008                     	;# 
+    58  0009                     	;# 
+    59  000A                     	;# 
+    60  000B                     	;# 
+    61  0081                     	;# 
+    62  0085                     	;# 
+    63  0086                     	;# 
+    64  0088                     	;# 
+    65  0089                     	;# 
+    66                           
+    67                           	psect	eeprom_data
+    68  0000  000A 0001 0002 0003 0004 000C 0001 0001 	db	10,1,2,3,4,12,1,1	;# 
+    69  0008  0001 0001 000A 0001 0001 0001 0001 000C 	db	1,1,10,1,1,1,1,12	;# 
+    70  0010  0002 0002 0002 0002 000A 0002 0002 0002 	db	2,2,2,2,10,2,2,2	;# 
+    71  0018  0002 000C 0003 0003 0003 0003 000A 0003 	db	2,12,3,3,3,3,10,3	;# 
+    72  0020  0003 0003 0003 000C 0004 0004 0004 0004 	db	3,3,3,12,4,4,4,4	;# 
+    73  0000                     	;# 
+    74  0001                     	;# 
+    75  0002                     	;# 
+    76  0003                     	;# 
+    77  0004                     	;# 
+    78  0005                     	;# 
+    79  0006                     	;# 
+    80  0008                     	;# 
+    81  0009                     	;# 
+    82  000A                     	;# 
+    83  000B                     	;# 
+    84  0081                     	;# 
+    85  0085                     	;# 
+    86  0086                     	;# 
+    87  0088                     	;# 
+    88  0089                     	;# 
+    89  0000                     	;# 
+    90  0001                     	;# 
+    91  0002                     	;# 
+    92  0003                     	;# 
+    93  0004                     	;# 
+    94  0005                     	;# 
+    95  0006                     	;# 
+    96  0008                     	;# 
+    97  0009                     	;# 
+    98  000A                     	;# 
+    99  000B                     	;# 
+   100  0081                     	;# 
+   101  0085                     	;# 
+   102  0086                     	;# 
+   103  0088                     	;# 
+   104  0089                     	;# 
+   105  0008                     _EEDATA	set	8
+   106  0009                     _EEADR	set	9
+   107  0006                     _PORTBbits	set	6
+   108  000B                     _INTCONbits	set	11
+   109  0006                     _PORTB	set	6
+   110  0005                     _PORTA	set	5
+   111  0088                     _EECON1	set	136
+   112  0088                     _EECON1bits	set	136
+   113  0081                     _OPTION_REGbits	set	129
+   114  0086                     _TRISB	set	134
+   115  0085                     _TRISA	set	133
+   116                           
+   117                           	psect	cinit
+   118  03FE                     start_initialization:	
+   119                           ; #config settings
+   120                           
+   121  03FE                     __initialization:
+   122  03FE                     end_of_initialization:	
+   123                           ;End of C runtime variable initialization code
+   124                           
+   125  03FE                     __end_of__initialization:
+   126  03FE  0183               	clrf	3
+   127  03FF  2B07               	ljmp	_main	;jump to C main() function
+   128                           
+   129                           	psect	cstackCOMMON
+   130  0000                     __pcstackCOMMON:
+   131  0000                     ??_check_imput_string:
+   132                           
+   133                           	psect	cstackBANK0
+   134  000C                     __pcstackBANK0:	
+   135                           ; 1 bytes @ 0x0
+   136                           
+   137  000C                     ?_get_key:
+   138  000C                     ??_get_key:	
+   139                           ; 1 bytes @ 0x0
+   140                           
+   141  000C                     ?_check_imput_string:	
+   142                           ; 1 bytes @ 0x0
+   143                           
+   144  000C                     ?_check_user:	
+   145                           ; 1 bytes @ 0x0
+   146                           
+   147  000C                     ?_eeprom_read:	
+   148                           ; 1 bytes @ 0x0
+   149                           
+   150  000C                     ??_eeprom_read:	
+   151                           ; 1 bytes @ 0x0
+   152                           
+   153  000C                     ?_main:	
+   154                           ; 1 bytes @ 0x0
+   155                           
+   156                           
+   157                           ; 2 bytes @ 0x0
+   158  000C                     	ds	1
+   159  000D                     eeprom_read@addr:
+   160                           
+   161                           ; 1 bytes @ 0x1
+   162  000D                     	ds	1
+   163  000E                     ??_check_user:
+   164  000E                     get_key@template:	
+   165                           ; 1 bytes @ 0x2
+   166                           
+   167                           
+   168                           ; 1 bytes @ 0x2
+   169  000E                     	ds	1
+   170  000F                     get_key@key:
+   171                           
+   172                           ; 1 bytes @ 0x3
+   173  000F                     	ds	2
+   174  0011                     check_user@address:
+   175                           
+   176                           ; 1 bytes @ 0x5
+   177  0011                     	ds	1
+   178  0012                     check_user@keys:
+   179                           
+   180                           ; 1 bytes @ 0x6
+   181  0012                     	ds	1
+   182  0013                     check_user@is_exist:
+   183                           
+   184                           ; 1 bytes @ 0x7
+   185  0013                     	ds	1
+   186  0014                     check_user@i:
+   187                           
+   188                           ; 2 bytes @ 0x8
+   189  0014                     	ds	2
+   190  0016                     check_user@j:
+   191                           
+   192                           ; 2 bytes @ 0xA
+   193  0016                     	ds	2
+   194  0018                     check_user@value:
+   195                           
+   196                           ; 1 bytes @ 0xC
+   197  0018                     	ds	1
+   198  0019                     check_imput_string@keys:
+   199                           
+   200                           ; 1 bytes @ 0xD
+   201  0019                     	ds	1
+   202  001A                     ??_main:
+   203                           
+   204                           ; 1 bytes @ 0xE
+   205  001A                     	ds	1
+   206  001B                     main@keys:
+   207                           
+   208                           ; 10 bytes @ 0xF
+   209  001B                     	ds	10
+   210  0025                     main@key:
+   211                           
+   212                           ; 1 bytes @ 0x19
+   213  0025                     	ds	1
+   214  0026                     main@quantityChar:
+   215                           
+   216                           ; 1 bytes @ 0x1A
+   217  0026                     	ds	1
+   218                           
+   219                           	psect	maintext
+   220  0307                     __pmaintext:	
+   221 ;;
+   222 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   223 ;;
+   224 ;; *************** function _main *****************
+   225 ;; Defined at:
+   226 ;;		line 16 in file "lock.c"
+   227 ;; Parameters:    Size  Location     Type
+   228 ;;		None
+   229 ;; Auto vars:     Size  Location     Type
+   230 ;;  keys           10   15[BANK0 ] unsigned char [10]
+   231 ;;  quantityChar    1   26[BANK0 ] unsigned char 
+   232 ;;  key             1   25[BANK0 ] unsigned char 
+   233 ;;  data            1    0        unsigned char 
+   234 ;; Return value:  Size  Location     Type
+   235 ;;                  2   28[None  ] int 
+   236 ;; Registers used:
+   237 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   238 ;; Tracked objects:
+   239 ;;		On entry : B00/0
+   240 ;;		On exit  : 0/0
+   241 ;;		Unchanged: 0/0
+   242 ;; Data sizes:     COMMON   BANK0
+   243 ;;      Params:         0       0
+   244 ;;      Locals:         0      12
+   245 ;;      Temps:          0       1
+   246 ;;      Totals:         0      13
+   247 ;;Total ram usage:       13 bytes
+   248 ;; Hardware stack levels required when called:    3
+   249 ;; This function calls:
+   250 ;;		_check_imput_string
+   251 ;;		_get_key
+   252 ;; This function is called by:
+   253 ;;		Startup code after reset
+   254 ;; This function uses a non-reentrant model
+   255 ;;
+   256                           
+   257                           
+   258                           ;psect for function _main
+   259  0307                     _main:
+   260  0307                     l865:	
+   261                           ;incstack = 0
+   262                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   263                           
+   264                           
+   265                           ;lock.c: 17: unsigned char data;;lock.c: 18: char keys[10];;lock.c: 19: unsigned char ke
+      +                          y;;lock.c: 20: unsigned char quantityChar;;lock.c: 22:     TRISA = 0X0;
+   266  0307  1683               	bsf	3,5	;RP0=1, select bank1
+   267  0308  0185               	clrf	5	;volatile
+   268  0309                     l867:
+   269                           
+   270                           ;lock.c: 23:     TRISB = 0b111;
+   271  0309  3007               	movlw	7
+   272  030A  0086               	movwf	6	;volatile
+   273  030B                     l869:
+   274                           
+   275                           ;lock.c: 24:     PORTA = 0b11111100;
+   276  030B  30FC               	movlw	252
+   277  030C  1283               	bcf	3,5	;RP0=0, select bank0
+   278  030D  0085               	movwf	5	;volatile
+   279                           
+   280                           ;lock.c: 25:     PORTB = 0X0;
+   281  030E  0186               	clrf	6	;volatile
+   282  030F                     l871:
+   283                           
+   284                           ;lock.c: 26:     INTCONbits.GIE=0;
+   285  030F  138B               	bcf	11,7	;volatile
+   286  0310                     l873:
+   287                           
+   288                           ;lock.c: 27:     INTCONbits.RBIE=1;
+   289  0310  158B               	bsf	11,3	;volatile
+   290  0311                     l875:
+   291                           
+   292                           ;lock.c: 28:     OPTION_REGbits.nRBPU=0;
+   293  0311  1683               	bsf	3,5	;RP0=1, select bank1
+   294  0312  1381               	bcf	1,7	;volatile
+   295  0313                     l877:
+   296                           
+   297                           ;lock.c: 31:     {;lock.c: 32:         key= get_key();
+   298  0313  233D               	fcall	_get_key
+   299  0314  1283               	bcf	3,5	;RP0=0, select bank0
+   300  0315  009A               	movwf	??_main
+   301  0316  081A               	movf	??_main,w
+   302  0317  00A5               	movwf	main@key
+   303  0318                     l879:
+   304                           
+   305                           ;lock.c: 33:         if(key!=0xff)
+   306  0318  0A25               	incf	main@key,w
+   307  0319  1903               	btfsc	3,2
+   308  031A  2B1C               	goto	u341
+   309  031B  2B1D               	goto	u340
+   310  031C                     u341:
+   311  031C  2B39               	goto	l893
+   312  031D                     u340:
+   313  031D                     l881:
+   314                           
+   315                           ;lock.c: 34:           {;lock.c: 35:             if(quantityChar<10)
+   316  031D  300A               	movlw	10
+   317  031E  0226               	subwf	main@quantityChar,w
+   318  031F  1803               	skipnc
+   319  0320  2B22               	goto	u351
+   320  0321  2B23               	goto	u350
+   321  0322                     u351:
+   322  0322  2B2F               	goto	l887
+   323  0323                     u350:
+   324  0323                     l883:
+   325                           
+   326                           ;lock.c: 36:             {;lock.c: 37:                keys[quantityChar] = key;
+   327  0323  0825               	movf	main@key,w
+   328  0324  009A               	movwf	??_main
+   329  0325  0826               	movf	main@quantityChar,w
+   330  0326  3E1B               	addlw	(low (main@keys| 0))& (0+255)
+   331  0327  0084               	movwf	4
+   332  0328  081A               	movf	??_main,w
+   333  0329  1383               	bcf	3,7	;select IRP bank0
+   334  032A  0080               	movwf	0
+   335  032B                     l885:
+   336                           
+   337                           ;lock.c: 38:                quantityChar++;
+   338  032B  3001               	movlw	1
+   339  032C  009A               	movwf	??_main
+   340  032D  081A               	movf	??_main,w
+   341  032E  07A6               	addwf	main@quantityChar,f
+   342  032F                     l887:
+   343                           
+   344                           ;lock.c: 40:             if(quantityChar==10)
+   345  032F  300A               	movlw	10
+   346  0330  0626               	xorwf	main@quantityChar,w
+   347  0331  1D03               	btfss	3,2
+   348  0332  2B34               	goto	u361
+   349  0333  2B35               	goto	u360
+   350  0334                     u361:
+   351  0334  2B39               	goto	l893
+   352  0335                     u360:
+   353  0335                     l889:
+   354                           
+   355                           ;lock.c: 41:             {;lock.c: 42:                check_imput_string(keys);
+   356  0335  301B               	movlw	(low (main@keys| 0))& (0+255)
+   357  0336  22F0               	fcall	_check_imput_string
+   358  0337                     l891:
+   359                           
+   360                           ;lock.c: 43:                quantityChar=0;
+   361  0337  1283               	bcf	3,5	;RP0=0, select bank0
+   362  0338  01A6               	clrf	main@quantityChar
+   363  0339                     l893:
+   364                           
+   365                           ;lock.c: 46:       PORTA = 0b00001001;
+   366  0339  3009               	movlw	9
+   367  033A  0085               	movwf	5	;volatile
+   368  033B  2B13               	goto	l877
+   369  033C  2800               	ljmp	start
+   370  033D                     __end_of_main:
+   371                           
+   372                           	psect	text1
+   373  033D                     __ptext1:	
+   374 ;; *************** function _get_key *****************
+   375 ;; Defined at:
+   376 ;;		line 53 in file "lock.c"
+   377 ;; Parameters:    Size  Location     Type
+   378 ;;		None
+   379 ;; Auto vars:     Size  Location     Type
+   380 ;;  key             1    3[BANK0 ] unsigned char 
+   381 ;;  template        1    2[BANK0 ] unsigned char 
+   382 ;; Return value:  Size  Location     Type
+   383 ;;                  1    wreg      unsigned char 
+   384 ;; Registers used:
+   385 ;;		wreg, status,2, status,0
+   386 ;; Tracked objects:
+   387 ;;		On entry : 0/0
+   388 ;;		On exit  : 0/0
+   389 ;;		Unchanged: 0/0
+   390 ;; Data sizes:     COMMON   BANK0
+   391 ;;      Params:         0       0
+   392 ;;      Locals:         0       2
+   393 ;;      Temps:          0       2
+   394 ;;      Totals:         0       4
+   395 ;;Total ram usage:        4 bytes
+   396 ;; Hardware stack levels used:    1
+   397 ;; This function calls:
+   398 ;;		Nothing
+   399 ;; This function is called by:
+   400 ;;		_main
+   401 ;; This function uses a non-reentrant model
+   402 ;;
+   403                           
+   404                           
+   405                           ;psect for function _get_key
+   406  033D                     _get_key:
+   407  033D                     l825:	
+   408                           ;incstack = 0
+   409                           ; Regs used in _get_key: [wreg+status,2+status,0]
+   410                           
+   411                           
+   412                           ;lock.c: 55:     char key, template;;lock.c: 56:     key =1; template=0b11101111;
+   413  033D  1283               	bcf	3,5	;RP0=0, select bank0
+   414  033E  018F               	clrf	get_key@key
+   415  033F  0A8F               	incf	get_key@key,f
+   416  0340                     l827:
+   417  0340  30EF               	movlw	239
+   418  0341  008C               	movwf	??_get_key
+   419  0342  080C               	movf	??_get_key,w
+   420  0343  008E               	movwf	get_key@template
+   421                           
+   422                           ;lock.c: 57:     while(key<13)
+   423  0344  2B7D               	goto	l849
+   424  0345                     l829:
+   425                           
+   426                           ;lock.c: 58:     {;lock.c: 59:         PORTB = template;
+   427  0345  080E               	movf	get_key@template,w
+   428  0346  0086               	movwf	6	;volatile
+   429  0347                     l831:
+   430                           
+   431                           ;lock.c: 60:         if(!PORTBbits.RB2)
+   432  0347  1906               	btfsc	6,2	;volatile
+   433  0348  2B4A               	goto	u241
+   434  0349  2B4B               	goto	u240
+   435  034A                     u241:
+   436  034A  2B53               	goto	l835
+   437  034B                     u240:
+   438  034B  2B4D               	goto	l41
+   439  034C                     l42:
+   440                           
+   441                           ;lock.c: 63:             {;lock.c: 64:               _delay((unsigned long)((1)*(8000/40
+      +                          00.0)));
+   442  034C  2B4D               	nop2	;2 cycle nop
+   443  034D                     l41:	
+   444                           ;lock.c: 65:             }
+   445                           
+   446                           
+   447                           ;lock.c: 62:             while(!PORTBbits.RB2)
+   448  034D  1283               	bcf	3,5	;RP0=0, select bank0
+   449  034E  1D06               	btfss	6,2	;volatile
+   450  034F  2B51               	goto	u251
+   451  0350  2B52               	goto	u250
+   452  0351                     u251:
+   453  0351  2B4C               	goto	l42
+   454  0352                     u250:
+   455  0352  2B83               	goto	l851
+   456  0353                     l835:
+   457                           
+   458                           ;lock.c: 68:         key++;
+   459  0353  3001               	movlw	1
+   460  0354  008C               	movwf	??_get_key
+   461  0355  080C               	movf	??_get_key,w
+   462  0356  078F               	addwf	get_key@key,f
+   463  0357                     l837:
+   464                           
+   465                           ;lock.c: 69:         if(!PORTBbits.RB1)
+   466  0357  1886               	btfsc	6,1	;volatile
+   467  0358  2B5A               	goto	u261
+   468  0359  2B5B               	goto	u260
+   469  035A                     u261:
+   470  035A  2B63               	goto	l841
+   471  035B                     u260:
+   472  035B  2B5D               	goto	l46
+   473  035C                     l47:
+   474                           
+   475                           ;lock.c: 73:             {;lock.c: 74:               _delay((unsigned long)((1)*(8000/40
+      +                          00.0)));
+   476  035C  2B5D               	nop2	;2 cycle nop
+   477  035D                     l46:	
+   478                           ;lock.c: 75:             }
+   479                           
+   480                           
+   481                           ;lock.c: 72:             while(!PORTBbits.RB1)
+   482  035D  1283               	bcf	3,5	;RP0=0, select bank0
+   483  035E  1C86               	btfss	6,1	;volatile
+   484  035F  2B61               	goto	u271
+   485  0360  2B62               	goto	u270
+   486  0361                     u271:
+   487  0361  2B5C               	goto	l47
+   488  0362                     u270:
+   489  0362  2B83               	goto	l851
+   490  0363                     l841:
+   491                           
+   492                           ;lock.c: 79:         key++;
+   493  0363  3001               	movlw	1
+   494  0364  008C               	movwf	??_get_key
+   495  0365  080C               	movf	??_get_key,w
+   496  0366  078F               	addwf	get_key@key,f
+   497  0367                     l843:
+   498                           
+   499                           ;lock.c: 80:         if(!PORTBbits.RB0)
+   500  0367  1806               	btfsc	6,0	;volatile
+   501  0368  2B6A               	goto	u281
+   502  0369  2B6B               	goto	u280
+   503  036A                     u281:
+   504  036A  2B73               	goto	l847
+   505  036B                     u280:
+   506  036B  2B6D               	goto	l50
+   507  036C                     l51:
+   508                           
+   509                           ;lock.c: 83:             {;lock.c: 84:               _delay((unsigned long)((1)*(8000/40
+      +                          00.0)));
+   510  036C  2B6D               	nop2	;2 cycle nop
+   511  036D                     l50:	
+   512                           ;lock.c: 85:             }
+   513                           
+   514                           
+   515                           ;lock.c: 82:           while(!PORTBbits.RB0)
+   516  036D  1283               	bcf	3,5	;RP0=0, select bank0
+   517  036E  1C06               	btfss	6,0	;volatile
+   518  036F  2B71               	goto	u291
+   519  0370  2B72               	goto	u290
+   520  0371                     u291:
+   521  0371  2B6C               	goto	l51
+   522  0372                     u290:
+   523  0372  2B83               	goto	l851
+   524  0373                     l847:
+   525                           
+   526                           ;lock.c: 88:         key++;
+   527  0373  3001               	movlw	1
+   528  0374  008C               	movwf	??_get_key
+   529  0375  080C               	movf	??_get_key,w
+   530  0376  078F               	addwf	get_key@key,f
+   531                           
+   532                           ;lock.c: 89:         template=template <<1;
+   533  0377  080E               	movf	get_key@template,w
+   534  0378  008C               	movwf	??_get_key
+   535  0379  070C               	addwf	??_get_key,w
+   536  037A  008D               	movwf	??_get_key+1
+   537  037B  080D               	movf	??_get_key+1,w
+   538  037C  008E               	movwf	get_key@template
+   539  037D                     l849:
+   540                           
+   541                           ;lock.c: 57:     while(key<13)
+   542  037D  300D               	movlw	13
+   543  037E  020F               	subwf	get_key@key,w
+   544  037F  1C03               	skipc
+   545  0380  2B82               	goto	u301
+   546  0381  2B83               	goto	u300
+   547  0382                     u301:
+   548  0382  2B45               	goto	l829
+   549  0383                     u300:
+   550  0383                     l851:
+   551                           
+   552                           ;lock.c: 92:     if(key==13) {key=0xff;}
+   553  0383  300D               	movlw	13
+   554  0384  060F               	xorwf	get_key@key,w
+   555  0385  1D03               	btfss	3,2
+   556  0386  2B88               	goto	u311
+   557  0387  2B89               	goto	u310
+   558  0388                     u311:
+   559  0388  2B8D               	goto	l53
+   560  0389                     u310:
+   561  0389                     l853:
+   562  0389  30FF               	movlw	255
+   563  038A  008C               	movwf	??_get_key
+   564  038B  080C               	movf	??_get_key,w
+   565  038C  008F               	movwf	get_key@key
+   566  038D                     l53:
+   567                           
+   568                           ;lock.c: 93:     return key;
+   569  038D  080F               	movf	get_key@key,w
+   570  038E                     l54:
+   571  038E  0008               	return
+   572  038F                     __end_of_get_key:
+   573                           
+   574                           	psect	text2
+   575  02F0                     __ptext2:	
+   576 ;; *************** function _check_imput_string *****************
+   577 ;; Defined at:
+   578 ;;		line 96 in file "lock.c"
+   579 ;; Parameters:    Size  Location     Type
+   580 ;;  keys            1    wreg     PTR unsigned char 
+   581 ;;		 -> main@keys(10), 
+   582 ;; Auto vars:     Size  Location     Type
+   583 ;;  keys            1   13[BANK0 ] PTR unsigned char 
+   584 ;;		 -> main@keys(10), 
+   585 ;; Return value:  Size  Location     Type
+   586 ;;                  1    wreg      unsigned char 
+   587 ;; Registers used:
+   588 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   589 ;; Tracked objects:
+   590 ;;		On entry : 0/0
+   591 ;;		On exit  : 0/0
+   592 ;;		Unchanged: 0/0
+   593 ;; Data sizes:     COMMON   BANK0
+   594 ;;      Params:         0       0
+   595 ;;      Locals:         0       1
+   596 ;;      Temps:          0       0
+   597 ;;      Totals:         0       1
+   598 ;;Total ram usage:        1 bytes
+   599 ;; Hardware stack levels used:    1
+   600 ;; Hardware stack levels required when called:    2
+   601 ;; This function calls:
+   602 ;;		_check_user
+   603 ;; This function is called by:
+   604 ;;		_main
+   605 ;; This function uses a non-reentrant model
+   606 ;;
+   607                           
+   608                           
+   609                           ;psect for function _check_imput_string
+   610  02F0                     _check_imput_string:
+   611                           
+   612                           ;incstack = 0
+   613                           ; Regs used in _check_imput_string: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   614                           ;check_imput_string@keys stored from wreg
+   615  02F0  1283               	bcf	3,5	;RP0=0, select bank0
+   616  02F1  0099               	movwf	check_imput_string@keys
+   617  02F2                     l857:
+   618                           
+   619                           ;lock.c: 96: unsigned char check_imput_string(char keys[10]);lock.c: 97: {;lock.c: 98:  
+      +                             if(keys[0]==10 && keys[5]==12)
+   620  02F2  0819               	movf	check_imput_string@keys,w
+   621  02F3  0084               	movwf	4
+   622  02F4  300A               	movlw	10
+   623  02F5  1383               	bcf	3,7	;select IRP bank0
+   624  02F6  0600               	xorwf	0,w
+   625  02F7  1D03               	btfss	3,2
+   626  02F8  2AFA               	goto	u321
+   627  02F9  2AFB               	goto	u320
+   628  02FA                     u321:
+   629  02FA  2B06               	goto	l58
+   630  02FB                     u320:
+   631  02FB                     l859:
+   632  02FB  0819               	movf	check_imput_string@keys,w
+   633  02FC  3E05               	addlw	5
+   634  02FD  0084               	movwf	4
+   635  02FE  300C               	movlw	12
+   636  02FF  0600               	xorwf	0,w
+   637  0300  1D03               	btfss	3,2
+   638  0301  2B03               	goto	u331
+   639  0302  2B04               	goto	u330
+   640  0303                     u331:
+   641  0303  2B06               	goto	l58
+   642  0304                     u330:
+   643  0304                     l861:
+   644                           
+   645                           ;lock.c: 99:     {;lock.c: 100:         check_user(keys);
+   646  0304  0819               	movf	check_imput_string@keys,w
+   647  0305  238F               	fcall	_check_user
+   648  0306                     l58:
+   649  0306  0008               	return
+   650  0307                     __end_of_check_imput_string:
+   651                           
+   652                           	psect	text3
+   653  038F                     __ptext3:	
+   654 ;; *************** function _check_user *****************
+   655 ;; Defined at:
+   656 ;;		line 107 in file "lock.c"
+   657 ;; Parameters:    Size  Location     Type
+   658 ;;  keys            1    wreg     PTR unsigned char 
+   659 ;;		 -> main@keys(10), 
+   660 ;; Auto vars:     Size  Location     Type
+   661 ;;  keys            1    6[BANK0 ] PTR unsigned char 
+   662 ;;		 -> main@keys(10), 
+   663 ;;  i               2    8[BANK0 ] int 
+   664 ;;  j               2   10[BANK0 ] int 
+   665 ;;  is_exist        1    7[BANK0 ] unsigned char 
+   666 ;;  value           1   12[BANK0 ] volatile unsigned char 
+   667 ;;  address         1    5[BANK0 ] unsigned char 
+   668 ;; Return value:  Size  Location     Type
+   669 ;;                  1    wreg      void 
+   670 ;; Registers used:
+   671 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   672 ;; Tracked objects:
+   673 ;;		On entry : 0/0
+   674 ;;		On exit  : 0/0
+   675 ;;		Unchanged: 0/0
+   676 ;; Data sizes:     COMMON   BANK0
+   677 ;;      Params:         0       0
+   678 ;;      Locals:         0       8
+   679 ;;      Temps:          0       3
+   680 ;;      Totals:         0      11
+   681 ;;Total ram usage:       11 bytes
+   682 ;; Hardware stack levels used:    1
+   683 ;; Hardware stack levels required when called:    1
+   684 ;; This function calls:
+   685 ;;		_eeprom_read
+   686 ;; This function is called by:
+   687 ;;		_check_imput_string
+   688 ;; This function uses a non-reentrant model
+   689 ;;
+   690                           
+   691                           
+   692                           ;psect for function _check_user
+   693  038F                     _check_user:
+   694                           
+   695                           ;incstack = 0
+   696                           ; Regs used in _check_user: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   697                           ;check_user@keys stored from wreg
+   698  038F  1283               	bcf	3,5	;RP0=0, select bank0
+   699  0390  0092               	movwf	check_user@keys
+   700  0391                     l791:
+   701                           
+   702                           ;lock.c: 107: void check_user(char keys[10]);lock.c: 108: {;lock.c: 109:     char is_exi
+      +                          st=0;
+   703  0391  0193               	clrf	check_user@is_exist
+   704                           
+   705                           ;lock.c: 110:     volatile unsigned char value = 0x00;
+   706  0392  0198               	clrf	check_user@value	;volatile
+   707                           
+   708                           ;lock.c: 111:     unsigned char address = 0x00;
+   709  0393  0191               	clrf	check_user@address
+   710                           
+   711                           ;lock.c: 112:     for(int j=0; j<40; j=j+10)
+   712  0394  0196               	clrf	check_user@j
+   713  0395  0197               	clrf	check_user@j+1
+   714  0396                     l797:
+   715                           
+   716                           ;lock.c: 113:     {;lock.c: 114:      for(int i =0+j; i<10+j; i++)
+   717  0396  1283               	bcf	3,5	;RP0=0, select bank0
+   718  0397  0817               	movf	check_user@j+1,w
+   719  0398  0095               	movwf	check_user@i+1
+   720  0399  0816               	movf	check_user@j,w
+   721  039A  0094               	movwf	check_user@i
+   722  039B  2BC1               	goto	l813
+   723  039C                     l799:
+   724                           
+   725                           ;lock.c: 115:     {;lock.c: 116:          value=eeprom_read(i);
+   726  039C  1283               	bcf	3,5	;RP0=0, select bank0
+   727  039D  0814               	movf	check_user@i,w
+   728  039E  22DC               	fcall	_eeprom_read
+   729  039F  1283               	bcf	3,5	;RP0=0, select bank0
+   730  03A0  008E               	movwf	??_check_user
+   731  03A1  080E               	movf	??_check_user,w
+   732  03A2  0098               	movwf	check_user@value	;volatile
+   733  03A3                     l801:
+   734                           
+   735                           ;lock.c: 117:         if(keys[i-j]!=value)
+   736  03A3  0812               	movf	check_user@keys,w
+   737  03A4  008E               	movwf	??_check_user
+   738  03A5  0816               	movf	check_user@j,w
+   739  03A6  028E               	subwf	??_check_user,f
+   740  03A7  0814               	movf	check_user@i,w
+   741  03A8  070E               	addwf	??_check_user,w
+   742  03A9  008F               	movwf	??_check_user+1
+   743  03AA  080F               	movf	??_check_user+1,w
+   744  03AB  0084               	movwf	4
+   745  03AC  1383               	bcf	3,7	;select IRP bank0
+   746  03AD  0800               	movf	0,w
+   747  03AE  0618               	xorwf	check_user@value,w	;volatile
+   748  03AF  1903               	skipnz
+   749  03B0  2BB2               	goto	u201
+   750  03B1  2BB3               	goto	u200
+   751  03B2                     u201:
+   752  03B2  2BB5               	goto	l807
+   753  03B3                     u200:
+   754  03B3                     l803:
+   755                           
+   756                           ;lock.c: 118:         {;lock.c: 119:             is_exist=0;
+   757  03B3  0193               	clrf	check_user@is_exist
+   758                           
+   759                           ;lock.c: 120:             break;
+   760  03B4  2BD7               	goto	l815
+   761  03B5                     l807:
+   762                           
+   763                           ;lock.c: 123:         {;lock.c: 124:             address++;
+   764  03B5  3001               	movlw	1
+   765  03B6  008E               	movwf	??_check_user
+   766  03B7  080E               	movf	??_check_user,w
+   767  03B8  0791               	addwf	check_user@address,f
+   768  03B9                     l809:
+   769                           
+   770                           ;lock.c: 126:         is_exist=1;
+   771  03B9  0193               	clrf	check_user@is_exist
+   772  03BA  0A93               	incf	check_user@is_exist,f
+   773  03BB                     l811:
+   774                           
+   775                           ;lock.c: 127:     }
+   776  03BB  3001               	movlw	1
+   777  03BC  0794               	addwf	check_user@i,f
+   778  03BD  1803               	skipnc
+   779  03BE  0A95               	incf	check_user@i+1,f
+   780  03BF  3000               	movlw	0
+   781  03C0  0795               	addwf	check_user@i+1,f
+   782  03C1                     l813:
+   783  03C1  0816               	movf	check_user@j,w
+   784  03C2  3E0A               	addlw	10
+   785  03C3  008E               	movwf	??_check_user
+   786  03C4  0817               	movf	check_user@j+1,w
+   787  03C5  1803               	skipnc
+   788  03C6  3E01               	addlw	1
+   789  03C7  3E00               	addlw	0
+   790  03C8  008F               	movwf	??_check_user+1
+   791  03C9  0815               	movf	check_user@i+1,w
+   792  03CA  3A80               	xorlw	128
+   793  03CB  0090               	movwf	??_check_user+2
+   794  03CC  080F               	movf	??_check_user+1,w
+   795  03CD  3A80               	xorlw	128
+   796  03CE  0210               	subwf	??_check_user+2,w
+   797  03CF  1D03               	skipz
+   798  03D0  2BD3               	goto	u215
+   799  03D1  080E               	movf	??_check_user,w
+   800  03D2  0214               	subwf	check_user@i,w
+   801  03D3                     u215:
+   802  03D3  1C03               	skipc
+   803  03D4  2BD6               	goto	u211
+   804  03D5  2BD7               	goto	u210
+   805  03D6                     u211:
+   806  03D6  2B9C               	goto	l799
+   807  03D7                     u210:
+   808  03D7                     l815:
+   809                           
+   810                           ;lock.c: 129:       if(is_exist==1)
+   811  03D7  1283               	bcf	3,5	;RP0=0, select bank0
+   812  03D8  0313               	decf	check_user@is_exist,w
+   813  03D9  1D03               	btfss	3,2
+   814  03DA  2BDC               	goto	u221
+   815  03DB  2BDD               	goto	u220
+   816  03DC                     u221:
+   817  03DC  2BE8               	goto	l821
+   818  03DD                     u220:
+   819  03DD                     l817:
+   820                           
+   821                           ;lock.c: 130:     {;lock.c: 131:           PORTA = 0b00000000;
+   822  03DD  0185               	clrf	5	;volatile
+   823  03DE                     l819:
+   824                           
+   825                           ;lock.c: 132:           _delay((unsigned long)((3000)*(8000/4000.0)));
+   826  03DE  3008               	movlw	8
+   827  03DF  008F               	movwf	??_check_user+1
+   828  03E0  30C9               	movlw	201
+   829  03E1  008E               	movwf	??_check_user
+   830  03E2                     u377:
+   831  03E2  0B8E               	decfsz	??_check_user,f
+   832  03E3  2BE2               	goto	u377
+   833  03E4  0B8F               	decfsz	??_check_user+1,f
+   834  03E5  2BE2               	goto	u377
+   835  03E6  2BE7               	nop2
+   836                           
+   837                           ;lock.c: 133:           break;
+   838  03E7  2BFD               	goto	l69
+   839  03E8                     l821:
+   840                           
+   841                           ;lock.c: 137:     }
+   842  03E8  0816               	movf	check_user@j,w
+   843  03E9  3E0A               	addlw	10
+   844  03EA  0096               	movwf	check_user@j
+   845  03EB  0817               	movf	check_user@j+1,w
+   846  03EC  1803               	skipnc
+   847  03ED  3E01               	addlw	1
+   848  03EE  3E00               	addlw	0
+   849  03EF  0097               	movwf	check_user@j+1
+   850  03F0                     l823:
+   851  03F0  0817               	movf	check_user@j+1,w
+   852  03F1  3A80               	xorlw	128
+   853  03F2  00CF               	movwf	btemp+1
+   854  03F3  3080               	movlw	128
+   855  03F4  024F               	subwf	btemp+1,w
+   856  03F5  1D03               	skipz
+   857  03F6  2BF9               	goto	u235
+   858  03F7  3028               	movlw	40
+   859  03F8  0216               	subwf	check_user@j,w
+   860  03F9                     u235:
+   861  03F9  1C03               	skipc
+   862  03FA  2BFC               	goto	u231
+   863  03FB  2BFD               	goto	u230
+   864  03FC                     u231:
+   865  03FC  2B96               	goto	l797
+   866  03FD                     u230:
+   867  03FD                     l69:
+   868  03FD  0008               	return
+   869  03FE                     __end_of_check_user:
+   870                           
+   871                           	psect	text4
+   872  02DC                     __ptext4:	
+   873 ;; *************** function _eeprom_read *****************
+   874 ;; Defined at:
+   875 ;;		line 6 in file "C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c"
+   876 ;; Parameters:    Size  Location     Type
+   877 ;;  addr            1    wreg     unsigned char 
+   878 ;; Auto vars:     Size  Location     Type
+   879 ;;  addr            1    1[BANK0 ] unsigned char 
+   880 ;; Return value:  Size  Location     Type
+   881 ;;                  1    wreg      unsigned char 
+   882 ;; Registers used:
+   883 ;;		wreg, status,2, status,0
+   884 ;; Tracked objects:
+   885 ;;		On entry : 0/0
+   886 ;;		On exit  : 0/0
+   887 ;;		Unchanged: 0/0
+   888 ;; Data sizes:     COMMON   BANK0
+   889 ;;      Params:         0       0
+   890 ;;      Locals:         0       1
+   891 ;;      Temps:          0       1
+   892 ;;      Totals:         0       2
+   893 ;;Total ram usage:        2 bytes
+   894 ;; Hardware stack levels used:    1
+   895 ;; This function calls:
+   896 ;;		Nothing
+   897 ;; This function is called by:
+   898 ;;		_check_user
+   899 ;; This function uses a non-reentrant model
+   900 ;;
+   901                           
+   902                           
+   903                           ;psect for function _eeprom_read
+   904  02DC                     _eeprom_read:
+   905                           
+   906                           ;incstack = 0
+   907                           ; Regs used in _eeprom_read: [wreg+status,2+status,0]
+   908                           ;eeprom_read@addr stored from wreg
+   909  02DC  1283               	bcf	3,5	;RP0=0, select bank0
+   910  02DD  008D               	movwf	eeprom_read@addr
+   911  02DE                     l165:	
+   912                           ;C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 6: eeprom_read(uns
+      +                          igned char addr);C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 7:
+      +                           {;C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 8:  do
+   913                           
+   914  02DE  0064               	clrwdt	;# 
+   915  02DF  1683               	bsf	3,5	;RP0=1, select bank1
+   916  02E0  1888               	btfsc	8,1	;volsfr
+   917  02E1  2AE3               	goto	u191
+   918  02E2  2AE4               	goto	u190
+   919  02E3                     u191:
+   920  02E3  2ADE               	goto	l165
+   921  02E4                     u190:
+   922  02E4                     l787:
+   923                           
+   924                           ;C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 18:  return ( EEAD
+      +                          R = addr, EECON1 &= 0x3F, EECON1bits.RD = 1, EEDATA);
+   925  02E4  1283               	bcf	3,5	;RP0=0, select bank0
+   926  02E5  080D               	movf	eeprom_read@addr,w
+   927  02E6  0089               	movwf	9	;volatile
+   928  02E7  303F               	movlw	63
+   929  02E8  008C               	movwf	??_eeprom_read
+   930  02E9  080C               	movf	??_eeprom_read,w
+   931  02EA  1683               	bsf	3,5	;RP0=1, select bank1
+   932  02EB  0588               	andwf	8,f	;volsfr
+   933  02EC  1408               	bsf	8,0	;volsfr
+   934  02ED  1283               	bcf	3,5	;RP0=0, select bank0
+   935  02EE  0808               	movf	8,w	;volatile
+   936  02EF                     l167:
+   937  02EF  0008               	return
+   938  02F0                     __end_of_eeprom_read:
+   939  004E                     btemp	set	78	;btemp
+   940  004E                     wtemp0	set	78
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            66     27      27
+
+Pointer List with Targets:
+
+    check_user@keys	PTR unsigned char  size(1) Largest target is 10
+		 -> main@keys(BANK0[10]), 
+
+    check_imput_string@keys	PTR unsigned char  size(1) Largest target is 10
+		 -> main@keys(BANK0[10]), 
+
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_check_imput_string
+    _check_imput_string->_check_user
+    _check_user->_eeprom_read
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                14    14      0     708
+                                             14 BANK0     13    13      0
+                 _check_imput_string
+                            _get_key
+ ---------------------------------------------------------------------------------
+ (1) _get_key                                              4     4      0     117
+                                              0 BANK0      4     4      0
+ ---------------------------------------------------------------------------------
+ (1) _check_imput_string                                   1     1      0     429
+                                             13 BANK0      1     1      0
+                         _check_user
+ ---------------------------------------------------------------------------------
+ (2) _check_user                                          11    11      0     330
+                                              2 BANK0     11    11      0
+                        _eeprom_read
+ ---------------------------------------------------------------------------------
+ (3) _eeprom_read                                          2     2      0      22
+                                              0 BANK0      2     2      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _check_imput_string
+     _check_user
+       _eeprom_read
+   _get_key
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            0      0       0       0        0.0%
+EEDATA              40      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+BANK0               42     1B      1B       3       40.9%
+ABS                  0      0       0       4        0.0%
+BITBANK0            42      0       0       5        0.0%
+DATA                 0      0       0       6        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.30 build 20200825195618 
+Symbol Table                                                                                   Fri Oct 02 12:06:16 2020
+
+                         l41 034D                           l50 036D                           l42 034C  
+                         l51 036C                           l53 038D                           l54 038E  
+                         l46 035D                           l47 035C                           l58 0306  
+                         l69 03FD                          l165 02DE                          l167 02EF  
+                        l801 03A3                          l811 03BB                          l803 03B3  
+                        l821 03E8                          l813 03C1                          l823 03F0  
+                        l815 03D7                          l807 03B5                          l831 0347  
+                        l817 03DD                          l809 03B9                          l841 0363  
+                        l825 033D                          l819 03DE                          l843 0367  
+                        l851 0383                          l835 0353                          l827 0340  
+                        l861 0304                          l853 0389                          l837 0357  
+                        l829 0345                          l791 0391                          l847 0373  
+                        l871 030F                          l857 02F2                          l849 037D  
+                        l881 031D                          l873 0310                          l865 0307  
+                        l787 02E4                          l859 02FB                          l891 0337  
+                        l883 0323                          l875 0311                          l867 0309  
+                        l797 0396                          l885 032B                          l893 0339  
+                        l877 0313                          l869 030B                          l799 039C  
+                        l887 032F                          l879 0318                          l889 0335  
+                        u200 03B3                          u201 03B2                          u210 03D7  
+                        u211 03D6                          u220 03DD                          u300 0383  
+                        u221 03DC                          u301 0382                          u230 03FD  
+                        u310 0389                          u231 03FC                          u215 03D3  
+                        u311 0388                          u320 02FB                          u240 034B  
+                        u321 02FA                          u241 034A                          u330 0304  
+                        u250 0352                          u235 03F9                          u331 0303  
+                        u251 0351                          u260 035B                          u340 031D  
+                        u261 035A                          u341 031C                          u190 02E4  
+                        u270 0362                          u350 0323                          u191 02E3  
+                        u271 0361                          u351 0322                          u280 036B  
+                        u360 0335                          u281 036A                          u361 0334  
+                        u290 0372                          u291 0371                          u377 03E2  
+                        fsr0 0004                          indf 0000                         _main 0307  
+                       btemp 004E                         start 0000                        ?_main 000C  
+                      _EEADR 0009                        _PORTA 0005                        _PORTB 0006  
+                      _TRISA 0085                        _TRISB 0086              __end_of_get_key 038F  
+                      status 0003                        wtemp0 004E              __initialization 03FE  
+               __end_of_main 033D                       ??_main 001A                       _EEDATA 0008  
+                     _EECON1 0088         __size_of_eeprom_read 0014            check_user@address 0011  
+                  ??_get_key 000C      __end_of__initialization 03FE              eeprom_read@addr 000D  
+             __pcstackCOMMON 0000               _OPTION_REGbits 0081              check_user@value 0018  
+                 _check_user 038F   __end_of_check_imput_string 0307                   __pmaintext 0307  
+            get_key@template 000E                      __ptext1 033D                      __ptext2 02F0  
+                    __ptext3 038F                      __ptext4 02DC                      _get_key 033D  
+                    main@key 0025         end_of_initialization 03FE                  ?_check_user 000C  
+         check_user@is_exist 0013                    _PORTBbits 0006                   get_key@key 000F  
+              ??_eeprom_read 000C          __size_of_check_user 006F          start_initialization 03FE  
+        __end_of_eeprom_read 02F0           _check_imput_string 02F0          ?_check_imput_string 000C  
+                  ___latbits 0000                __pcstackBANK0 000C               check_user@keys 0012  
+       ??_check_imput_string 0000                     ?_get_key 000C                 ??_check_user 000E  
+                _eeprom_read 02DC           __end_of_check_user 03FE                   _EECON1bits 0088  
+     check_imput_string@keys 0019             __size_of_get_key 0052                  check_user@i 0014  
+                check_user@j 0016                __size_of_main 0036             main@quantityChar 0026  
+                   main@keys 001B                   _INTCONbits 000B                 ?_eeprom_read 000C  
+__size_of_check_imput_string 0017  

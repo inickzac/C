@@ -1,0 +1,1951 @@
+
+
+Microchip MPLAB XC8 Assembler V2.30 build 20200825195618 
+                                                                                               Fri Oct 09 18:42:23 2020
+
+Microchip MPLAB XC8 C Compiler v2.30 (Free license) build 20200825195618 Og1 
+     1                           	processor	16F84A
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	eeprom_data,global,class=EEDATA,space=3,delta=2,noexec
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     7                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     8                           	psect	maintext,global,class=CODE,split=1,delta=2
+     9                           	psect	text1,local,class=CODE,merge=1,delta=2
+    10                           	psect	text2,local,class=CODE,merge=1,delta=2
+    11                           	psect	text3,local,class=CODE,merge=1,delta=2
+    12                           	psect	text4,local,class=CODE,merge=1,delta=2
+    13                           	psect	text5,local,class=CODE,merge=1,delta=2
+    14                           	psect	text6,local,class=CODE,merge=1,delta=2
+    15                           	psect	text7,local,class=CODE,merge=1,delta=2
+    16                           	psect	text8,local,class=CODE,merge=1,delta=2
+    17                           	psect	text9,local,class=CODE,merge=1,delta=2
+    18                           	psect	text10,local,class=CODE,merge=1,delta=2
+    19                           	psect	text11,local,class=CODE,merge=1,delta=2
+    20                           	psect	text12,local,class=CODE,merge=1,delta=2
+    21                           	psect	text13,local,class=CODE,merge=1,delta=2
+    22                           	psect	text14,local,class=CODE,merge=1,delta=2
+    23                           	psect	text15,local,class=CODE,merge=1,delta=2
+    24                           	psect	text16,local,class=CODE,merge=1,delta=2
+    25                           	dabs	1,0x4E,2
+    26  0000                     
+    27                           ; Version 2.30
+    28                           ; Generated 26/08/2020 GMT
+    29                           ; 
+    30                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    31                           ; All rights reserved.
+    32                           ; 
+    33                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    34                           ; 
+    35                           ; Redistribution and use in source and binary forms, with or without modification, are
+    36                           ; permitted provided that the following conditions are met:
+    37                           ; 
+    38                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    39                           ;        conditions and the following disclaimer.
+    40                           ; 
+    41                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    42                           ;        of conditions and the following disclaimer in the documentation and/or other
+    43                           ;        materials provided with the distribution. Publication is not required when
+    44                           ;        this file is used in an embedded application.
+    45                           ; 
+    46                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    47                           ;        software without specific prior written permission.
+    48                           ; 
+    49                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    50                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    51                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    52                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    53                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    54                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    55                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    56                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    57                           ; 
+    58                           ; 
+    59                           ; Code-generator required, PIC16F84A Definitions
+    60                           ; 
+    61                           ; SFR Addresses
+    62  0000                     	;# 
+    63  0001                     	;# 
+    64  0002                     	;# 
+    65  0003                     	;# 
+    66  0004                     	;# 
+    67  0005                     	;# 
+    68  0006                     	;# 
+    69  0008                     	;# 
+    70  0009                     	;# 
+    71  000A                     	;# 
+    72  000B                     	;# 
+    73  0081                     	;# 
+    74  0085                     	;# 
+    75  0086                     	;# 
+    76  0088                     	;# 
+    77  0089                     	;# 
+    78                           
+    79                           	psect	eeprom_data
+    80  0000  0001 0002 0003 0004 0005 0006 0007 0008 	db	1,2,3,4,5,6,7,8	;# 
+    81  0008  0009 000A 000B 000C 0005 0006 0007 0008 	db	9,10,11,12,5,6,7,8	;# 
+    82  0000                     	;# 
+    83  0001                     	;# 
+    84  0002                     	;# 
+    85  0003                     	;# 
+    86  0004                     	;# 
+    87  0005                     	;# 
+    88  0006                     	;# 
+    89  0008                     	;# 
+    90  0009                     	;# 
+    91  000A                     	;# 
+    92  000B                     	;# 
+    93  0081                     	;# 
+    94  0085                     	;# 
+    95  0086                     	;# 
+    96  0088                     	;# 
+    97  0089                     	;# 
+    98  0000                     	;# 
+    99  0001                     	;# 
+   100  0002                     	;# 
+   101  0003                     	;# 
+   102  0004                     	;# 
+   103  0005                     	;# 
+   104  0006                     	;# 
+   105  0008                     	;# 
+   106  0009                     	;# 
+   107  000A                     	;# 
+   108  000B                     	;# 
+   109  0081                     	;# 
+   110  0085                     	;# 
+   111  0086                     	;# 
+   112  0088                     	;# 
+   113  0089                     	;# 
+   114  0008                     _EEDATA	set	8
+   115  0009                     _EEADR	set	9
+   116  0005                     _PORTAbits	set	5
+   117  0006                     _PORTBbits	set	6
+   118  000B                     _INTCONbits	set	11
+   119  0006                     _PORTB	set	6
+   120  0005                     _PORTA	set	5
+   121  0088                     _EECON1	set	136
+   122  0088                     _EECON1bits	set	136
+   123  0081                     _OPTION_REGbits	set	129
+   124  0086                     _TRISB	set	134
+   125  0085                     _TRISA	set	133
+   126                           
+   127                           	psect	cinit
+   128  03FE                     start_initialization:	
+   129                           ; #config settings
+   130                           
+   131  03FE                     __initialization:
+   132  03FE                     end_of_initialization:	
+   133                           ;End of C runtime variable initialization code
+   134                           
+   135  03FE                     __end_of__initialization:
+   136  03FE  0183               	clrf	3
+   137  03FF  2B3C               	ljmp	_main	;jump to C main() function
+   138                           
+   139                           	psect	cstackCOMMON
+   140  0000                     __pcstackCOMMON:
+   141  0000                     ??_main:
+   142  0000                     ??_sound_9:	
+   143                           ; 1 bytes @ 0x0
+   144                           
+   145                           
+   146                           	psect	cstackBANK0
+   147  000C                     __pcstackBANK0:	
+   148                           ; 1 bytes @ 0x0
+   149                           
+   150  000C                     ?_get_key:
+   151  000C                     ?_read_tone:	
+   152                           ; 1 bytes @ 0x0
+   153                           
+   154  000C                     ?_eeprom_read:	
+   155                           ; 1 bytes @ 0x0
+   156                           
+   157  000C                     ??_eeprom_read:	
+   158                           ; 1 bytes @ 0x0
+   159                           
+   160  000C                     ?_sound_1:	
+   161                           ; 1 bytes @ 0x0
+   162                           
+   163  000C                     ??_sound_1:	
+   164                           ; 1 bytes @ 0x0
+   165                           
+   166  000C                     ?_sound_2:	
+   167                           ; 1 bytes @ 0x0
+   168                           
+   169  000C                     ??_sound_2:	
+   170                           ; 1 bytes @ 0x0
+   171                           
+   172  000C                     ?_sound_3:	
+   173                           ; 1 bytes @ 0x0
+   174                           
+   175  000C                     ??_sound_3:	
+   176                           ; 1 bytes @ 0x0
+   177                           
+   178  000C                     ?_sound_4:	
+   179                           ; 1 bytes @ 0x0
+   180                           
+   181  000C                     ??_sound_4:	
+   182                           ; 1 bytes @ 0x0
+   183                           
+   184  000C                     ?_sound_5:	
+   185                           ; 1 bytes @ 0x0
+   186                           
+   187  000C                     ??_sound_5:	
+   188                           ; 1 bytes @ 0x0
+   189                           
+   190  000C                     ?_sound_6:	
+   191                           ; 1 bytes @ 0x0
+   192                           
+   193  000C                     ??_sound_6:	
+   194                           ; 1 bytes @ 0x0
+   195                           
+   196  000C                     ?_sound_7:	
+   197                           ; 1 bytes @ 0x0
+   198                           
+   199  000C                     ??_sound_7:	
+   200                           ; 1 bytes @ 0x0
+   201                           
+   202  000C                     ?_sound_8:	
+   203                           ; 1 bytes @ 0x0
+   204                           
+   205  000C                     ??_sound_8:	
+   206                           ; 1 bytes @ 0x0
+   207                           
+   208  000C                     ?_sound_9:	
+   209                           ; 1 bytes @ 0x0
+   210                           
+   211  000C                     ?_sound_10:	
+   212                           ; 1 bytes @ 0x0
+   213                           
+   214  000C                     ??_sound_10:	
+   215                           ; 1 bytes @ 0x0
+   216                           
+   217  000C                     ?_sound_11:	
+   218                           ; 1 bytes @ 0x0
+   219                           
+   220  000C                     ??_sound_11:	
+   221                           ; 1 bytes @ 0x0
+   222                           
+   223  000C                     ?_sound_12:	
+   224                           ; 1 bytes @ 0x0
+   225                           
+   226  000C                     ??_sound_12:	
+   227                           ; 1 bytes @ 0x0
+   228                           
+   229  000C                     ?_make_sound:	
+   230                           ; 1 bytes @ 0x0
+   231                           
+   232                           
+   233                           ; 1 bytes @ 0x0
+   234  000C                     	ds	1
+   235  000D                     ??_make_sound:
+   236  000D                     eeprom_read@addr:	
+   237                           ; 1 bytes @ 0x1
+   238                           
+   239                           
+   240                           ; 1 bytes @ 0x1
+   241  000D                     	ds	2
+   242  000F                     make_sound@n:
+   243                           
+   244                           ; 1 bytes @ 0x3
+   245  000F                     	ds	1
+   246  0010                     ??_read_tone:
+   247                           
+   248                           ; 1 bytes @ 0x4
+   249  0010                     	ds	2
+   250  0012                     read_tone@key:
+   251                           
+   252                           ; 1 bytes @ 0x6
+   253  0012                     	ds	1
+   254  0013                     read_tone@value:
+   255                           
+   256                           ; 1 bytes @ 0x7
+   257  0013                     	ds	1
+   258  0014                     ??_get_key:
+   259                           
+   260                           ; 1 bytes @ 0x8
+   261  0014                     	ds	2
+   262  0016                     get_key@template:
+   263                           
+   264                           ; 1 bytes @ 0xA
+   265  0016                     	ds	1
+   266  0017                     get_key@key:
+   267                           
+   268                           ; 1 bytes @ 0xB
+   269  0017                     	ds	1
+   270  0018                     ?_main:
+   271  0018                     main@argc:	
+   272                           ; 2 bytes @ 0xC
+   273                           
+   274                           
+   275                           ; 2 bytes @ 0xC
+   276  0018                     	ds	2
+   277  001A                     main@argv:
+   278                           
+   279                           ; 2 bytes @ 0xE
+   280  001A                     	ds	2
+   281                           
+   282                           	psect	maintext
+   283  033C                     __pmaintext:	
+   284 ;;
+   285 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   286 ;;
+   287 ;; *************** function _main *****************
+   288 ;; Defined at:
+   289 ;;		line 24 in file "phone_keyboard.c"
+   290 ;; Parameters:    Size  Location     Type
+   291 ;;  argc            2   12[BANK0 ] int 
+   292 ;;  argv            2   14[BANK0 ] PTR PTR unsigned char 
+   293 ;; Auto vars:     Size  Location     Type
+   294 ;;  key             1    0        unsigned char 
+   295 ;; Return value:  Size  Location     Type
+   296 ;;                  2   12[BANK0 ] int 
+   297 ;; Registers used:
+   298 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   299 ;; Tracked objects:
+   300 ;;		On entry : B00/0
+   301 ;;		On exit  : 0/0
+   302 ;;		Unchanged: 0/0
+   303 ;; Data sizes:     COMMON   BANK0
+   304 ;;      Params:         0       4
+   305 ;;      Locals:         0       1
+   306 ;;      Temps:          0       0
+   307 ;;      Totals:         0       5
+   308 ;;Total ram usage:        5 bytes
+   309 ;; Hardware stack levels required when called:    4
+   310 ;; This function calls:
+   311 ;;		_get_key
+   312 ;; This function is called by:
+   313 ;;		Startup code after reset
+   314 ;; This function uses a non-reentrant model
+   315 ;;
+   316                           
+   317                           
+   318                           ;psect for function _main
+   319  033C                     _main:
+   320  033C                     l1059:	
+   321                           ;incstack = 0
+   322                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   323                           
+   324                           
+   325                           ;phone_keyboard.c: 26:     TRISA = 0X0;
+   326  033C  1683               	bsf	3,5	;RP0=1, select bank1
+   327  033D  0185               	clrf	5	;volatile
+   328  033E                     l1061:
+   329                           
+   330                           ;phone_keyboard.c: 27:     TRISB = 0b1111;
+   331  033E  300F               	movlw	15
+   332  033F  0086               	movwf	6	;volatile
+   333  0340                     l1063:
+   334                           
+   335                           ;phone_keyboard.c: 28:     PORTA = 0b11111100;
+   336  0340  30FC               	movlw	252
+   337  0341  1283               	bcf	3,5	;RP0=0, select bank0
+   338  0342  0085               	movwf	5	;volatile
+   339                           
+   340                           ;phone_keyboard.c: 29:     PORTB = 0X0;
+   341  0343  0186               	clrf	6	;volatile
+   342  0344                     l1065:
+   343                           
+   344                           ;phone_keyboard.c: 30:     INTCONbits.GIE=0;
+   345  0344  138B               	bcf	11,7	;volatile
+   346  0345                     l1067:
+   347                           
+   348                           ;phone_keyboard.c: 31:     INTCONbits.RBIE=1;
+   349  0345  158B               	bsf	11,3	;volatile
+   350  0346                     l1069:
+   351                           
+   352                           ;phone_keyboard.c: 32:     OPTION_REGbits.nRBPU=0;
+   353  0346  1683               	bsf	3,5	;RP0=1, select bank1
+   354  0347  1381               	bcf	1,7	;volatile
+   355  0348                     l1071:
+   356  0348  23A9               	fcall	_get_key
+   357  0349  2B48               	goto	l1071
+   358  034A  2800               	ljmp	start
+   359  034B                     __end_of_main:
+   360                           
+   361                           	psect	text1
+   362  03A9                     __ptext1:	
+   363 ;; *************** function _get_key *****************
+   364 ;; Defined at:
+   365 ;;		line 45 in file "phone_keyboard.c"
+   366 ;; Parameters:    Size  Location     Type
+   367 ;;		None
+   368 ;; Auto vars:     Size  Location     Type
+   369 ;;  key             1   11[BANK0 ] unsigned char 
+   370 ;;  template        1   10[BANK0 ] unsigned char 
+   371 ;; Return value:  Size  Location     Type
+   372 ;;                  1    wreg      unsigned char 
+   373 ;; Registers used:
+   374 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   375 ;; Tracked objects:
+   376 ;;		On entry : 0/0
+   377 ;;		On exit  : 0/0
+   378 ;;		Unchanged: 0/0
+   379 ;; Data sizes:     COMMON   BANK0
+   380 ;;      Params:         0       0
+   381 ;;      Locals:         0       2
+   382 ;;      Temps:          0       2
+   383 ;;      Totals:         0       4
+   384 ;;Total ram usage:        4 bytes
+   385 ;; Hardware stack levels used:    1
+   386 ;; Hardware stack levels required when called:    3
+   387 ;; This function calls:
+   388 ;;		_read_tone
+   389 ;; This function is called by:
+   390 ;;		_main
+   391 ;; This function uses a non-reentrant model
+   392 ;;
+   393                           
+   394                           
+   395                           ;psect for function _get_key
+   396  03A9                     _get_key:
+   397  03A9                     l1015:	
+   398                           ;incstack = 0
+   399                           ; Regs used in _get_key: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   400                           
+   401                           
+   402                           ;phone_keyboard.c: 47:     char key, template;;phone_keyboard.c: 48:     key =1; templat
+      +                          e=0b11101111;
+   403  03A9  1283               	bcf	3,5	;RP0=0, select bank0
+   404  03AA  0197               	clrf	get_key@key
+   405  03AB  0A97               	incf	get_key@key,f
+   406  03AC                     l1017:
+   407  03AC  30EF               	movlw	239
+   408  03AD  0094               	movwf	??_get_key
+   409  03AE  0814               	movf	??_get_key,w
+   410  03AF  0096               	movwf	get_key@template
+   411                           
+   412                           ;phone_keyboard.c: 49:     while(key<13)
+   413  03B0  2BEC               	goto	l1051
+   414  03B1                     l1019:
+   415                           
+   416                           ;phone_keyboard.c: 50:     {;phone_keyboard.c: 51:         PORTB = template;
+   417  03B1  0816               	movf	get_key@template,w
+   418  03B2  0086               	movwf	6	;volatile
+   419  03B3                     l1021:
+   420                           
+   421                           ;phone_keyboard.c: 52:         if(!PORTBbits.RB3)
+   422  03B3  1986               	btfsc	6,3	;volatile
+   423  03B4  2BB6               	goto	u111
+   424  03B5  2BB7               	goto	u110
+   425  03B6                     u111:
+   426  03B6  2BC0               	goto	l1029
+   427  03B7                     u110:
+   428  03B7  2BBA               	goto	l1027
+   429  03B8                     l1025:
+   430                           
+   431                           ;phone_keyboard.c: 55:             {;phone_keyboard.c: 56:               read_tone(key);
+   432  03B8  0817               	movf	get_key@key,w
+   433  03B9  22B3               	fcall	_read_tone
+   434  03BA                     l1027:
+   435                           
+   436                           ;phone_keyboard.c: 54:             while(!PORTBbits.RB3)
+   437  03BA  1283               	bcf	3,5	;RP0=0, select bank0
+   438  03BB  1D86               	btfss	6,3	;volatile
+   439  03BC  2BBE               	goto	u121
+   440  03BD  2BBF               	goto	u120
+   441  03BE                     u121:
+   442  03BE  2BB8               	goto	l1025
+   443  03BF                     u120:
+   444  03BF  2BF2               	goto	l1053
+   445  03C0                     l1029:
+   446                           
+   447                           ;phone_keyboard.c: 60:         key++;
+   448  03C0  3001               	movlw	1
+   449  03C1  0094               	movwf	??_get_key
+   450  03C2  0814               	movf	??_get_key,w
+   451  03C3  0797               	addwf	get_key@key,f
+   452  03C4                     l1031:
+   453                           
+   454                           ;phone_keyboard.c: 61:         if(!PORTBbits.RB2)
+   455  03C4  1906               	btfsc	6,2	;volatile
+   456  03C5  2BC7               	goto	u131
+   457  03C6  2BC8               	goto	u130
+   458  03C7                     u131:
+   459  03C7  2BD1               	goto	l1039
+   460  03C8                     u130:
+   461  03C8  2BCB               	goto	l1037
+   462  03C9                     l1035:
+   463                           
+   464                           ;phone_keyboard.c: 65:             {;phone_keyboard.c: 66:               read_tone(key);
+   465  03C9  0817               	movf	get_key@key,w
+   466  03CA  22B3               	fcall	_read_tone
+   467  03CB                     l1037:
+   468                           
+   469                           ;phone_keyboard.c: 64:             while(!PORTBbits.RB2)
+   470  03CB  1283               	bcf	3,5	;RP0=0, select bank0
+   471  03CC  1D06               	btfss	6,2	;volatile
+   472  03CD  2BCF               	goto	u141
+   473  03CE  2BD0               	goto	u140
+   474  03CF                     u141:
+   475  03CF  2BC9               	goto	l1035
+   476  03D0                     u140:
+   477  03D0  2BF2               	goto	l1053
+   478  03D1                     l1039:
+   479                           
+   480                           ;phone_keyboard.c: 71:         key++;
+   481  03D1  3001               	movlw	1
+   482  03D2  0094               	movwf	??_get_key
+   483  03D3  0814               	movf	??_get_key,w
+   484  03D4  0797               	addwf	get_key@key,f
+   485  03D5                     l1041:
+   486                           
+   487                           ;phone_keyboard.c: 72:         if(!PORTBbits.RB1)
+   488  03D5  1886               	btfsc	6,1	;volatile
+   489  03D6  2BD8               	goto	u151
+   490  03D7  2BD9               	goto	u150
+   491  03D8                     u151:
+   492  03D8  2BE2               	goto	l1049
+   493  03D9                     u150:
+   494  03D9  2BDC               	goto	l1047
+   495  03DA                     l1045:
+   496                           
+   497                           ;phone_keyboard.c: 75:             {;phone_keyboard.c: 76:                read_tone(key)
+      +                          ;
+   498  03DA  0817               	movf	get_key@key,w
+   499  03DB  22B3               	fcall	_read_tone
+   500  03DC                     l1047:
+   501                           
+   502                           ;phone_keyboard.c: 74:           while(!PORTBbits.RB1)
+   503  03DC  1283               	bcf	3,5	;RP0=0, select bank0
+   504  03DD  1C86               	btfss	6,1	;volatile
+   505  03DE  2BE0               	goto	u161
+   506  03DF  2BE1               	goto	u160
+   507  03E0                     u161:
+   508  03E0  2BDA               	goto	l1045
+   509  03E1                     u160:
+   510  03E1  2BF2               	goto	l1053
+   511  03E2                     l1049:
+   512                           
+   513                           ;phone_keyboard.c: 80:         key++;
+   514  03E2  3001               	movlw	1
+   515  03E3  0094               	movwf	??_get_key
+   516  03E4  0814               	movf	??_get_key,w
+   517  03E5  0797               	addwf	get_key@key,f
+   518                           
+   519                           ;phone_keyboard.c: 81:         template=template <<1;
+   520  03E6  0816               	movf	get_key@template,w
+   521  03E7  0094               	movwf	??_get_key
+   522  03E8  0714               	addwf	??_get_key,w
+   523  03E9  0095               	movwf	??_get_key+1
+   524  03EA  0815               	movf	??_get_key+1,w
+   525  03EB  0096               	movwf	get_key@template
+   526  03EC                     l1051:
+   527                           
+   528                           ;phone_keyboard.c: 49:     while(key<13)
+   529  03EC  300D               	movlw	13
+   530  03ED  0217               	subwf	get_key@key,w
+   531  03EE  1C03               	skipc
+   532  03EF  2BF1               	goto	u171
+   533  03F0  2BF2               	goto	u170
+   534  03F1                     u171:
+   535  03F1  2BB1               	goto	l1019
+   536  03F2                     u170:
+   537  03F2                     l1053:
+   538                           
+   539                           ;phone_keyboard.c: 84:     if(key==13) {key=0xff;}
+   540  03F2  300D               	movlw	13
+   541  03F3  0617               	xorwf	get_key@key,w
+   542  03F4  1D03               	btfss	3,2
+   543  03F5  2BF7               	goto	u181
+   544  03F6  2BF8               	goto	u180
+   545  03F7                     u181:
+   546  03F7  2BFC               	goto	l51
+   547  03F8                     u180:
+   548  03F8                     l1055:
+   549  03F8  30FF               	movlw	255
+   550  03F9  0094               	movwf	??_get_key
+   551  03FA  0814               	movf	??_get_key,w
+   552  03FB  0097               	movwf	get_key@key
+   553  03FC                     l51:
+   554                           
+   555                           ;phone_keyboard.c: 85:     return key;
+   556  03FC  0817               	movf	get_key@key,w
+   557  03FD                     l52:
+   558  03FD  0008               	return
+   559  03FE                     __end_of_get_key:
+   560                           
+   561                           	psect	text2
+   562  02B3                     __ptext2:	
+   563 ;; *************** function _read_tone *****************
+   564 ;; Defined at:
+   565 ;;		line 226 in file "phone_keyboard.c"
+   566 ;; Parameters:    Size  Location     Type
+   567 ;;  key             1    wreg     unsigned char 
+   568 ;; Auto vars:     Size  Location     Type
+   569 ;;  key             1    6[BANK0 ] unsigned char 
+   570 ;;  value           1    7[BANK0 ] volatile unsigned char 
+   571 ;;  address         1    0        unsigned char 
+   572 ;; Return value:  Size  Location     Type
+   573 ;;                  1    wreg      void 
+   574 ;; Registers used:
+   575 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   576 ;; Tracked objects:
+   577 ;;		On entry : 0/0
+   578 ;;		On exit  : 0/0
+   579 ;;		Unchanged: 0/0
+   580 ;; Data sizes:     COMMON   BANK0
+   581 ;;      Params:         0       0
+   582 ;;      Locals:         0       3
+   583 ;;      Temps:          0       1
+   584 ;;      Totals:         0       4
+   585 ;;Total ram usage:        4 bytes
+   586 ;; Hardware stack levels used:    1
+   587 ;; Hardware stack levels required when called:    2
+   588 ;; This function calls:
+   589 ;;		_eeprom_read
+   590 ;;		_make_sound
+   591 ;; This function is called by:
+   592 ;;		_get_key
+   593 ;; This function uses a non-reentrant model
+   594 ;;
+   595                           
+   596                           
+   597                           ;psect for function _read_tone
+   598  02B3                     _read_tone:
+   599                           
+   600                           ;incstack = 0
+   601                           ; Regs used in _read_tone: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   602                           ;read_tone@key stored from wreg
+   603  02B3  1283               	bcf	3,5	;RP0=0, select bank0
+   604  02B4  0092               	movwf	read_tone@key
+   605  02B5                     l1009:
+   606                           
+   607                           ;phone_keyboard.c: 226: void read_tone(unsigned char key);phone_keyboard.c: 227: {;phone
+      +                          _keyboard.c: 228:    volatile unsigned char value = 0x00;
+   608  02B5  0193               	clrf	read_tone@value	;volatile
+   609  02B6                     l1011:
+   610                           
+   611                           ;phone_keyboard.c: 230:    value=eeprom_read(key);
+   612  02B6  0812               	movf	read_tone@key,w
+   613  02B7  234B               	fcall	_eeprom_read
+   614  02B8  1283               	bcf	3,5	;RP0=0, select bank0
+   615  02B9  0090               	movwf	??_read_tone
+   616  02BA  0810               	movf	??_read_tone,w
+   617  02BB  0093               	movwf	read_tone@value	;volatile
+   618  02BC                     l1013:
+   619                           
+   620                           ;phone_keyboard.c: 231:    make_sound(value);
+   621  02BC  0813               	movf	read_tone@value,w	;volatile
+   622  02BD  235F               	fcall	_make_sound
+   623  02BE                     l108:
+   624  02BE  0008               	return
+   625  02BF                     __end_of_read_tone:
+   626                           
+   627                           	psect	text3
+   628  035F                     __ptext3:	
+   629 ;; *************** function _make_sound *****************
+   630 ;; Defined at:
+   631 ;;		line 184 in file "phone_keyboard.c"
+   632 ;; Parameters:    Size  Location     Type
+   633 ;;  n               1    wreg     unsigned char 
+   634 ;; Auto vars:     Size  Location     Type
+   635 ;;  n               1    3[BANK0 ] unsigned char 
+   636 ;; Return value:  Size  Location     Type
+   637 ;;                  1    wreg      void 
+   638 ;; Registers used:
+   639 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   640 ;; Tracked objects:
+   641 ;;		On entry : 0/0
+   642 ;;		On exit  : 0/0
+   643 ;;		Unchanged: 0/0
+   644 ;; Data sizes:     COMMON   BANK0
+   645 ;;      Params:         0       0
+   646 ;;      Locals:         0       1
+   647 ;;      Temps:          0       2
+   648 ;;      Totals:         0       3
+   649 ;;Total ram usage:        3 bytes
+   650 ;; Hardware stack levels used:    1
+   651 ;; Hardware stack levels required when called:    1
+   652 ;; This function calls:
+   653 ;;		_sound_1
+   654 ;;		_sound_10
+   655 ;;		_sound_11
+   656 ;;		_sound_12
+   657 ;;		_sound_2
+   658 ;;		_sound_3
+   659 ;;		_sound_4
+   660 ;;		_sound_5
+   661 ;;		_sound_6
+   662 ;;		_sound_7
+   663 ;;		_sound_8
+   664 ;;		_sound_9
+   665 ;; This function is called by:
+   666 ;;		_read_tone
+   667 ;; This function uses a non-reentrant model
+   668 ;;
+   669                           
+   670                           
+   671                           ;psect for function _make_sound
+   672  035F                     _make_sound:
+   673                           
+   674                           ;incstack = 0
+   675                           ; Regs used in _make_sound: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   676                           ;make_sound@n stored from wreg
+   677  035F  1283               	bcf	3,5	;RP0=0, select bank0
+   678  0360  008F               	movwf	make_sound@n
+   679  0361                     l969:
+   680                           
+   681                           ;phone_keyboard.c: 184: void make_sound(unsigned char n);phone_keyboard.c: 185: {;phone_
+      +                          keyboard.c: 186:     switch(n) {
+   682  0361  2B7A               	goto	l997
+   683  0362                     l971:
+   684                           
+   685                           ;phone_keyboard.c: 188:     sound_1();
+   686  0362  22E6               	fcall	_sound_1
+   687                           
+   688                           ;phone_keyboard.c: 189:    break;
+   689  0363  2BA8               	goto	l105
+   690  0364                     l973:
+   691                           
+   692                           ;phone_keyboard.c: 191:     sound_2();
+   693  0364  232D               	fcall	_sound_2
+   694                           
+   695                           ;phone_keyboard.c: 192:    break;
+   696  0365  2BA8               	goto	l105
+   697  0366                     l975:
+   698                           
+   699                           ;phone_keyboard.c: 194:     sound_3();
+   700  0366  22F4               	fcall	_sound_3
+   701                           
+   702                           ;phone_keyboard.c: 195:    break;
+   703  0367  2BA8               	goto	l105
+   704  0368                     l977:
+   705                           
+   706                           ;phone_keyboard.c: 197:     sound_4();
+   707  0368  2302               	fcall	_sound_4
+   708                           
+   709                           ;phone_keyboard.c: 198:    break;
+   710  0369  2BA8               	goto	l105
+   711  036A                     l979:
+   712                           
+   713                           ;phone_keyboard.c: 200:     sound_5();
+   714  036A  22CC               	fcall	_sound_5
+   715                           
+   716                           ;phone_keyboard.c: 201:    break;
+   717  036B  2BA8               	goto	l105
+   718  036C                     l981:
+   719                           
+   720                           ;phone_keyboard.c: 203:     sound_6();
+   721  036C  22A8               	fcall	_sound_6
+   722                           
+   723                           ;phone_keyboard.c: 204:    break;
+   724  036D  2BA8               	goto	l105
+   725  036E                     l983:
+   726                           
+   727                           ;phone_keyboard.c: 206:     sound_7();
+   728  036E  22D9               	fcall	_sound_7
+   729                           
+   730                           ;phone_keyboard.c: 207:    break;
+   731  036F  2BA8               	goto	l105
+   732  0370                     l985:
+   733                           
+   734                           ;phone_keyboard.c: 209:     sound_8();
+   735  0370  2310               	fcall	_sound_8
+   736                           
+   737                           ;phone_keyboard.c: 210:    break;
+   738  0371  2BA8               	goto	l105
+   739  0372                     l987:
+   740                           
+   741                           ;phone_keyboard.c: 212:     sound_9();
+   742  0372  2293               	fcall	_sound_9
+   743                           
+   744                           ;phone_keyboard.c: 213:    break;
+   745  0373  2BA8               	goto	l105
+   746  0374                     l989:
+   747                           
+   748                           ;phone_keyboard.c: 215:     sound_10();
+   749  0374  229D               	fcall	_sound_10
+   750                           
+   751                           ;phone_keyboard.c: 216:    break;
+   752  0375  2BA8               	goto	l105
+   753  0376                     l991:
+   754                           
+   755                           ;phone_keyboard.c: 218:     sound_11();
+   756  0376  22BF               	fcall	_sound_11
+   757                           
+   758                           ;phone_keyboard.c: 219:    break;
+   759  0377  2BA8               	goto	l105
+   760  0378                     l993:
+   761                           
+   762                           ;phone_keyboard.c: 221:     sound_12();
+   763  0378  231E               	fcall	_sound_12
+   764                           
+   765                           ;phone_keyboard.c: 222:    break;
+   766  0379  2BA8               	goto	l105
+   767  037A                     l997:
+   768  037A  080F               	movf	make_sound@n,w
+   769  037B  008D               	movwf	??_make_sound
+   770  037C  018E               	clrf	??_make_sound+1
+   771                           
+   772                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   773                           ; Switch size 1, requested type "simple"
+   774                           ; Number of cases is 1, Range of values is 0 to 0
+   775                           ; switch strategies available:
+   776                           ; Name         Instructions Cycles
+   777                           ; simple_byte            4     3 (average)
+   778                           ; direct_byte            7     6 (fixed)
+   779                           ; jumptable            260     6 (fixed)
+   780                           ;	Chosen strategy is simple_byte
+   781  037D  080E               	movf	??_make_sound+1,w
+   782  037E  3A00               	xorlw	0	; case 0
+   783  037F  1903               	skipnz
+   784  0380  2B82               	goto	l1105
+   785  0381  2BA8               	goto	l105
+   786  0382                     l1105:
+   787                           
+   788                           ; Switch size 1, requested type "simple"
+   789                           ; Number of cases is 12, Range of values is 1 to 12
+   790                           ; switch strategies available:
+   791                           ; Name         Instructions Cycles
+   792                           ; direct_byte           21     9 (fixed)
+   793                           ; simple_byte           37    19 (average)
+   794                           ; jumptable            263     9 (fixed)
+   795                           ;	Chosen strategy is simple_byte
+   796  0382  080D               	movf	??_make_sound,w
+   797  0383  3A01               	xorlw	1	; case 1
+   798  0384  1903               	skipnz
+   799  0385  2B62               	goto	l971
+   800  0386  3A03               	xorlw	3	; case 2
+   801  0387  1903               	skipnz
+   802  0388  2B64               	goto	l973
+   803  0389  3A01               	xorlw	1	; case 3
+   804  038A  1903               	skipnz
+   805  038B  2B66               	goto	l975
+   806  038C  3A07               	xorlw	7	; case 4
+   807  038D  1903               	skipnz
+   808  038E  2B68               	goto	l977
+   809  038F  3A01               	xorlw	1	; case 5
+   810  0390  1903               	skipnz
+   811  0391  2B6A               	goto	l979
+   812  0392  3A03               	xorlw	3	; case 6
+   813  0393  1903               	skipnz
+   814  0394  2B6C               	goto	l981
+   815  0395  3A01               	xorlw	1	; case 7
+   816  0396  1903               	skipnz
+   817  0397  2B6E               	goto	l983
+   818  0398  3A0F               	xorlw	15	; case 8
+   819  0399  1903               	skipnz
+   820  039A  2B70               	goto	l985
+   821  039B  3A01               	xorlw	1	; case 9
+   822  039C  1903               	skipnz
+   823  039D  2B72               	goto	l987
+   824  039E  3A03               	xorlw	3	; case 10
+   825  039F  1903               	skipnz
+   826  03A0  2B74               	goto	l989
+   827  03A1  3A01               	xorlw	1	; case 11
+   828  03A2  1903               	skipnz
+   829  03A3  2B76               	goto	l991
+   830  03A4  3A07               	xorlw	7	; case 12
+   831  03A5  1903               	skipnz
+   832  03A6  2B78               	goto	l993
+   833  03A7  2BA8               	goto	l105
+   834  03A8                     l105:
+   835  03A8  0008               	return
+   836  03A9                     __end_of_make_sound:
+   837                           
+   838                           	psect	text4
+   839  0293                     __ptext4:	
+   840 ;; *************** function _sound_9 *****************
+   841 ;; Defined at:
+   842 ;;		line 152 in file "phone_keyboard.c"
+   843 ;; Parameters:    Size  Location     Type
+   844 ;;		None
+   845 ;; Auto vars:     Size  Location     Type
+   846 ;;		None
+   847 ;; Return value:  Size  Location     Type
+   848 ;;                  1    wreg      void 
+   849 ;; Registers used:
+   850 ;;		None
+   851 ;; Tracked objects:
+   852 ;;		On entry : 0/0
+   853 ;;		On exit  : 0/0
+   854 ;;		Unchanged: 0/0
+   855 ;; Data sizes:     COMMON   BANK0
+   856 ;;      Params:         0       0
+   857 ;;      Locals:         0       0
+   858 ;;      Temps:          0       0
+   859 ;;      Totals:         0       0
+   860 ;;Total ram usage:        0 bytes
+   861 ;; Hardware stack levels used:    1
+   862 ;; This function calls:
+   863 ;;		Nothing
+   864 ;; This function is called by:
+   865 ;;		_make_sound
+   866 ;; This function uses a non-reentrant model
+   867 ;;
+   868                           
+   869                           
+   870                           ;psect for function _sound_9
+   871  0293                     _sound_9:
+   872  0293                     l953:	
+   873                           ;incstack = 0
+   874                           ; Regs used in _sound_9: []
+   875                           
+   876                           
+   877                           ;phone_keyboard.c: 154:     PORTAbits.RA0=1;
+   878  0293  1283               	bcf	3,5	;RP0=0, select bank0
+   879  0294  1405               	bsf	5,0	;volatile
+   880                           
+   881                           ;phone_keyboard.c: 155:           _delay((unsigned long)((3)*(8000/4000.0)));
+   882  0295  2A96               	nop2	;2 cycle nop
+   883  0296  2A97               	nop2	;2 cycle nop
+   884  0297  2A98               	nop2	;2 cycle nop
+   885                           
+   886                           ;phone_keyboard.c: 156:           PORTAbits.RA0=0;
+   887  0298  1283               	bcf	3,5	;RP0=0, select bank0
+   888  0299  1005               	bcf	5,0	;volatile
+   889                           
+   890                           ;phone_keyboard.c: 157:           _delay((unsigned long)((2)*(8000/4000.0)));
+   891  029A  2A9B               	nop2	;2 cycle nop
+   892  029B  2A9C               	nop2	;2 cycle nop
+   893  029C                     l79:
+   894  029C  0008               	return
+   895  029D                     __end_of_sound_9:
+   896                           
+   897                           	psect	text5
+   898  0310                     __ptext5:	
+   899 ;; *************** function _sound_8 *****************
+   900 ;; Defined at:
+   901 ;;		line 144 in file "phone_keyboard.c"
+   902 ;; Parameters:    Size  Location     Type
+   903 ;;		None
+   904 ;; Auto vars:     Size  Location     Type
+   905 ;;		None
+   906 ;; Return value:  Size  Location     Type
+   907 ;;                  1    wreg      void 
+   908 ;; Registers used:
+   909 ;;		wreg
+   910 ;; Tracked objects:
+   911 ;;		On entry : 0/0
+   912 ;;		On exit  : 0/0
+   913 ;;		Unchanged: 0/0
+   914 ;; Data sizes:     COMMON   BANK0
+   915 ;;      Params:         0       0
+   916 ;;      Locals:         0       0
+   917 ;;      Temps:          0       1
+   918 ;;      Totals:         0       1
+   919 ;;Total ram usage:        1 bytes
+   920 ;; Hardware stack levels used:    1
+   921 ;; This function calls:
+   922 ;;		Nothing
+   923 ;; This function is called by:
+   924 ;;		_make_sound
+   925 ;; This function uses a non-reentrant model
+   926 ;;
+   927                           
+   928                           
+   929                           ;psect for function _sound_8
+   930  0310                     _sound_8:
+   931  0310                     l947:	
+   932                           ;incstack = 0
+   933                           ; Regs used in _sound_8: [wreg]
+   934                           
+   935                           
+   936                           ;phone_keyboard.c: 146:     PORTAbits.RA0=1;
+   937  0310  1283               	bcf	3,5	;RP0=0, select bank0
+   938  0311  1405               	bsf	5,0	;volatile
+   939  0312                     l949:
+   940                           
+   941                           ;phone_keyboard.c: 147:           _delay((unsigned long)((56)*(8000/4000.0)));
+   942  0312  3025               	movlw	37
+   943  0313  008C               	movwf	??_sound_8
+   944  0314                     u197:
+   945  0314  0B8C               	decfsz	??_sound_8,f
+   946  0315  2B14               	goto	u197
+   947  0316                     l951:
+   948                           
+   949                           ;phone_keyboard.c: 148:           PORTAbits.RA0=0;
+   950  0316  1283               	bcf	3,5	;RP0=0, select bank0
+   951  0317  1005               	bcf	5,0	;volatile
+   952                           
+   953                           ;phone_keyboard.c: 149:           _delay((unsigned long)((90)*(8000/4000.0)));
+   954  0318  303B               	movlw	59
+   955  0319  008C               	movwf	??_sound_8
+   956  031A                     u207:
+   957  031A  0B8C               	decfsz	??_sound_8,f
+   958  031B  2B1A               	goto	u207
+   959  031C  2B1D               	nop2
+   960  031D                     l76:
+   961  031D  0008               	return
+   962  031E                     __end_of_sound_8:
+   963                           
+   964                           	psect	text6
+   965  02D9                     __ptext6:	
+   966 ;; *************** function _sound_7 *****************
+   967 ;; Defined at:
+   968 ;;		line 136 in file "phone_keyboard.c"
+   969 ;; Parameters:    Size  Location     Type
+   970 ;;		None
+   971 ;; Auto vars:     Size  Location     Type
+   972 ;;		None
+   973 ;; Return value:  Size  Location     Type
+   974 ;;                  1    wreg      void 
+   975 ;; Registers used:
+   976 ;;		wreg
+   977 ;; Tracked objects:
+   978 ;;		On entry : 0/0
+   979 ;;		On exit  : 0/0
+   980 ;;		Unchanged: 0/0
+   981 ;; Data sizes:     COMMON   BANK0
+   982 ;;      Params:         0       0
+   983 ;;      Locals:         0       0
+   984 ;;      Temps:          0       1
+   985 ;;      Totals:         0       1
+   986 ;;Total ram usage:        1 bytes
+   987 ;; Hardware stack levels used:    1
+   988 ;; This function calls:
+   989 ;;		Nothing
+   990 ;; This function is called by:
+   991 ;;		_make_sound
+   992 ;; This function uses a non-reentrant model
+   993 ;;
+   994                           
+   995                           
+   996                           ;psect for function _sound_7
+   997  02D9                     _sound_7:
+   998  02D9                     l943:	
+   999                           ;incstack = 0
+  1000                           ; Regs used in _sound_7: [wreg]
+  1001                           
+  1002                           
+  1003                           ;phone_keyboard.c: 138:     PORTAbits.RA0=1;
+  1004  02D9  1283               	bcf	3,5	;RP0=0, select bank0
+  1005  02DA  1405               	bsf	5,0	;volatile
+  1006                           
+  1007                           ;phone_keyboard.c: 139:           _delay((unsigned long)((3)*(8000/4000.0)));
+  1008  02DB  2ADC               	nop2	;2 cycle nop
+  1009  02DC  2ADD               	nop2	;2 cycle nop
+  1010  02DD  2ADE               	nop2	;2 cycle nop
+  1011                           
+  1012                           ;phone_keyboard.c: 140:           PORTAbits.RA0=0;
+  1013  02DE  1283               	bcf	3,5	;RP0=0, select bank0
+  1014  02DF  1005               	bcf	5,0	;volatile
+  1015  02E0                     l945:
+  1016                           
+  1017                           ;phone_keyboard.c: 141:           _delay((unsigned long)((88)*(8000/4000.0)));
+  1018  02E0  303A               	movlw	58
+  1019  02E1  008C               	movwf	??_sound_7
+  1020  02E2                     u217:
+  1021  02E2  0B8C               	decfsz	??_sound_7,f
+  1022  02E3  2AE2               	goto	u217
+  1023  02E4  0000               	nop
+  1024  02E5                     l73:
+  1025  02E5  0008               	return
+  1026  02E6                     __end_of_sound_7:
+  1027                           
+  1028                           	psect	text7
+  1029  02A8                     __ptext7:	
+  1030 ;; *************** function _sound_6 *****************
+  1031 ;; Defined at:
+  1032 ;;		line 128 in file "phone_keyboard.c"
+  1033 ;; Parameters:    Size  Location     Type
+  1034 ;;		None
+  1035 ;; Auto vars:     Size  Location     Type
+  1036 ;;		None
+  1037 ;; Return value:  Size  Location     Type
+  1038 ;;                  1    wreg      void 
+  1039 ;; Registers used:
+  1040 ;;		wreg
+  1041 ;; Tracked objects:
+  1042 ;;		On entry : 0/0
+  1043 ;;		On exit  : 0/0
+  1044 ;;		Unchanged: 0/0
+  1045 ;; Data sizes:     COMMON   BANK0
+  1046 ;;      Params:         0       0
+  1047 ;;      Locals:         0       0
+  1048 ;;      Temps:          0       1
+  1049 ;;      Totals:         0       1
+  1050 ;;Total ram usage:        1 bytes
+  1051 ;; Hardware stack levels used:    1
+  1052 ;; This function calls:
+  1053 ;;		Nothing
+  1054 ;; This function is called by:
+  1055 ;;		_make_sound
+  1056 ;; This function uses a non-reentrant model
+  1057 ;;
+  1058                           
+  1059                           
+  1060                           ;psect for function _sound_6
+  1061  02A8                     _sound_6:
+  1062  02A8                     l939:	
+  1063                           ;incstack = 0
+  1064                           ; Regs used in _sound_6: [wreg]
+  1065                           
+  1066                           
+  1067                           ;phone_keyboard.c: 130:     PORTAbits.RA0=1;
+  1068  02A8  1283               	bcf	3,5	;RP0=0, select bank0
+  1069  02A9  1405               	bsf	5,0	;volatile
+  1070                           
+  1071                           ;phone_keyboard.c: 131:           _delay((unsigned long)((1)*(8000/4000.0)));
+  1072  02AA  2AAB               	nop2	;2 cycle nop
+  1073                           
+  1074                           ;phone_keyboard.c: 132:           PORTAbits.RA0=0;
+  1075  02AB  1283               	bcf	3,5	;RP0=0, select bank0
+  1076  02AC  1005               	bcf	5,0	;volatile
+  1077  02AD                     l941:
+  1078                           
+  1079                           ;phone_keyboard.c: 133:           _delay((unsigned long)((60)*(8000/4000.0)));
+  1080  02AD  3027               	movlw	39
+  1081  02AE  008C               	movwf	??_sound_6
+  1082  02AF                     u227:
+  1083  02AF  0B8C               	decfsz	??_sound_6,f
+  1084  02B0  2AAF               	goto	u227
+  1085  02B1  2AB2               	nop2
+  1086  02B2                     l70:
+  1087  02B2  0008               	return
+  1088  02B3                     __end_of_sound_6:
+  1089                           
+  1090                           	psect	text8
+  1091  02CC                     __ptext8:	
+  1092 ;; *************** function _sound_5 *****************
+  1093 ;; Defined at:
+  1094 ;;		line 120 in file "phone_keyboard.c"
+  1095 ;; Parameters:    Size  Location     Type
+  1096 ;;		None
+  1097 ;; Auto vars:     Size  Location     Type
+  1098 ;;		None
+  1099 ;; Return value:  Size  Location     Type
+  1100 ;;                  1    wreg      void 
+  1101 ;; Registers used:
+  1102 ;;		wreg
+  1103 ;; Tracked objects:
+  1104 ;;		On entry : 0/0
+  1105 ;;		On exit  : 0/0
+  1106 ;;		Unchanged: 0/0
+  1107 ;; Data sizes:     COMMON   BANK0
+  1108 ;;      Params:         0       0
+  1109 ;;      Locals:         0       0
+  1110 ;;      Temps:          0       1
+  1111 ;;      Totals:         0       1
+  1112 ;;Total ram usage:        1 bytes
+  1113 ;; Hardware stack levels used:    1
+  1114 ;; This function calls:
+  1115 ;;		Nothing
+  1116 ;; This function is called by:
+  1117 ;;		_make_sound
+  1118 ;; This function uses a non-reentrant model
+  1119 ;;
+  1120                           
+  1121                           
+  1122                           ;psect for function _sound_5
+  1123  02CC                     _sound_5:
+  1124  02CC                     l933:	
+  1125                           ;incstack = 0
+  1126                           ; Regs used in _sound_5: [wreg]
+  1127                           
+  1128                           
+  1129                           ;phone_keyboard.c: 122:     PORTAbits.RA0=1;
+  1130  02CC  1283               	bcf	3,5	;RP0=0, select bank0
+  1131  02CD  1405               	bsf	5,0	;volatile
+  1132  02CE                     l935:
+  1133                           
+  1134                           ;phone_keyboard.c: 123:           _delay((unsigned long)((50)*(8000/4000.0)));
+  1135  02CE  3021               	movlw	33
+  1136  02CF  008C               	movwf	??_sound_5
+  1137  02D0                     u237:
+  1138  02D0  0B8C               	decfsz	??_sound_5,f
+  1139  02D1  2AD0               	goto	u237
+  1140  02D2                     l937:
+  1141                           
+  1142                           ;phone_keyboard.c: 124:           PORTAbits.RA0=0;
+  1143  02D2  1283               	bcf	3,5	;RP0=0, select bank0
+  1144  02D3  1005               	bcf	5,0	;volatile
+  1145                           
+  1146                           ;phone_keyboard.c: 125:           _delay((unsigned long)((20)*(8000/4000.0)));
+  1147  02D4  300D               	movlw	13
+  1148  02D5  008C               	movwf	??_sound_5
+  1149  02D6                     u247:
+  1150  02D6  0B8C               	decfsz	??_sound_5,f
+  1151  02D7  2AD6               	goto	u247
+  1152  02D8                     l67:
+  1153  02D8  0008               	return
+  1154  02D9                     __end_of_sound_5:
+  1155                           
+  1156                           	psect	text9
+  1157  0302                     __ptext9:	
+  1158 ;; *************** function _sound_4 *****************
+  1159 ;; Defined at:
+  1160 ;;		line 112 in file "phone_keyboard.c"
+  1161 ;; Parameters:    Size  Location     Type
+  1162 ;;		None
+  1163 ;; Auto vars:     Size  Location     Type
+  1164 ;;		None
+  1165 ;; Return value:  Size  Location     Type
+  1166 ;;                  1    wreg      void 
+  1167 ;; Registers used:
+  1168 ;;		wreg
+  1169 ;; Tracked objects:
+  1170 ;;		On entry : 0/0
+  1171 ;;		On exit  : 0/0
+  1172 ;;		Unchanged: 0/0
+  1173 ;; Data sizes:     COMMON   BANK0
+  1174 ;;      Params:         0       0
+  1175 ;;      Locals:         0       0
+  1176 ;;      Temps:          0       1
+  1177 ;;      Totals:         0       1
+  1178 ;;Total ram usage:        1 bytes
+  1179 ;; Hardware stack levels used:    1
+  1180 ;; This function calls:
+  1181 ;;		Nothing
+  1182 ;; This function is called by:
+  1183 ;;		_make_sound
+  1184 ;; This function uses a non-reentrant model
+  1185 ;;
+  1186                           
+  1187                           
+  1188                           ;psect for function _sound_4
+  1189  0302                     _sound_4:
+  1190  0302                     l927:	
+  1191                           ;incstack = 0
+  1192                           ; Regs used in _sound_4: [wreg]
+  1193                           
+  1194                           
+  1195                           ;phone_keyboard.c: 114:     PORTAbits.RA0=1;
+  1196  0302  1283               	bcf	3,5	;RP0=0, select bank0
+  1197  0303  1405               	bsf	5,0	;volatile
+  1198  0304                     l929:
+  1199                           
+  1200                           ;phone_keyboard.c: 115:           _delay((unsigned long)((40)*(8000/4000.0)));
+  1201  0304  301A               	movlw	26
+  1202  0305  008C               	movwf	??_sound_4
+  1203  0306                     u257:
+  1204  0306  0B8C               	decfsz	??_sound_4,f
+  1205  0307  2B06               	goto	u257
+  1206  0308  0000               	nop
+  1207  0309                     l931:
+  1208                           
+  1209                           ;phone_keyboard.c: 116:           PORTAbits.RA0=0;
+  1210  0309  1283               	bcf	3,5	;RP0=0, select bank0
+  1211  030A  1005               	bcf	5,0	;volatile
+  1212                           
+  1213                           ;phone_keyboard.c: 117:           _delay((unsigned long)((5)*(8000/4000.0)));
+  1214  030B  3003               	movlw	3
+  1215  030C  008C               	movwf	??_sound_4
+  1216  030D                     u267:
+  1217  030D  0B8C               	decfsz	??_sound_4,f
+  1218  030E  2B0D               	goto	u267
+  1219  030F                     l64:
+  1220  030F  0008               	return
+  1221  0310                     __end_of_sound_4:
+  1222                           
+  1223                           	psect	text10
+  1224  02F4                     __ptext10:	
+  1225 ;; *************** function _sound_3 *****************
+  1226 ;; Defined at:
+  1227 ;;		line 104 in file "phone_keyboard.c"
+  1228 ;; Parameters:    Size  Location     Type
+  1229 ;;		None
+  1230 ;; Auto vars:     Size  Location     Type
+  1231 ;;		None
+  1232 ;; Return value:  Size  Location     Type
+  1233 ;;                  1    wreg      void 
+  1234 ;; Registers used:
+  1235 ;;		wreg
+  1236 ;; Tracked objects:
+  1237 ;;		On entry : 0/0
+  1238 ;;		On exit  : 0/0
+  1239 ;;		Unchanged: 0/0
+  1240 ;; Data sizes:     COMMON   BANK0
+  1241 ;;      Params:         0       0
+  1242 ;;      Locals:         0       0
+  1243 ;;      Temps:          0       1
+  1244 ;;      Totals:         0       1
+  1245 ;;Total ram usage:        1 bytes
+  1246 ;; Hardware stack levels used:    1
+  1247 ;; This function calls:
+  1248 ;;		Nothing
+  1249 ;; This function is called by:
+  1250 ;;		_make_sound
+  1251 ;; This function uses a non-reentrant model
+  1252 ;;
+  1253                           
+  1254                           
+  1255                           ;psect for function _sound_3
+  1256  02F4                     _sound_3:
+  1257  02F4                     l921:	
+  1258                           ;incstack = 0
+  1259                           ; Regs used in _sound_3: [wreg]
+  1260                           
+  1261                           
+  1262                           ;phone_keyboard.c: 106:     PORTAbits.RA0=1;
+  1263  02F4  1283               	bcf	3,5	;RP0=0, select bank0
+  1264  02F5  1405               	bsf	5,0	;volatile
+  1265  02F6                     l923:
+  1266                           
+  1267                           ;phone_keyboard.c: 107:           _delay((unsigned long)((20)*(8000/4000.0)));
+  1268  02F6  300D               	movlw	13
+  1269  02F7  008C               	movwf	??_sound_3
+  1270  02F8                     u277:
+  1271  02F8  0B8C               	decfsz	??_sound_3,f
+  1272  02F9  2AF8               	goto	u277
+  1273  02FA                     l925:
+  1274                           
+  1275                           ;phone_keyboard.c: 108:           PORTAbits.RA0=0;
+  1276  02FA  1283               	bcf	3,5	;RP0=0, select bank0
+  1277  02FB  1005               	bcf	5,0	;volatile
+  1278                           
+  1279                           ;phone_keyboard.c: 109:           _delay((unsigned long)((60)*(8000/4000.0)));
+  1280  02FC  3027               	movlw	39
+  1281  02FD  008C               	movwf	??_sound_3
+  1282  02FE                     u287:
+  1283  02FE  0B8C               	decfsz	??_sound_3,f
+  1284  02FF  2AFE               	goto	u287
+  1285  0300  2B01               	nop2
+  1286  0301                     l61:
+  1287  0301  0008               	return
+  1288  0302                     __end_of_sound_3:
+  1289                           
+  1290                           	psect	text11
+  1291  032D                     __ptext11:	
+  1292 ;; *************** function _sound_2 *****************
+  1293 ;; Defined at:
+  1294 ;;		line 96 in file "phone_keyboard.c"
+  1295 ;; Parameters:    Size  Location     Type
+  1296 ;;		None
+  1297 ;; Auto vars:     Size  Location     Type
+  1298 ;;		None
+  1299 ;; Return value:  Size  Location     Type
+  1300 ;;                  1    wreg      void 
+  1301 ;; Registers used:
+  1302 ;;		wreg
+  1303 ;; Tracked objects:
+  1304 ;;		On entry : 0/0
+  1305 ;;		On exit  : 0/0
+  1306 ;;		Unchanged: 0/0
+  1307 ;; Data sizes:     COMMON   BANK0
+  1308 ;;      Params:         0       0
+  1309 ;;      Locals:         0       0
+  1310 ;;      Temps:          0       1
+  1311 ;;      Totals:         0       1
+  1312 ;;Total ram usage:        1 bytes
+  1313 ;; Hardware stack levels used:    1
+  1314 ;; This function calls:
+  1315 ;;		Nothing
+  1316 ;; This function is called by:
+  1317 ;;		_make_sound
+  1318 ;; This function uses a non-reentrant model
+  1319 ;;
+  1320                           
+  1321                           
+  1322                           ;psect for function _sound_2
+  1323  032D                     _sound_2:
+  1324  032D                     l915:	
+  1325                           ;incstack = 0
+  1326                           ; Regs used in _sound_2: [wreg]
+  1327                           
+  1328                           
+  1329                           ;phone_keyboard.c: 98:      PORTAbits.RA0=1;
+  1330  032D  1283               	bcf	3,5	;RP0=0, select bank0
+  1331  032E  1405               	bsf	5,0	;volatile
+  1332  032F                     l917:
+  1333                           
+  1334                           ;phone_keyboard.c: 99:           _delay((unsigned long)((10)*(8000/4000.0)));
+  1335  032F  3006               	movlw	6
+  1336  0330  008C               	movwf	??_sound_2
+  1337  0331                     u297:
+  1338  0331  0B8C               	decfsz	??_sound_2,f
+  1339  0332  2B31               	goto	u297
+  1340  0333  0000               	nop
+  1341  0334                     l919:
+  1342                           
+  1343                           ;phone_keyboard.c: 100:           PORTAbits.RA0=0;
+  1344  0334  1283               	bcf	3,5	;RP0=0, select bank0
+  1345  0335  1005               	bcf	5,0	;volatile
+  1346                           
+  1347                           ;phone_keyboard.c: 101:           _delay((unsigned long)((10)*(8000/4000.0)));
+  1348  0336  3006               	movlw	6
+  1349  0337  008C               	movwf	??_sound_2
+  1350  0338                     u307:
+  1351  0338  0B8C               	decfsz	??_sound_2,f
+  1352  0339  2B38               	goto	u307
+  1353  033A  0000               	nop
+  1354  033B                     l58:
+  1355  033B  0008               	return
+  1356  033C                     __end_of_sound_2:
+  1357                           
+  1358                           	psect	text12
+  1359  031E                     __ptext12:	
+  1360 ;; *************** function _sound_12 *****************
+  1361 ;; Defined at:
+  1362 ;;		line 176 in file "phone_keyboard.c"
+  1363 ;; Parameters:    Size  Location     Type
+  1364 ;;		None
+  1365 ;; Auto vars:     Size  Location     Type
+  1366 ;;		None
+  1367 ;; Return value:  Size  Location     Type
+  1368 ;;                  1    wreg      void 
+  1369 ;; Registers used:
+  1370 ;;		wreg
+  1371 ;; Tracked objects:
+  1372 ;;		On entry : 0/0
+  1373 ;;		On exit  : 0/0
+  1374 ;;		Unchanged: 0/0
+  1375 ;; Data sizes:     COMMON   BANK0
+  1376 ;;      Params:         0       0
+  1377 ;;      Locals:         0       0
+  1378 ;;      Temps:          0       1
+  1379 ;;      Totals:         0       1
+  1380 ;;Total ram usage:        1 bytes
+  1381 ;; Hardware stack levels used:    1
+  1382 ;; This function calls:
+  1383 ;;		Nothing
+  1384 ;; This function is called by:
+  1385 ;;		_make_sound
+  1386 ;; This function uses a non-reentrant model
+  1387 ;;
+  1388                           
+  1389                           
+  1390                           ;psect for function _sound_12
+  1391  031E                     _sound_12:
+  1392  031E                     l963:	
+  1393                           ;incstack = 0
+  1394                           ; Regs used in _sound_12: [wreg]
+  1395                           
+  1396                           
+  1397                           ;phone_keyboard.c: 178:     PORTAbits.RA0=1;
+  1398  031E  1283               	bcf	3,5	;RP0=0, select bank0
+  1399  031F  1405               	bsf	5,0	;volatile
+  1400  0320                     l965:
+  1401                           
+  1402                           ;phone_keyboard.c: 179:           _delay((unsigned long)((9)*(8000/4000.0)));
+  1403  0320  3005               	movlw	5
+  1404  0321  008C               	movwf	??_sound_12
+  1405  0322                     u317:
+  1406  0322  0B8C               	decfsz	??_sound_12,f
+  1407  0323  2B22               	goto	u317
+  1408  0324  2B25               	nop2
+  1409  0325                     l967:
+  1410                           
+  1411                           ;phone_keyboard.c: 180:           PORTAbits.RA0=0;
+  1412  0325  1283               	bcf	3,5	;RP0=0, select bank0
+  1413  0326  1005               	bcf	5,0	;volatile
+  1414                           
+  1415                           ;phone_keyboard.c: 181:           _delay((unsigned long)((90)*(8000/4000.0)));
+  1416  0327  303B               	movlw	59
+  1417  0328  008C               	movwf	??_sound_12
+  1418  0329                     u327:
+  1419  0329  0B8C               	decfsz	??_sound_12,f
+  1420  032A  2B29               	goto	u327
+  1421  032B  2B2C               	nop2
+  1422  032C                     l88:
+  1423  032C  0008               	return
+  1424  032D                     __end_of_sound_12:
+  1425                           
+  1426                           	psect	text13
+  1427  02BF                     __ptext13:	
+  1428 ;; *************** function _sound_11 *****************
+  1429 ;; Defined at:
+  1430 ;;		line 168 in file "phone_keyboard.c"
+  1431 ;; Parameters:    Size  Location     Type
+  1432 ;;		None
+  1433 ;; Auto vars:     Size  Location     Type
+  1434 ;;		None
+  1435 ;; Return value:  Size  Location     Type
+  1436 ;;                  1    wreg      void 
+  1437 ;; Registers used:
+  1438 ;;		wreg
+  1439 ;; Tracked objects:
+  1440 ;;		On entry : 0/0
+  1441 ;;		On exit  : 0/0
+  1442 ;;		Unchanged: 0/0
+  1443 ;; Data sizes:     COMMON   BANK0
+  1444 ;;      Params:         0       0
+  1445 ;;      Locals:         0       0
+  1446 ;;      Temps:          0       1
+  1447 ;;      Totals:         0       1
+  1448 ;;Total ram usage:        1 bytes
+  1449 ;; Hardware stack levels used:    1
+  1450 ;; This function calls:
+  1451 ;;		Nothing
+  1452 ;; This function is called by:
+  1453 ;;		_make_sound
+  1454 ;; This function uses a non-reentrant model
+  1455 ;;
+  1456                           
+  1457                           
+  1458                           ;psect for function _sound_11
+  1459  02BF                     _sound_11:
+  1460  02BF                     l959:	
+  1461                           ;incstack = 0
+  1462                           ; Regs used in _sound_11: [wreg]
+  1463                           
+  1464                           
+  1465                           ;phone_keyboard.c: 170:     PORTAbits.RA0=1;
+  1466  02BF  1283               	bcf	3,5	;RP0=0, select bank0
+  1467  02C0  1405               	bsf	5,0	;volatile
+  1468                           
+  1469                           ;phone_keyboard.c: 171:           _delay((unsigned long)((3)*(8000/4000.0)));
+  1470  02C1  2AC2               	nop2	;2 cycle nop
+  1471  02C2  2AC3               	nop2	;2 cycle nop
+  1472  02C3  2AC4               	nop2	;2 cycle nop
+  1473                           
+  1474                           ;phone_keyboard.c: 172:           PORTAbits.RA0=0;
+  1475  02C4  1283               	bcf	3,5	;RP0=0, select bank0
+  1476  02C5  1005               	bcf	5,0	;volatile
+  1477  02C6                     l961:
+  1478                           
+  1479                           ;phone_keyboard.c: 173:           _delay((unsigned long)((45)*(8000/4000.0)));
+  1480  02C6  301D               	movlw	29
+  1481  02C7  008C               	movwf	??_sound_11
+  1482  02C8                     u337:
+  1483  02C8  0B8C               	decfsz	??_sound_11,f
+  1484  02C9  2AC8               	goto	u337
+  1485  02CA  2ACB               	nop2
+  1486  02CB                     l85:
+  1487  02CB  0008               	return
+  1488  02CC                     __end_of_sound_11:
+  1489                           
+  1490                           	psect	text14
+  1491  029D                     __ptext14:	
+  1492 ;; *************** function _sound_10 *****************
+  1493 ;; Defined at:
+  1494 ;;		line 160 in file "phone_keyboard.c"
+  1495 ;; Parameters:    Size  Location     Type
+  1496 ;;		None
+  1497 ;; Auto vars:     Size  Location     Type
+  1498 ;;		None
+  1499 ;; Return value:  Size  Location     Type
+  1500 ;;                  1    wreg      void 
+  1501 ;; Registers used:
+  1502 ;;		wreg
+  1503 ;; Tracked objects:
+  1504 ;;		On entry : 0/0
+  1505 ;;		On exit  : 0/0
+  1506 ;;		Unchanged: 0/0
+  1507 ;; Data sizes:     COMMON   BANK0
+  1508 ;;      Params:         0       0
+  1509 ;;      Locals:         0       0
+  1510 ;;      Temps:          0       1
+  1511 ;;      Totals:         0       1
+  1512 ;;Total ram usage:        1 bytes
+  1513 ;; Hardware stack levels used:    1
+  1514 ;; This function calls:
+  1515 ;;		Nothing
+  1516 ;; This function is called by:
+  1517 ;;		_make_sound
+  1518 ;; This function uses a non-reentrant model
+  1519 ;;
+  1520                           
+  1521                           
+  1522                           ;psect for function _sound_10
+  1523  029D                     _sound_10:
+  1524  029D                     l955:	
+  1525                           ;incstack = 0
+  1526                           ; Regs used in _sound_10: [wreg]
+  1527                           
+  1528                           
+  1529                           ;phone_keyboard.c: 162:     PORTAbits.RA0=1;
+  1530  029D  1283               	bcf	3,5	;RP0=0, select bank0
+  1531  029E  1405               	bsf	5,0	;volatile
+  1532                           
+  1533                           ;phone_keyboard.c: 163:           _delay((unsigned long)((1)*(8000/4000.0)));
+  1534  029F  2AA0               	nop2	;2 cycle nop
+  1535                           
+  1536                           ;phone_keyboard.c: 164:           PORTAbits.RA0=0;
+  1537  02A0  1283               	bcf	3,5	;RP0=0, select bank0
+  1538  02A1  1005               	bcf	5,0	;volatile
+  1539  02A2                     l957:
+  1540                           
+  1541                           ;phone_keyboard.c: 165:           _delay((unsigned long)((90)*(8000/4000.0)));
+  1542  02A2  303B               	movlw	59
+  1543  02A3  008C               	movwf	??_sound_10
+  1544  02A4                     u347:
+  1545  02A4  0B8C               	decfsz	??_sound_10,f
+  1546  02A5  2AA4               	goto	u347
+  1547  02A6  2AA7               	nop2
+  1548  02A7                     l82:
+  1549  02A7  0008               	return
+  1550  02A8                     __end_of_sound_10:
+  1551                           
+  1552                           	psect	text15
+  1553  02E6                     __ptext15:	
+  1554 ;; *************** function _sound_1 *****************
+  1555 ;; Defined at:
+  1556 ;;		line 88 in file "phone_keyboard.c"
+  1557 ;; Parameters:    Size  Location     Type
+  1558 ;;		None
+  1559 ;; Auto vars:     Size  Location     Type
+  1560 ;;		None
+  1561 ;; Return value:  Size  Location     Type
+  1562 ;;                  1    wreg      void 
+  1563 ;; Registers used:
+  1564 ;;		wreg
+  1565 ;; Tracked objects:
+  1566 ;;		On entry : 0/0
+  1567 ;;		On exit  : 0/0
+  1568 ;;		Unchanged: 0/0
+  1569 ;; Data sizes:     COMMON   BANK0
+  1570 ;;      Params:         0       0
+  1571 ;;      Locals:         0       0
+  1572 ;;      Temps:          0       1
+  1573 ;;      Totals:         0       1
+  1574 ;;Total ram usage:        1 bytes
+  1575 ;; Hardware stack levels used:    1
+  1576 ;; This function calls:
+  1577 ;;		Nothing
+  1578 ;; This function is called by:
+  1579 ;;		_make_sound
+  1580 ;; This function uses a non-reentrant model
+  1581 ;;
+  1582                           
+  1583                           
+  1584                           ;psect for function _sound_1
+  1585  02E6                     _sound_1:
+  1586  02E6                     l909:	
+  1587                           ;incstack = 0
+  1588                           ; Regs used in _sound_1: [wreg]
+  1589                           
+  1590                           
+  1591                           ;phone_keyboard.c: 90:           PORTAbits.RA0=1;
+  1592  02E6  1283               	bcf	3,5	;RP0=0, select bank0
+  1593  02E7  1405               	bsf	5,0	;volatile
+  1594  02E8                     l911:
+  1595                           
+  1596                           ;phone_keyboard.c: 91:           _delay((unsigned long)((5)*(8000/4000.0)));
+  1597  02E8  3003               	movlw	3
+  1598  02E9  008C               	movwf	??_sound_1
+  1599  02EA                     u357:
+  1600  02EA  0B8C               	decfsz	??_sound_1,f
+  1601  02EB  2AEA               	goto	u357
+  1602  02EC                     l913:
+  1603                           
+  1604                           ;phone_keyboard.c: 92:           PORTAbits.RA0=0;
+  1605  02EC  1283               	bcf	3,5	;RP0=0, select bank0
+  1606  02ED  1005               	bcf	5,0	;volatile
+  1607                           
+  1608                           ;phone_keyboard.c: 93:           _delay((unsigned long)((10)*(8000/4000.0)));
+  1609  02EE  3006               	movlw	6
+  1610  02EF  008C               	movwf	??_sound_1
+  1611  02F0                     u367:
+  1612  02F0  0B8C               	decfsz	??_sound_1,f
+  1613  02F1  2AF0               	goto	u367
+  1614  02F2  0000               	nop
+  1615  02F3                     l55:
+  1616  02F3  0008               	return
+  1617  02F4                     __end_of_sound_1:
+  1618                           
+  1619                           	psect	text16
+  1620  034B                     __ptext16:	
+  1621 ;; *************** function _eeprom_read *****************
+  1622 ;; Defined at:
+  1623 ;;		line 6 in file "C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c"
+  1624 ;; Parameters:    Size  Location     Type
+  1625 ;;  addr            1    wreg     unsigned char 
+  1626 ;; Auto vars:     Size  Location     Type
+  1627 ;;  addr            1    1[BANK0 ] unsigned char 
+  1628 ;; Return value:  Size  Location     Type
+  1629 ;;                  1    wreg      unsigned char 
+  1630 ;; Registers used:
+  1631 ;;		wreg, status,2, status,0
+  1632 ;; Tracked objects:
+  1633 ;;		On entry : 0/0
+  1634 ;;		On exit  : 0/0
+  1635 ;;		Unchanged: 0/0
+  1636 ;; Data sizes:     COMMON   BANK0
+  1637 ;;      Params:         0       0
+  1638 ;;      Locals:         0       1
+  1639 ;;      Temps:          0       1
+  1640 ;;      Totals:         0       2
+  1641 ;;Total ram usage:        2 bytes
+  1642 ;; Hardware stack levels used:    1
+  1643 ;; This function calls:
+  1644 ;;		Nothing
+  1645 ;; This function is called by:
+  1646 ;;		_read_tone
+  1647 ;; This function uses a non-reentrant model
+  1648 ;;
+  1649                           
+  1650                           
+  1651                           ;psect for function _eeprom_read
+  1652  034B                     _eeprom_read:
+  1653                           
+  1654                           ;incstack = 0
+  1655                           ; Regs used in _eeprom_read: [wreg+status,2+status,0]
+  1656                           ;eeprom_read@addr stored from wreg
+  1657  034B  1283               	bcf	3,5	;RP0=0, select bank0
+  1658  034C  008D               	movwf	eeprom_read@addr
+  1659  034D                     l201:	
+  1660                           ;C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 6: eeprom_read(uns
+      +                          igned char addr);C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 7:
+      +                           {;C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 8:  do
+  1661                           
+  1662  034D  0064               	clrwdt	;# 
+  1663  034E  1683               	bsf	3,5	;RP0=1, select bank1
+  1664  034F  1888               	btfsc	8,1	;volsfr
+  1665  0350  2B52               	goto	u101
+  1666  0351  2B53               	goto	u100
+  1667  0352                     u101:
+  1668  0352  2B4D               	goto	l201
+  1669  0353                     u100:
+  1670  0353                     l1005:
+  1671                           
+  1672                           ;C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 18:  return ( EEAD
+      +                          R = addr, EECON1 &= 0x3F, EECON1bits.RD = 1, EEDATA);
+  1673  0353  1283               	bcf	3,5	;RP0=0, select bank0
+  1674  0354  080D               	movf	eeprom_read@addr,w
+  1675  0355  0089               	movwf	9	;volatile
+  1676  0356  303F               	movlw	63
+  1677  0357  008C               	movwf	??_eeprom_read
+  1678  0358  080C               	movf	??_eeprom_read,w
+  1679  0359  1683               	bsf	3,5	;RP0=1, select bank1
+  1680  035A  0588               	andwf	8,f	;volsfr
+  1681  035B  1408               	bsf	8,0	;volsfr
+  1682  035C  1283               	bcf	3,5	;RP0=0, select bank0
+  1683  035D  0808               	movf	8,w	;volatile
+  1684  035E                     l203:
+  1685  035E  0008               	return
+  1686  035F                     __end_of_eeprom_read:
+  1687  004E                     btemp	set	78	;btemp
+  1688  004E                     wtemp0	set	78
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            66     17      17
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_get_key
+    _get_key->_read_tone
+    _read_tone->_make_sound
+    _make_sound->_sound_1
+    _make_sound->_sound_10
+    _make_sound->_sound_11
+    _make_sound->_sound_12
+    _make_sound->_sound_2
+    _make_sound->_sound_3
+    _make_sound->_sound_4
+    _make_sound->_sound_5
+    _make_sound->_sound_6
+    _make_sound->_sound_7
+    _make_sound->_sound_8
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 5     1      4     298
+                                             12 BANK0      5     1      4
+                            _get_key
+ ---------------------------------------------------------------------------------
+ (1) _get_key                                              4     4      0     274
+                                              8 BANK0      4     4      0
+                          _read_tone
+ ---------------------------------------------------------------------------------
+ (2) _read_tone                                            4     4      0      91
+                                              4 BANK0      4     4      0
+                        _eeprom_read
+                         _make_sound
+ ---------------------------------------------------------------------------------
+ (3) _make_sound                                           3     3      0      22
+                                              1 BANK0      3     3      0
+                            _sound_1
+                           _sound_10
+                           _sound_11
+                           _sound_12
+                            _sound_2
+                            _sound_3
+                            _sound_4
+                            _sound_5
+                            _sound_6
+                            _sound_7
+                            _sound_8
+                            _sound_9
+ ---------------------------------------------------------------------------------
+ (4) _sound_9                                              0     0      0       0
+ ---------------------------------------------------------------------------------
+ (4) _sound_8                                              1     1      0       0
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (4) _sound_7                                              1     1      0       0
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (4) _sound_6                                              1     1      0       0
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (4) _sound_5                                              1     1      0       0
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (4) _sound_4                                              1     1      0       0
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (4) _sound_3                                              1     1      0       0
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (4) _sound_2                                              1     1      0       0
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (4) _sound_12                                             1     1      0       0
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (4) _sound_11                                             1     1      0       0
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (4) _sound_10                                             1     1      0       0
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (4) _sound_1                                              1     1      0       0
+                                              0 BANK0      1     1      0
+ ---------------------------------------------------------------------------------
+ (3) _eeprom_read                                          2     2      0      22
+                                              0 BANK0      2     2      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _get_key
+     _read_tone
+       _eeprom_read
+       _make_sound
+         _sound_1
+         _sound_10
+         _sound_11
+         _sound_12
+         _sound_2
+         _sound_3
+         _sound_4
+         _sound_5
+         _sound_6
+         _sound_7
+         _sound_8
+         _sound_9
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            0      0       0       0        0.0%
+EEDATA              40      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+BANK0               42     11      11       3       25.8%
+ABS                  0      0       0       4        0.0%
+BITBANK0            42      0       0       5        0.0%
+DATA                 0      0       0       6        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.30 build 20200825195618 
+Symbol Table                                                                                   Fri Oct 09 18:42:23 2020
+
+                     l51 03FC                       l52 03FD                       l61 0301  
+                     l70 02B2                       l55 02F3                       l64 030F  
+                     l73 02E5                       l82 02A7                       l58 033B  
+                     l67 02D8                       l76 031D                       l85 02CB  
+                     l79 029C                       l88 032C                      l201 034D  
+                    l105 03A8                      l203 035E                      l108 02BE  
+                    l911 02E8                      l913 02EC                      l921 02F4  
+                    l915 032D                      l923 02F6                      l931 0309  
+                    l909 02E6                      l917 032F                      l925 02FA  
+                    l933 02CC                      l941 02AD                      l919 0334  
+                    l927 0302                      l935 02CE                      l943 02D9  
+                    l951 0316                      l961 02C6                      l929 0304  
+                    l937 02D2                      l945 02E0                      l953 0293  
+                    l955 029D                      l963 031E                      l939 02A8  
+                    l947 0310                      l971 0362                      l957 02A2  
+                    l965 0320                      l949 0312                      l981 036C  
+                    l973 0364                      l959 02BF                      l967 0325  
+                    l991 0376                      l983 036E                      l975 0366  
+                    l993 0378                      l985 0370                      l977 0368  
+                    l969 0361                      l987 0372                      l979 036A  
+                    l989 0374                      l997 037A                      u100 0353  
+                    u101 0352                      u110 03B7                      u111 03B6  
+                    u120 03BF                      u121 03BE                      u130 03C8  
+                    u131 03C7                      u140 03D0                      u141 03CF  
+                    u150 03D9                      u207 031A                      u151 03D8  
+                    u160 03E1                      u217 02E2                      u161 03E0  
+                    u170 03F2                      u307 0338                      u227 02AF  
+                    u171 03F1                      u180 03F8                      u317 0322  
+                    u237 02D0                      u181 03F7                      u327 0329  
+                    u247 02D6                      u337 02C8                      u257 0306  
+                    u347 02A4                      u267 030D                      u357 02EA  
+                    u277 02F8                      u197 0314                      u367 02F0  
+                    u287 02FE                      u297 0331                     l1011 02B6  
+                   l1005 0353                     l1013 02BC                     l1021 03B3  
+                   l1031 03C4                     l1015 03A9                     l1105 0382  
+                   l1009 02B5                     l1041 03D5                     l1025 03B8  
+                   l1017 03AC                     l1035 03C9                     l1027 03BA  
+                   l1019 03B1                     l1051 03EC                     l1045 03DA  
+                   l1037 03CB                     l1053 03F2                     l1029 03C0  
+                   l1061 033E                     l1055 03F8                     l1047 03DC  
+                   l1039 03D1                     l1071 0348                     l1063 0340  
+                   l1049 03E2                     l1065 0344                     l1067 0345  
+                   l1059 033C                     l1069 0346                     _main 033C  
+                   btemp 004E                     start 0000                    ?_main 0018  
+                  _EEADR 0009                    _PORTA 0005                    _PORTB 0006  
+                  _TRISA 0085                    _TRISB 0086          __end_of_get_key 03FE  
+            make_sound@n 000F          __end_of_sound_1 02F4          __end_of_sound_2 033C  
+        __end_of_sound_3 0302          __end_of_sound_4 0310          __end_of_sound_5 02D9  
+        __end_of_sound_6 02B3          __end_of_sound_7 02E6          __end_of_sound_8 031E  
+        __end_of_sound_9 029D                    status 0003                    wtemp0 004E  
+        __initialization 03FE             __end_of_main 034B                   ??_main 0000  
+                 _EEDATA 0008                   _EECON1 0088     __size_of_eeprom_read 0014  
+              ??_get_key 0014         __end_of_sound_10 02A8         __end_of_sound_11 02CC  
+       __end_of_sound_12 032D                ??_sound_1 000C                ??_sound_2 000C  
+              ??_sound_3 000C                ??_sound_4 000C                ??_sound_5 000C  
+              ??_sound_6 000C                ??_sound_7 000C                ??_sound_8 000C  
+              ??_sound_9 0000  __end_of__initialization 03FE          eeprom_read@addr 000D  
+         __pcstackCOMMON 0000           _OPTION_REGbits 0081       __size_of_read_tone 000C  
+             __pmaintext 033C          get_key@template 0016               _make_sound 035F  
+              ?_sound_10 000C                ?_sound_11 000C                ?_sound_12 000C  
+                __ptext1 03A9                  __ptext2 02B3                  __ptext3 035F  
+                __ptext4 0293                  __ptext5 0310                  __ptext6 02D9  
+                __ptext7 02A8                  __ptext8 02CC                  __ptext9 0302  
+                _get_key 03A9        __end_of_read_tone 02BF                  _sound_1 02E6  
+                _sound_2 032D                  _sound_3 02F4                  _sound_4 0302  
+                _sound_5 02CC                  _sound_6 02A8                  _sound_7 02D9  
+                _sound_8 0310                  _sound_9 0293     end_of_initialization 03FE  
+             ??_sound_10 000C               ??_sound_11 000C               ??_sound_12 000C  
+              _PORTAbits 0005                _PORTBbits 0006             read_tone@key 0012  
+             get_key@key 0017              ?_make_sound 000C            ??_eeprom_read 000C  
+    start_initialization 03FE      __end_of_eeprom_read 035F      __size_of_make_sound 004A  
+              ___latbits 0000            __pcstackBANK0 000C        __size_of_sound_10 000B  
+      __size_of_sound_11 000D        __size_of_sound_12 000F                 ?_get_key 000C  
+               ?_sound_1 000C                 ?_sound_2 000C                 ?_sound_3 000C  
+               ?_sound_4 000C                 ?_sound_5 000C                 ?_sound_6 000C  
+               ?_sound_7 000C                 ?_sound_8 000C                 ?_sound_9 000C  
+              _read_tone 02B3              _eeprom_read 034B               ?_read_tone 000C  
+           ??_make_sound 000D               _EECON1bits 0088         __size_of_get_key 0055  
+     __end_of_make_sound 03A9                 __ptext10 02F4                 __ptext11 032D  
+               __ptext12 031E                 __ptext13 02BF                 __ptext14 029D  
+               __ptext15 02E6                 __ptext16 034B         __size_of_sound_1 000E  
+       __size_of_sound_2 000F         __size_of_sound_3 000E         __size_of_sound_4 000E  
+       __size_of_sound_5 000D         __size_of_sound_6 000B         __size_of_sound_7 000D  
+       __size_of_sound_8 000E         __size_of_sound_9 000A            __size_of_main 000F  
+               _sound_10 029D                 _sound_11 02BF                 _sound_12 031E  
+               main@argc 0018                 main@argv 001A               _INTCONbits 000B  
+            ??_read_tone 0010             ?_eeprom_read 000C           read_tone@value 0013  

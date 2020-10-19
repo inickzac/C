@@ -1,0 +1,196 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F84A ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c
+[v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
+"29 D:\mplab\music box.X\mb.c
+[v _main main `(i  1 e 2 0 ]
+"52
+[v _sound_11 sound_11 `(v  1 e 1 0 ]
+"67
+[v _sound_12 sound_12 `(v  1 e 1 0 ]
+"82
+[v _sound_13 sound_13 `(v  1 e 1 0 ]
+"97
+[v _sound_14 sound_14 `(v  1 e 1 0 ]
+"112
+[v _sound_15 sound_15 `(v  1 e 1 0 ]
+"127
+[v _sound_16 sound_16 `(v  1 e 1 0 ]
+"144
+[v _make_sound make_sound `(v  1 e 1 0 ]
+"167
+[v _song_1 song_1 `(v  1 e 1 0 ]
+"178
+[v _song_2 song_2 `(v  1 e 1 0 ]
+"189
+[v _my_isr_routine my_isr_routine `II(v  1 e 1 0 ]
+"60 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+[s S92 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"228
+[u S101 . 1 `S92 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES101  1 e 1 @6 ]
+"273
+[v _EEDATA EEDATA `VEuc  1 e 1 @8 ]
+"280
+[v _EEADR EEADR `VEuc  1 e 1 @9 ]
+[s S48 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 EEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"330
+[s S57 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+[u S62 . 1 `S48 1 . 1 0 `S57 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES62  1 e 1 @11 ]
+"385
+[v _OPTION_REG OPTION_REG `VEuc  1 e 1 @129 ]
+[s S22 . 1 `uc 1 PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 INTEDG 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+"405
+[s S29 . 1 `uc 1 PS0 1 0 :1:0 
+`uc 1 PS1 1 0 :1:1 
+`uc 1 PS2 1 0 :1:2 
+]
+[u S33 . 1 `S22 1 . 1 0 `S29 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES33  1 e 1 @129 ]
+"455
+[v _TRISA TRISA `VEuc  1 e 1 @133 ]
+"499
+[v _TRISB TRISB `VEuc  1 e 1 @134 ]
+"561
+[v _EECON1 EECON1 `VEuc  1 e 1 @136 ]
+[s S190 . 1 `uc 1 RD 1 0 :1:0 
+`uc 1 WR 1 0 :1:1 
+`uc 1 WREN 1 0 :1:2 
+`uc 1 WRERR 1 0 :1:3 
+`uc 1 EEIF 1 0 :1:4 
+]
+"575
+[u S196 . 1 `S190 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES196  1 e 1 @136 ]
+"21 D:\mplab\music box.X\mb.c
+[v _state state `uc  1 e 1 0 ]
+"22
+[v _is_time_over is_time_over `uc  1 e 1 0 ]
+"23
+[v _sec sec `uc  1 e 1 0 ]
+"29
+[v _main main `(i  1 e 2 0 ]
+{
+"50
+} 0
+"178
+[v _song_2 song_2 `(v  1 e 1 0 ]
+{
+"182
+[v song_2@i i `uc  1 a 1 11 ]
+"180
+[v song_2@value value `VEuc  1 a 1 12 ]
+"187
+} 0
+"167
+[v _song_1 song_1 `(v  1 e 1 0 ]
+{
+"171
+[v song_1@i i `uc  1 a 1 11 ]
+"169
+[v song_1@value value `VEuc  1 a 1 12 ]
+"176
+} 0
+"144
+[v _make_sound make_sound `(v  1 e 1 0 ]
+{
+[v make_sound@n n `uc  1 a 1 wreg ]
+[v make_sound@n n `uc  1 a 1 wreg ]
+[v make_sound@n n `uc  1 a 1 8 ]
+"165
+} 0
+"127
+[v _sound_16 sound_16 `(v  1 e 1 0 ]
+{
+"129
+[v sound_16@i i `uc  1 a 1 4 ]
+"140
+} 0
+"112
+[v _sound_15 sound_15 `(v  1 e 1 0 ]
+{
+"114
+[v sound_15@i i `uc  1 a 1 5 ]
+"125
+} 0
+"97
+[v _sound_14 sound_14 `(v  1 e 1 0 ]
+{
+"99
+[v sound_14@i i `uc  1 a 1 4 ]
+"110
+} 0
+"82
+[v _sound_13 sound_13 `(v  1 e 1 0 ]
+{
+"84
+[v sound_13@i i `uc  1 a 1 5 ]
+"95
+} 0
+"67
+[v _sound_12 sound_12 `(v  1 e 1 0 ]
+{
+"69
+[v sound_12@i i `uc  1 a 1 4 ]
+"80
+} 0
+"52
+[v _sound_11 sound_11 `(v  1 e 1 0 ]
+{
+"54
+[v sound_11@i i `uc  1 a 1 5 ]
+"65
+} 0
+"6 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c
+[v _eeprom_read eeprom_read `(uc  1 e 1 0 ]
+{
+[v eeprom_read@addr addr `uc  1 a 1 wreg ]
+[v eeprom_read@addr addr `uc  1 a 1 wreg ]
+"9
+[v eeprom_read@addr addr `uc  1 a 1 4 ]
+"19
+} 0
+"189 D:\mplab\music box.X\mb.c
+[v _my_isr_routine my_isr_routine `II(v  1 e 1 0 ]
+{
+"241
+} 0

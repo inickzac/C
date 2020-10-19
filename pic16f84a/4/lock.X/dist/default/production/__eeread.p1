@@ -1,0 +1,98 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"567 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 567:     struct {
+[s S22 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S22 . RD WR WREN WRERR EEIF ]
+"566
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 566: typedef union {
+[u S21 `S22 1 ]
+[n S21 . . ]
+"575
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 575: extern volatile EECON1bits_t EECON1bits __attribute__((address(0x088)));
+[v _EECON1bits `VS21 ~T0 @X0 0 e@136 ]
+"280
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 280: extern volatile unsigned char EEADR __attribute__((address(0x009)));
+[v _EEADR `Vuc ~T0 @X0 0 e@9 ]
+"561
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 561: extern volatile unsigned char EECON1 __attribute__((address(0x088)));
+[v _EECON1 `Vuc ~T0 @X0 0 e@136 ]
+"273
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 273: extern volatile unsigned char EEDATA __attribute__((address(0x008)));
+[v _EEDATA `Vuc ~T0 @X0 0 e@8 ]
+"55 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 55: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"62
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 62: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"69
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 69: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"76
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 76: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"162
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 162: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"169
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 169: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"213
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 213: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"275
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 275: __asm("EEDATA equ 08h");
+[; <" EEDATA equ 08h ;# ">
+"282
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 282: __asm("EEADR equ 09h");
+[; <" EEADR equ 09h ;# ">
+"289
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 289: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"309
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 309: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"387
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 387: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"457
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 457: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"501
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 501: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"563
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 563: __asm("EECON1 equ 088h");
+[; <" EECON1 equ 088h ;# ">
+"607
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 607: __asm("EECON2 equ 089h");
+[; <" EECON2 equ 089h ;# ">
+"6 C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 6: eeprom_read(unsigned char addr)
+[v _eeprom_read `(uc ~T0 @X0 1 ef1`uc ]
+"7
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 7: {
+{
+[e :U _eeprom_read ]
+"6
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 6: eeprom_read(unsigned char addr)
+[v _addr `uc ~T0 @X0 1 r1 ]
+"7
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 7: {
+[f ]
+"8
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 8:  do
+[e :U 26 ]
+"9
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 9:   __asm("clrwdt");
+[; <" clrwdt ;# ">
+[e $ != -> . . _EECON1bits 0 1 `i -> 0 `i 26  ]
+[e :U 25 ]
+"18
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 18:  return ( EEADR = addr, EECON1 &= 0x3F, EECON1bits.RD = 1, EEDATA);
+[e ) ; ; ; = _EEADR _addr =& _EECON1 -> -> 63 `i `Vuc = . . _EECON1bits 0 0 -> -> 1 `i `uc _EEDATA ]
+[e $UE 23  ]
+"19
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c: 19: }
+[e :UE 23 ]
+}

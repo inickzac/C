@@ -1,0 +1,340 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[p mainexit ]
+"455 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 455: extern volatile unsigned char TRISA __attribute__((address(0x085)));
+[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
+"499
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 499: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"167
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 167: extern volatile unsigned char PORTA __attribute__((address(0x005)));
+[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"211
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 211: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"313
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 313:     struct {
+[s S17 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S17 . RBIF INTF T0IF RBIE INTE T0IE EEIE GIE ]
+"323
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 323:     struct {
+[s S18 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S18 . . TMR0IF . TMR0IE ]
+"312
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 312: typedef union {
+[u S16 `S17 1 `S18 1 ]
+[n S16 . . . ]
+"330
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 330: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS16 ~T0 @X0 0 e@11 ]
+"391
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 391:     struct {
+[s S20 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S20 . PS PSA T0SE T0CS INTEDG nRBPU ]
+"399
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 399:     struct {
+[s S21 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S21 . PS0 PS1 PS2 ]
+"390
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 390: typedef union {
+[u S19 `S20 1 `S21 1 ]
+[n S19 . . . ]
+"405
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 405: extern volatile OPTION_REGbits_t OPTION_REGbits __attribute__((address(0x081)));
+[v _OPTION_REGbits `VS19 ~T0 @X0 0 e@129 ]
+"8 phone_keyboard.c
+[; ;phone_keyboard.c: 8: unsigned char get_key(void);
+[v _get_key `(uc ~T0 @X0 0 ef ]
+"217 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 217:     struct {
+[s S13 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S13 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"216
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 216: typedef union {
+[u S12 `S13 1 ]
+[n S12 . . ]
+"228
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 228: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
+[v _PORTBbits `VS12 ~T0 @X0 0 e@6 ]
+[v F217 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:\Program Files\Microchip\xc8\v2.30\pic\include\builtins.h
+[v __delay `JF217 ~T0 @X0 0 e ]
+[p i __delay ]
+"55 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 55: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"62
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 62: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"69
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 69: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"76
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 76: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"162
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 162: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"169
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 169: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"213
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 213: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"275
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 275: __asm("EEDATA equ 08h");
+[; <" EEDATA equ 08h ;# ">
+"282
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 282: __asm("EEADR equ 09h");
+[; <" EEADR equ 09h ;# ">
+"289
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 289: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"309
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 309: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"387
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 387: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"457
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 457: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"501
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 501: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"563
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 563: __asm("EECON1 equ 088h");
+[; <" EECON1 equ 088h ;# ">
+"607
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 607: __asm("EECON2 equ 089h");
+[; <" EECON2 equ 089h ;# ">
+[v $root$_main `(v ~T0 @X0 0 e ]
+"9 phone_keyboard.c
+[; ;phone_keyboard.c: 9: int main(int argc, char** argv) {
+[v _main `(i ~T0 @X0 1 ef2`i`**uc ]
+{
+[e :U _main ]
+[v _argc `i ~T0 @X0 1 r1 ]
+[v _argv `**uc ~T0 @X0 1 r2 ]
+[f ]
+"11
+[; ;phone_keyboard.c: 11:     TRISA = 0X0;
+[e = _TRISA -> -> 0 `i `uc ]
+"12
+[; ;phone_keyboard.c: 12:     TRISB = 0b1111;
+[e = _TRISB -> -> 15 `i `uc ]
+"13
+[; ;phone_keyboard.c: 13:     PORTA = 0b11111100;
+[e = _PORTA -> -> 252 `i `uc ]
+"14
+[; ;phone_keyboard.c: 14:     PORTB = 0X0;
+[e = _PORTB -> -> 0 `i `uc ]
+"15
+[; ;phone_keyboard.c: 15:     INTCONbits.GIE=0;
+[e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
+"16
+[; ;phone_keyboard.c: 16:     INTCONbits.RBIE=1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"17
+[; ;phone_keyboard.c: 17:     OPTION_REGbits.nRBPU=0;
+[e = . . _OPTION_REGbits 0 5 -> -> 0 `i `uc ]
+"18
+[; ;phone_keyboard.c: 18:     unsigned char key=0;
+[v _key `uc ~T0 @X0 1 a ]
+[e = _key -> -> 0 `i `uc ]
+"19
+[; ;phone_keyboard.c: 19:     while(1)
+[e :U 30 ]
+"20
+[; ;phone_keyboard.c: 20:     {
+{
+"21
+[; ;phone_keyboard.c: 21:         key = get_key();
+[e = _key ( _get_key ..  ]
+"22
+[; ;phone_keyboard.c: 22:         if(key!=0xff)
+[e $ ! != -> _key `i -> 255 `i 32  ]
+"23
+[; ;phone_keyboard.c: 23:         {
+{
+"24
+[; ;phone_keyboard.c: 24:           TRISA = 0X0;
+[e = _TRISA -> -> 0 `i `uc ]
+"25
+[; ;phone_keyboard.c: 25:         }
+}
+[e :U 32 ]
+"26
+[; ;phone_keyboard.c: 26:     }
+}
+[e :U 29 ]
+[e $U 30  ]
+[e :U 31 ]
+"27
+[; ;phone_keyboard.c: 27:     return (0);
+[e ) -> 0 `i ]
+[e $UE 28  ]
+"28
+[; ;phone_keyboard.c: 28: }
+[e :UE 28 ]
+}
+"30
+[; ;phone_keyboard.c: 30: unsigned char get_key(void)
+[v _get_key `(uc ~T0 @X0 1 ef ]
+"31
+[; ;phone_keyboard.c: 31: {
+{
+[e :U _get_key ]
+[f ]
+"32
+[; ;phone_keyboard.c: 32:     char key, template;
+[v _key `uc ~T0 @X0 1 a ]
+[v _template `uc ~T0 @X0 1 a ]
+"33
+[; ;phone_keyboard.c: 33:     key =1; template=0b11101111;
+[e = _key -> -> 1 `i `uc ]
+[e = _template -> -> 239 `i `uc ]
+"34
+[; ;phone_keyboard.c: 34:     while(key<13)
+[e $U 34  ]
+[e :U 35 ]
+"35
+[; ;phone_keyboard.c: 35:     {
+{
+"36
+[; ;phone_keyboard.c: 36:         PORTB = template;
+[e = _PORTB -> _template `uc ]
+"37
+[; ;phone_keyboard.c: 37:         if(!PORTBbits.RB3)
+[e $ ! ! != -> . . _PORTBbits 0 3 `i -> 0 `i 37  ]
+"38
+[; ;phone_keyboard.c: 38:         {
+{
+"39
+[; ;phone_keyboard.c: 39:             while(!PORTBbits.RB3)
+[e $U 38  ]
+[e :U 39 ]
+"40
+[; ;phone_keyboard.c: 40:             {
+{
+"41
+[; ;phone_keyboard.c: 41:               _delay((unsigned long)((1)*(8000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000 `i `d .4000.0 `ul ]
+"42
+[; ;phone_keyboard.c: 42:             }
+}
+[e :U 38 ]
+"39
+[; ;phone_keyboard.c: 39:             while(!PORTBbits.RB3)
+[e $ ! != -> . . _PORTBbits 0 3 `i -> 0 `i 39  ]
+[e :U 40 ]
+"43
+[; ;phone_keyboard.c: 43:         break;
+[e $U 36  ]
+"44
+[; ;phone_keyboard.c: 44:         }
+}
+[e :U 37 ]
+"45
+[; ;phone_keyboard.c: 45:         key++;
+[e ++ _key -> -> 1 `i `uc ]
+"46
+[; ;phone_keyboard.c: 46:         if(!PORTBbits.RB2)
+[e $ ! ! != -> . . _PORTBbits 0 2 `i -> 0 `i 41  ]
+"47
+[; ;phone_keyboard.c: 47:         {
+{
+"48
+[; ;phone_keyboard.c: 48:          {
+{
+"49
+[; ;phone_keyboard.c: 49:             while(!PORTBbits.RB2)
+[e $U 42  ]
+[e :U 43 ]
+"50
+[; ;phone_keyboard.c: 50:             {
+{
+"51
+[; ;phone_keyboard.c: 51:               _delay((unsigned long)((1)*(8000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000 `i `d .4000.0 `ul ]
+"52
+[; ;phone_keyboard.c: 52:             }
+}
+[e :U 42 ]
+"49
+[; ;phone_keyboard.c: 49:             while(!PORTBbits.RB2)
+[e $ ! != -> . . _PORTBbits 0 2 `i -> 0 `i 43  ]
+[e :U 44 ]
+"53
+[; ;phone_keyboard.c: 53:         break;
+[e $U 36  ]
+"54
+[; ;phone_keyboard.c: 54:          }
+}
+"55
+[; ;phone_keyboard.c: 55:         }
+}
+[e :U 41 ]
+"56
+[; ;phone_keyboard.c: 56:         key++;
+[e ++ _key -> -> 1 `i `uc ]
+"57
+[; ;phone_keyboard.c: 57:         if(!PORTBbits.RB1)
+[e $ ! ! != -> . . _PORTBbits 0 1 `i -> 0 `i 45  ]
+"58
+[; ;phone_keyboard.c: 58:         {
+{
+"59
+[; ;phone_keyboard.c: 59:           while(!PORTBbits.RB1)
+[e $U 46  ]
+[e :U 47 ]
+"60
+[; ;phone_keyboard.c: 60:             {
+{
+"61
+[; ;phone_keyboard.c: 61:               _delay((unsigned long)((1)*(8000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000 `i `d .4000.0 `ul ]
+"62
+[; ;phone_keyboard.c: 62:             }
+}
+[e :U 46 ]
+"59
+[; ;phone_keyboard.c: 59:           while(!PORTBbits.RB1)
+[e $ ! != -> . . _PORTBbits 0 1 `i -> 0 `i 47  ]
+[e :U 48 ]
+"63
+[; ;phone_keyboard.c: 63:         break;
+[e $U 36  ]
+"64
+[; ;phone_keyboard.c: 64:         }
+}
+[e :U 45 ]
+"65
+[; ;phone_keyboard.c: 65:         key++;
+[e ++ _key -> -> 1 `i `uc ]
+"66
+[; ;phone_keyboard.c: 66:         template=template <<1;
+[e = _template -> << -> _template `i -> 1 `i `uc ]
+"67
+[; ;phone_keyboard.c: 67:     }
+}
+[e :U 34 ]
+"34
+[; ;phone_keyboard.c: 34:     while(key<13)
+[e $ < -> _key `i -> 13 `i 35  ]
+[e :U 36 ]
+"69
+[; ;phone_keyboard.c: 69:     if(key==13) {key=0xff;}
+[e $ ! == -> _key `i -> 13 `i 49  ]
+{
+[e = _key -> -> 255 `i `uc ]
+}
+[e :U 49 ]
+"70
+[; ;phone_keyboard.c: 70:     return key;
+[e ) -> _key `uc ]
+[e $UE 33  ]
+"71
+[; ;phone_keyboard.c: 71: }
+[e :UE 33 ]
+}

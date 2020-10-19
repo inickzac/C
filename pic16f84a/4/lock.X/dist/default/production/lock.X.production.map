@@ -1,0 +1,427 @@
+Microchip MPLAB XC8 Compiler V2.30
+
+Linker command line:
+
+-W-3 --edf=C:\Program Files\Microchip\xc8\v2.30\pic\dat\en_msgs.txt -cn \
+  -h+dist/default/production\lock.X.production.sym \
+  --cmf=dist/default/production\lock.X.production.cmf -z -Q16F84A \
+  -oC:\Users\8E9B~1\AppData\Local\Temp\sflsx2 --defsym=__MPLAB_BUILD=1 \
+  -Mdist/default/production/lock.X.production.map -E1 -ver=XC8 Compiler \
+  --acfsm=1493 -ASTACK=027h-04Dh -pstack=STACK -ACODE=00h-03FFh \
+  -ASTRCODE=00h-03FFh -ASTRING=00h-0FFhx4 -ACONST=00h-0FFhx4 \
+  -AENTRY=00h-0FFhx4 -ABANK0=0Ch-04Dh -ARAM=0Ch-04Dh -AABS1=0Ch-04Fh \
+  -ACOMMON=04Eh-04Fh -ASFR0=00h-0Bh -ASFR1=080h-0CDh -ACONFIG=02007h-02007h \
+  -DCONFIG=2 -AIDLOC=02000h-02003h -DIDLOC=2 -AEEDATA=00h-03Fh/02100h \
+  -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
+  -DENTRY=2 -preset_vec=00h,intentry,init,end_init -ppowerup=CODE \
+  -pcinit=CODE -pfunctab=ENTRY -k \
+  C:\Users\8E9B~1\AppData\Local\Temp\sflsxe.o \
+  dist/default/production\lock.X.production.o 
+
+Object code version is 3.11
+
+Machine type is 16F84A
+
+
+
+                Name                               Link     Load   Length Selector   Space Scale
+C:\Users\8E9B~1\AppData\Local\Temp\sflsxe.o
+                end_init                              0        0        1        0       0
+dist/default/production\lock.X.production.o
+                cinit                               3FE      3FE        2      7FC       0
+                eeprom_data                           0     2100       28     4200       3
+                text4                               2DC      2DC       14      5B8       0
+                text3                               38F      38F       6F      71E       0
+                text2                               2F0      2F0       17      5E0       0
+                text1                               33D      33D       52      67A       0
+                maintext                            307      307       36      60E       0
+                cstackBANK0                           C        C       1B        C       1
+
+TOTAL           Name                               Link     Load   Length     Space
+        CLASS   STACK          
+
+        CLASS   CODE           
+                end_init                              0        0        1         0
+                cinit                               3FE      3FE        2         0
+                text4                               2DC      2DC       14         0
+                text3                               38F      38F       6F         0
+                text2                               2F0      2F0       17         0
+                text1                               33D      33D       52         0
+                maintext                            307      307       36         0
+
+        CLASS   STRCODE        
+
+        CLASS   STRING         
+
+        CLASS   CONST          
+
+        CLASS   ENTRY          
+
+        CLASS   BANK0          
+                cstackBANK0                           C        C       1B         1
+
+        CLASS   RAM            
+
+        CLASS   ABS1           
+                abs_s1                               4E       4E        2         1
+
+        CLASS   COMMON         
+
+        CLASS   SFR0           
+
+        CLASS   SFR1           
+
+        CLASS   CONFIG         
+
+        CLASS   IDLOC          
+
+        CLASS   EEDATA         
+                eeprom_data                           0     2100       28         3
+
+        CLASS   BANK1          
+
+
+
+SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
+
+                reset_vec                      000000  000001  000001         0       0  CODE        2
+                cstackBANK0                    00000C  00001B  000027         C       1  BANK0       1
+                text4                          0002DC  000014  0002F0       5B8       0  CODE        2
+                text2                          0002F0  000017  000307       5E0       0  CODE        2
+                maintext                       000307  000036  00033D       60E       0  CODE        2
+                text1                          00033D  000052  00038F       67A       0  CODE        2
+                text3                          00038F  00006F  0003FE       71E       0  CODE        2
+                cinit                          0003FE  000002  000400       7FC       0  CODE        2
+                eeprom_data                    002100  000028  002128      4200       3  EEDATA      2
+
+
+UNUSED ADDRESS RANGES
+
+        Name                Unused          Largest block    Delta
+        BANK0            0027-004D             27           1
+        CODE             0001-02DB            2DB           2
+        CONFIG           2007-2007              1           2
+        CONST            0001-02DB            100           2
+        EEDATA           2128-213F             18           2
+        ENTRY            0001-02DB            100           2
+        IDLOC            2000-2003              4           2
+        RAM              0027-004D             27           1
+        SFR0             0000-000B              C           1
+        SFR1             0080-00CD             4E           1
+        STACK            0027-004D             27           1
+        STRCODE          0001-02DB            2DB           2
+        STRING           0001-02DB            100           2
+
+                                  Symbol Table
+
+_EEADR                       (abs)        0009
+_EECON1                      (abs)        0088
+_EECON1bits                  (abs)        0088
+_EEDATA                      (abs)        0008
+_INTCONbits                  (abs)        000B
+_OPTION_REGbits              (abs)        0081
+_PORTA                       (abs)        0005
+_PORTB                       (abs)        0006
+_PORTBbits                   (abs)        0006
+_TRISA                       (abs)        0085
+_TRISB                       (abs)        0086
+__Beeprom_data               eeprom_data  2100
+__Habs1                      abs1         0000
+__Hbank0                     bank0        0000
+__Hbank1                     bank1        0000
+__Hcinit                     cinit        0400
+__Hclrtext                   clrtext      0000
+__Hcode                      code         0000
+__Hcommon                    common       0000
+__HcstackBANK0               cstackBANK0  0000
+__HcstackCOMMON              cstackCOMMON 0000
+__Heeprom_data               eeprom_data  0028
+__Hend_init                  end_init     0001
+__Hfunctab                   functab      0000
+__Hinit                      init         0000
+__Hintentry                  intentry     0000
+__Hmaintext                  maintext     0000
+__Hpowerup                   powerup      0000
+__Hram                       ram          0000
+__Hreset_vec                 reset_vec    0000
+__Hsfr0                      sfr0         0000
+__Hsfr1                      sfr1         0000
+__Hspace_0                   (abs)        0400
+__Hspace_1                   (abs)        0027
+__Hspace_2                   (abs)        0000
+__Hspace_3                   (abs)        0028
+__Hstack                     stack        0000
+__Hstrings                   strings      0000
+__Htext                      text         0000
+__Labs1                      abs1         0000
+__Lbank0                     bank0        0000
+__Lbank1                     bank1        0000
+__Lcinit                     cinit        03FE
+__Lclrtext                   clrtext      0000
+__Lcode                      code         0000
+__Lcommon                    common       0000
+__LcstackBANK0               cstackBANK0  0000
+__LcstackCOMMON              cstackCOMMON 0000
+__Leeprom_data               eeprom_data  0000
+__Lend_init                  end_init     0000
+__Lfunctab                   functab      0000
+__Linit                      init         0000
+__Lintentry                  intentry     0000
+__Lmaintext                  maintext     0000
+__Lpowerup                   powerup      0000
+__Lram                       ram          0000
+__Lreset_vec                 reset_vec    0000
+__Lsfr0                      sfr0         0000
+__Lsfr1                      sfr1         0000
+__Lspace_0                   (abs)        0000
+__Lspace_1                   (abs)        0000
+__Lspace_2                   (abs)        0000
+__Lspace_3                   (abs)        0000
+__Lstack                     stack        0000
+__Lstrings                   strings      0000
+__Ltext                      text         0000
+__S0                         (abs)        0400
+__S1                         (abs)        0027
+__S2                         (abs)        0000
+__S3                         (abs)        2128
+___int_sp                    stack        0000
+___latbits                   (abs)        0000
+___sp                        stack        0000
+___stackhi                   (abs)        0000
+___stacklo                   (abs)        0000
+__end_of__initialization     cinit        03FE
+__end_of_check_imput_string  text2        0307
+__end_of_check_user          text3        03FE
+__end_of_eeprom_read         text4        02F0
+__end_of_get_key             text1        038F
+__end_of_main                maintext     033D
+__initialization             cinit        03FE
+__pcstackBANK0               cstackBANK0  000C
+__pcstackCOMMON              cstackCOMMON 0000
+__pmaintext                  maintext     0307
+__ptext1                     text1        033D
+__ptext2                     text2        02F0
+__ptext3                     text3        038F
+__ptext4                     text4        02DC
+__size_of_check_imput_string (abs)        0000
+__size_of_check_user         (abs)        0000
+__size_of_eeprom_read        (abs)        0000
+__size_of_get_key            (abs)        0000
+__size_of_main               (abs)        0000
+_check_imput_string          text2        02F0
+_check_user                  text3        038F
+_eeprom_read                 text4        02DC
+_get_key                     text1        033D
+_main                        maintext     0307
+btemp                        (abs)        004E
+check_imput_string@keys      cstackBANK0  0019
+check_user@address           cstackBANK0  0011
+check_user@i                 cstackBANK0  0014
+check_user@is_exist          cstackBANK0  0013
+check_user@j                 cstackBANK0  0016
+check_user@keys              cstackBANK0  0012
+check_user@value             cstackBANK0  0018
+eeprom_read@addr             cstackBANK0  000D
+end_of_initialization        cinit        03FE
+get_key@key                  cstackBANK0  000F
+get_key@template             cstackBANK0  000E
+intlevel0                    functab      0000
+intlevel1                    functab      0000
+intlevel2                    functab      0000
+intlevel3                    functab      0000
+intlevel4                    functab      0000
+intlevel5                    functab      0000
+main@key                     cstackBANK0  0025
+main@keys                    cstackBANK0  001B
+main@quantityChar            cstackBANK0  0026
+reset_vec                    reset_vec    0000
+start                        init         0000
+start_initialization         cinit        03FE
+wtemp0                       (abs)        004E
+
+
+FUNCTION INFORMATION:
+
+ *************** function _main *****************
+ Defined at:
+		line 16 in file "lock.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  keys           10   15[BANK0 ] unsigned char [10]
+  quantityChar    1   26[BANK0 ] unsigned char 
+  key             1   25[BANK0 ] unsigned char 
+  data            1    0        unsigned char 
+ Return value:  Size  Location     Type
+                  2   28[None  ] int 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0
+      Params:         0       0
+      Locals:         0      12
+      Temps:          0       1
+      Totals:         0      13
+Total ram usage:       13 bytes
+ Hardware stack levels required when called:    3
+ This function calls:
+		_check_imput_string
+		_get_key
+ This function is called by:
+		Startup code after reset
+ This function uses a non-reentrant model
+
+
+ *************** function _get_key *****************
+ Defined at:
+		line 53 in file "lock.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+  key             1    3[BANK0 ] unsigned char 
+  template        1    2[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0
+      Params:         0       0
+      Locals:         0       2
+      Temps:          0       2
+      Totals:         0       4
+Total ram usage:        4 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _check_imput_string *****************
+ Defined at:
+		line 96 in file "lock.c"
+ Parameters:    Size  Location     Type
+  keys            1    wreg     PTR unsigned char 
+		 -> main@keys(10), 
+ Auto vars:     Size  Location     Type
+  keys            1   13[BANK0 ] PTR unsigned char 
+		 -> main@keys(10), 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0
+      Params:         0       0
+      Locals:         0       1
+      Temps:          0       0
+      Totals:         0       1
+Total ram usage:        1 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    2
+ This function calls:
+		_check_user
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
+ *************** function _check_user *****************
+ Defined at:
+		line 107 in file "lock.c"
+ Parameters:    Size  Location     Type
+  keys            1    wreg     PTR unsigned char 
+		 -> main@keys(10), 
+ Auto vars:     Size  Location     Type
+  keys            1    6[BANK0 ] PTR unsigned char 
+		 -> main@keys(10), 
+  i               2    8[BANK0 ] int 
+  j               2   10[BANK0 ] int 
+  is_exist        1    7[BANK0 ] unsigned char 
+  value           1   12[BANK0 ] volatile unsigned char 
+  address         1    5[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      void 
+ Registers used:
+		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0
+      Params:         0       0
+      Locals:         0       8
+      Temps:          0       3
+      Totals:         0      11
+Total ram usage:       11 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    1
+ This function calls:
+		_eeprom_read
+ This function is called by:
+		_check_imput_string
+ This function uses a non-reentrant model
+
+
+ *************** function _eeprom_read *****************
+ Defined at:
+		line 6 in file "C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c"
+ Parameters:    Size  Location     Type
+  addr            1    wreg     unsigned char 
+ Auto vars:     Size  Location     Type
+  addr            1    1[BANK0 ] unsigned char 
+ Return value:  Size  Location     Type
+                  1    wreg      unsigned char 
+ Registers used:
+		wreg, status,2, status,0
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMMON   BANK0
+      Params:         0       0
+      Locals:         0       1
+      Temps:          0       1
+      Totals:         0       2
+Total ram usage:        2 bytes
+ Hardware stack levels used:    1
+ This function calls:
+		Nothing
+ This function is called by:
+		_check_user
+ This function uses a non-reentrant model
+
+
+
+MODULE INFORMATION
+
+Module		Function		Class		Link	Load	Size
+lock.c
+		_check_imput_string		CODE           	02F0	0000	23
+		_main          		CODE           	0307	0000	54
+		_check_user    		CODE           	038F	0000	111
+		_get_key       		CODE           	033D	0000	82
+
+lock.c estimated size: 270
+
+C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c
+		_eeprom_read   		CODE           	02DC	0000	20
+
+C:\Program Files\Microchip\xc8\v2.30\pic\sources\c90\pic\__eeread.c estimated size: 20
+
+shared
+		__initialization		CODE           	03FE	0000	1
+
+shared estimated size: 1
+

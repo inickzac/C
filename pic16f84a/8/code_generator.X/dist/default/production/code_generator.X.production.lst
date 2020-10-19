@@ -1,0 +1,1696 @@
+
+
+Microchip MPLAB XC8 Assembler V2.30 build 20200825195618 
+                                                                                               Sun Oct 11 17:58:54 2020
+
+Microchip MPLAB XC8 C Compiler v2.30 (Free license) build 20200825195618 Og1 
+     1                           	processor	16F84A
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     5                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1,noexec
+     6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     7                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     8                           	psect	maintext,global,class=CODE,split=1,delta=2
+     9                           	psect	text1,local,class=CODE,merge=1,delta=2
+    10                           	psect	text2,local,class=CODE,merge=1,delta=2
+    11                           	psect	text3,local,class=CODE,merge=1,delta=2
+    12                           	psect	text4,local,class=CODE,merge=1,delta=2
+    13                           	psect	text5,local,class=CODE,merge=1,delta=2
+    14                           	psect	text6,local,class=CODE,merge=1,delta=2
+    15                           	psect	text7,local,class=CODE,merge=1,delta=2
+    16                           	psect	text8,local,class=CODE,merge=1,delta=2
+    17                           	psect	text9,local,class=CODE,merge=1,delta=2
+    18                           	psect	text10,local,class=CODE,merge=1,delta=2
+    19                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    20                           	dabs	1,0x4E,2
+    21  0000                     
+    22                           ; Version 2.30
+    23                           ; Generated 26/08/2020 GMT
+    24                           ; 
+    25                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    26                           ; All rights reserved.
+    27                           ; 
+    28                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    29                           ; 
+    30                           ; Redistribution and use in source and binary forms, with or without modification, are
+    31                           ; permitted provided that the following conditions are met:
+    32                           ; 
+    33                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    34                           ;        conditions and the following disclaimer.
+    35                           ; 
+    36                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    37                           ;        of conditions and the following disclaimer in the documentation and/or other
+    38                           ;        materials provided with the distribution. Publication is not required when
+    39                           ;        this file is used in an embedded application.
+    40                           ; 
+    41                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    42                           ;        software without specific prior written permission.
+    43                           ; 
+    44                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    45                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    46                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    47                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    48                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    49                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    50                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    51                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    52                           ; 
+    53                           ; 
+    54                           ; Code-generator required, PIC16F84A Definitions
+    55                           ; 
+    56                           ; SFR Addresses
+    57  0000                     	;# 
+    58  0001                     	;# 
+    59  0002                     	;# 
+    60  0003                     	;# 
+    61  0004                     	;# 
+    62  0005                     	;# 
+    63  0006                     	;# 
+    64  0008                     	;# 
+    65  0009                     	;# 
+    66  000A                     	;# 
+    67  000B                     	;# 
+    68  0081                     	;# 
+    69  0085                     	;# 
+    70  0086                     	;# 
+    71  0088                     	;# 
+    72  0089                     	;# 
+    73  0000                     	;# 
+    74  0001                     	;# 
+    75  0002                     	;# 
+    76  0003                     	;# 
+    77  0004                     	;# 
+    78  0005                     	;# 
+    79  0006                     	;# 
+    80  0008                     	;# 
+    81  0009                     	;# 
+    82  000A                     	;# 
+    83  000B                     	;# 
+    84  0081                     	;# 
+    85  0085                     	;# 
+    86  0086                     	;# 
+    87  0088                     	;# 
+    88  0089                     	;# 
+    89  0006                     _PORTBbits	set	6
+    90  0006                     _PORTB	set	6
+    91  0005                     _PORTA	set	5
+    92  000B                     _INTCONbits	set	11
+    93  0086                     _TRISB	set	134
+    94  0085                     _TRISA	set	133
+    95  0081                     _OPTION_REGbits	set	129
+    96                           
+    97                           	psect	cinit
+    98  03FA                     start_initialization:	
+    99                           ; #config settings
+   100                           
+   101  03FA                     __initialization:
+   102                           
+   103                           ; Clear objects allocated to BANK0
+   104  03FA  1283               	bcf	3,5	;RP0=0, select bank0
+   105  03FB  019D               	clrf	__pbssBANK0& (0+127)
+   106  03FC  019E               	clrf	(__pbssBANK0+1)& (0+127)
+   107  03FD  019F               	clrf	(__pbssBANK0+2)& (0+127)
+   108  03FE                     end_of_initialization:	
+   109                           ;End of C runtime variable initialization code
+   110                           
+   111  03FE                     __end_of__initialization:
+   112  03FE  0183               	clrf	3
+   113  03FF  2B2A               	ljmp	_main	;jump to C main() function
+   114                           
+   115                           	psect	bssBANK0
+   116  001D                     __pbssBANK0:
+   117  001D                     _key:
+   118  001D                     	ds	1
+   119  001E                     _gray:
+   120  001E                     	ds	1
+   121  001F                     _logic_bits:
+   122  001F                     	ds	1
+   123                           
+   124                           	psect	cstackCOMMON
+   125  0000                     __pcstackCOMMON:
+   126  0000                     ??_single_dec:
+   127  0000                     ??_stop_gen:	
+   128                           ; 1 bytes @ 0x0
+   129                           
+   130  0000                     ??_wait_with_check:	
+   131                           ; 1 bytes @ 0x0
+   132                           
+   133                           
+   134                           	psect	cstackBANK0
+   135  000C                     __pcstackBANK0:	
+   136                           ; 1 bytes @ 0x0
+   137                           
+   138  000C                     ?_single_inc:
+   139  000C                     ?_single_dec:	
+   140                           ; 1 bytes @ 0x0
+   141                           
+   142  000C                     ?_grayencode:	
+   143                           ; 1 bytes @ 0x0
+   144                           
+   145  000C                     ?_only_one:	
+   146                           ; 1 bytes @ 0x0
+   147                           
+   148  000C                     ?_johnson:	
+   149                           ; 1 bytes @ 0x0
+   150                           
+   151  000C                     ?_stop_gen:	
+   152                           ; 1 bytes @ 0x0
+   153                           
+   154  000C                     ?_wait_with_check:	
+   155                           ; 1 bytes @ 0x0
+   156                           
+   157  000C                     ?_invert_byte:	
+   158                           ; 1 bytes @ 0x0
+   159                           
+   160  000C                     ??_invert_byte:	
+   161                           ; 1 bytes @ 0x0
+   162                           
+   163  000C                     ?_is_mode_changed:	
+   164                           ; 1 bytes @ 0x0
+   165                           
+   166  000C                     ?_get_key:	
+   167                           ; 1 bytes @ 0x0
+   168                           
+   169  000C                     ??_get_key:	
+   170                           ; 1 bytes @ 0x0
+   171                           
+   172                           
+   173                           ; 1 bytes @ 0x0
+   174  000C                     	ds	2
+   175  000E                     get_key@template:
+   176  000E                     invert_byte@i:	
+   177                           ; 1 bytes @ 0x2
+   178                           
+   179                           
+   180                           ; 2 bytes @ 0x2
+   181  000E                     	ds	1
+   182  000F                     get_key@key:
+   183                           
+   184                           ; 1 bytes @ 0x3
+   185  000F                     	ds	1
+   186  0010                     ??_is_mode_changed:
+   187  0010                     invert_byte@a:	
+   188                           ; 1 bytes @ 0x4
+   189                           
+   190                           
+   191                           ; 1 bytes @ 0x4
+   192  0010                     	ds	1
+   193  0011                     is_mode_changed@temp_key:
+   194  0011                     invert_byte@b:	
+   195                           ; 1 bytes @ 0x5
+   196                           
+   197                           
+   198                           ; 1 bytes @ 0x5
+   199  0011                     	ds	1
+   200  0012                     wait_with_check@i:
+   201                           
+   202                           ; 2 bytes @ 0x6
+   203  0012                     	ds	2
+   204  0014                     ??_single_inc:
+   205  0014                     ??_grayencode:	
+   206                           ; 1 bytes @ 0x8
+   207                           
+   208  0014                     ??_only_one:	
+   209                           ; 1 bytes @ 0x8
+   210                           
+   211  0014                     ??_johnson:	
+   212                           ; 1 bytes @ 0x8
+   213                           
+   214                           
+   215                           ; 1 bytes @ 0x8
+   216  0014                     	ds	3
+   217  0017                     ?_main:
+   218  0017                     main@argc:	
+   219                           ; 2 bytes @ 0xB
+   220                           
+   221                           
+   222                           ; 2 bytes @ 0xB
+   223  0017                     	ds	2
+   224  0019                     main@argv:
+   225                           
+   226                           ; 2 bytes @ 0xD
+   227  0019                     	ds	2
+   228  001B                     ??_main:
+   229                           
+   230                           ; 1 bytes @ 0xF
+   231  001B                     	ds	2
+   232                           
+   233                           	psect	maintext
+   234  032A                     __pmaintext:	
+   235 ;;
+   236 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   237 ;;
+   238 ;; *************** function _main *****************
+   239 ;; Defined at:
+   240 ;;		line 25 in file "code_generator.c"
+   241 ;; Parameters:    Size  Location     Type
+   242 ;;  argc            2   11[BANK0 ] int 
+   243 ;;  argv            2   13[BANK0 ] PTR PTR unsigned char 
+   244 ;; Auto vars:     Size  Location     Type
+   245 ;;		None
+   246 ;; Return value:  Size  Location     Type
+   247 ;;                  2   11[BANK0 ] int 
+   248 ;; Registers used:
+   249 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   250 ;; Tracked objects:
+   251 ;;		On entry : B00/0
+   252 ;;		On exit  : 0/0
+   253 ;;		Unchanged: 0/0
+   254 ;; Data sizes:     COMMON   BANK0
+   255 ;;      Params:         0       4
+   256 ;;      Locals:         0       0
+   257 ;;      Temps:          0       2
+   258 ;;      Totals:         0       6
+   259 ;;Total ram usage:        6 bytes
+   260 ;; Hardware stack levels required when called:    4
+   261 ;; This function calls:
+   262 ;;		_grayencode
+   263 ;;		_johnson
+   264 ;;		_only_one
+   265 ;;		_single_dec
+   266 ;;		_single_inc
+   267 ;;		_stop_gen
+   268 ;; This function is called by:
+   269 ;;		Startup code after reset
+   270 ;; This function uses a non-reentrant model
+   271 ;;
+   272                           
+   273                           
+   274                           ;psect for function _main
+   275  032A                     _main:
+   276  032A                     l1075:	
+   277                           ;incstack = 0
+   278                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   279                           
+   280                           
+   281                           ;code_generator.c: 27:     INTCONbits.GIE=0;
+   282  032A  138B               	bcf	11,7	;volatile
+   283                           
+   284                           ;code_generator.c: 28:     INTCONbits.RBIE=1;
+   285  032B  158B               	bsf	11,3	;volatile
+   286                           
+   287                           ;code_generator.c: 29:     OPTION_REGbits.nRBPU=0;
+   288  032C  1683               	bsf	3,5	;RP0=1, select bank1
+   289  032D  1381               	bcf	1,7	;volatile
+   290  032E                     l1077:
+   291                           
+   292                           ;code_generator.c: 30:     TRISA = 0X0;
+   293  032E  0185               	clrf	5	;volatile
+   294  032F                     l1079:
+   295                           
+   296                           ;code_generator.c: 31:     TRISB = 0b111;
+   297  032F  3007               	movlw	7
+   298  0330  0086               	movwf	6	;volatile
+   299  0331                     l1081:
+   300                           
+   301                           ;code_generator.c: 32:     PORTA = 0b11111100;
+   302  0331  30FC               	movlw	252
+   303  0332  1283               	bcf	3,5	;RP0=0, select bank0
+   304  0333  0085               	movwf	5	;volatile
+   305                           
+   306                           ;code_generator.c: 33:     PORTB = 0X0;
+   307  0334  0186               	clrf	6	;volatile
+   308  0335  2B41               	goto	l1095
+   309  0336                     l1083:
+   310                           
+   311                           ;code_generator.c: 40:        single_inc();
+   312  0336  2280               	fcall	_single_inc
+   313                           
+   314                           ;code_generator.c: 41:      break;
+   315  0337  2B41               	goto	l1095
+   316  0338                     l1085:
+   317                           
+   318                           ;code_generator.c: 43:        single_dec();
+   319  0338  2272               	fcall	_single_dec
+   320                           
+   321                           ;code_generator.c: 44:      break;
+   322  0339  2B41               	goto	l1095
+   323  033A                     l1087:
+   324                           
+   325                           ;code_generator.c: 46:        grayencode();
+   326  033A  22A3               	fcall	_grayencode
+   327                           
+   328                           ;code_generator.c: 47:      break;
+   329  033B  2B41               	goto	l1095
+   330  033C                     l1089:
+   331                           
+   332                           ;code_generator.c: 49:        only_one();
+   333  033C  22DB               	fcall	_only_one
+   334                           
+   335                           ;code_generator.c: 50:      break;
+   336  033D  2B41               	goto	l1095
+   337  033E                     l1091:
+   338                           
+   339                           ;code_generator.c: 52:       johnson();
+   340  033E  235C               	fcall	_johnson
+   341                           
+   342                           ;code_generator.c: 53:      break;
+   343  033F  2B41               	goto	l1095
+   344  0340                     l1093:
+   345                           
+   346                           ;code_generator.c: 55:       stop_gen(); ;
+   347  0340  2270               	fcall	_stop_gen
+   348  0341                     l1095:	
+   349                           ;code_generator.c: 56:   }
+   350                           
+   351  0341  1283               	bcf	3,5	;RP0=0, select bank0
+   352  0342  081D               	movf	_key,w
+   353  0343  009B               	movwf	??_main
+   354  0344  019C               	clrf	??_main+1
+   355                           
+   356                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+      +                          itches
+   357                           ; Switch size 1, requested type "simple"
+   358                           ; Number of cases is 1, Range of values is 0 to 0
+   359                           ; switch strategies available:
+   360                           ; Name         Instructions Cycles
+   361                           ; simple_byte            4     3 (average)
+   362                           ; direct_byte            7     6 (fixed)
+   363                           ; jumptable            260     6 (fixed)
+   364                           ;	Chosen strategy is simple_byte
+   365  0345  081C               	movf	??_main+1,w
+   366  0346  3A00               	xorlw	0	; case 0
+   367  0347  1903               	skipnz
+   368  0348  2B4A               	goto	l1133
+   369  0349  2B40               	goto	l1093
+   370  034A                     l1133:
+   371                           
+   372                           ; Switch size 1, requested type "simple"
+   373                           ; Number of cases is 5, Range of values is 1 to 5
+   374                           ; switch strategies available:
+   375                           ; Name         Instructions Cycles
+   376                           ; direct_byte           14     9 (fixed)
+   377                           ; simple_byte           16     9 (average)
+   378                           ; jumptable            263     9 (fixed)
+   379                           ;	Chosen strategy is simple_byte
+   380  034A  081B               	movf	??_main,w
+   381  034B  3A01               	xorlw	1	; case 1
+   382  034C  1903               	skipnz
+   383  034D  2B36               	goto	l1083
+   384  034E  3A03               	xorlw	3	; case 2
+   385  034F  1903               	skipnz
+   386  0350  2B38               	goto	l1085
+   387  0351  3A01               	xorlw	1	; case 3
+   388  0352  1903               	skipnz
+   389  0353  2B3A               	goto	l1087
+   390  0354  3A07               	xorlw	7	; case 4
+   391  0355  1903               	skipnz
+   392  0356  2B3C               	goto	l1089
+   393  0357  3A01               	xorlw	1	; case 5
+   394  0358  1903               	skipnz
+   395  0359  2B3E               	goto	l1091
+   396  035A  2B40               	goto	l1093
+   397  035B  2800               	ljmp	start
+   398  035C                     __end_of_main:
+   399                           
+   400                           	psect	text1
+   401  0270                     __ptext1:	
+   402 ;; *************** function _stop_gen *****************
+   403 ;; Defined at:
+   404 ;;		line 176 in file "code_generator.c"
+   405 ;; Parameters:    Size  Location     Type
+   406 ;;		None
+   407 ;; Auto vars:     Size  Location     Type
+   408 ;;		None
+   409 ;; Return value:  Size  Location     Type
+   410 ;;                  1    wreg      void 
+   411 ;; Registers used:
+   412 ;;		wreg, status,2, status,0, pclath, cstack
+   413 ;; Tracked objects:
+   414 ;;		On entry : 0/0
+   415 ;;		On exit  : 0/0
+   416 ;;		Unchanged: 0/0
+   417 ;; Data sizes:     COMMON   BANK0
+   418 ;;      Params:         0       0
+   419 ;;      Locals:         0       0
+   420 ;;      Temps:          0       0
+   421 ;;      Totals:         0       0
+   422 ;;Total ram usage:        0 bytes
+   423 ;; Hardware stack levels used:    1
+   424 ;; Hardware stack levels required when called:    2
+   425 ;; This function calls:
+   426 ;;		_is_mode_changed
+   427 ;; This function is called by:
+   428 ;;		_main
+   429 ;; This function uses a non-reentrant model
+   430 ;;
+   431                           
+   432                           
+   433                           ;psect for function _stop_gen
+   434  0270                     _stop_gen:
+   435  0270                     l1073:	
+   436                           ;incstack = 0
+   437                           ; Regs used in _stop_gen: [wreg+status,2+status,0+pclath+cstack]
+   438                           
+   439                           
+   440                           ;code_generator.c: 178:   is_mode_changed();
+   441  0270  228F               	fcall	_is_mode_changed
+   442  0271                     l114:
+   443  0271  0008               	return
+   444  0272                     __end_of_stop_gen:
+   445                           
+   446                           	psect	text2
+   447  0280                     __ptext2:	
+   448 ;; *************** function _single_inc *****************
+   449 ;; Defined at:
+   450 ;;		line 104 in file "code_generator.c"
+   451 ;; Parameters:    Size  Location     Type
+   452 ;;		None
+   453 ;; Auto vars:     Size  Location     Type
+   454 ;;		None
+   455 ;; Return value:  Size  Location     Type
+   456 ;;                  1    wreg      void 
+   457 ;; Registers used:
+   458 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   459 ;; Tracked objects:
+   460 ;;		On entry : 0/0
+   461 ;;		On exit  : 0/0
+   462 ;;		Unchanged: 0/0
+   463 ;; Data sizes:     COMMON   BANK0
+   464 ;;      Params:         0       0
+   465 ;;      Locals:         0       0
+   466 ;;      Temps:          0       1
+   467 ;;      Totals:         0       1
+   468 ;;Total ram usage:        1 bytes
+   469 ;; Hardware stack levels used:    1
+   470 ;; Hardware stack levels required when called:    3
+   471 ;; This function calls:
+   472 ;;		_wait_with_check
+   473 ;; This function is called by:
+   474 ;;		_main
+   475 ;; This function uses a non-reentrant model
+   476 ;;
+   477                           
+   478                           
+   479                           ;psect for function _single_inc
+   480  0280                     _single_inc:
+   481  0280                     l1005:	
+   482                           ;incstack = 0
+   483                           ; Regs used in _single_inc: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   484                           
+   485                           
+   486                           ;code_generator.c: 106:     while(key==1)
+   487  0280  2A88               	goto	l1013
+   488  0281                     l1007:
+   489                           
+   490                           ;code_generator.c: 107:     {;code_generator.c: 108:         PORTA = logic_bits;
+   491  0281  081F               	movf	_logic_bits,w
+   492  0282  0085               	movwf	5	;volatile
+   493  0283                     l1009:
+   494                           
+   495                           ;code_generator.c: 109:         logic_bits++;
+   496  0283  3001               	movlw	1
+   497  0284  0094               	movwf	??_single_inc
+   498  0285  0814               	movf	??_single_inc,w
+   499  0286  079F               	addwf	_logic_bits,f
+   500  0287                     l1011:
+   501                           
+   502                           ;code_generator.c: 110:         wait_with_check();
+   503  0287  22BB               	fcall	_wait_with_check
+   504  0288                     l1013:
+   505                           
+   506                           ;code_generator.c: 106:     while(key==1)
+   507  0288  1283               	bcf	3,5	;RP0=0, select bank0
+   508  0289  031D               	decf	_key,w
+   509  028A  1903               	btfsc	3,2
+   510  028B  2A8D               	goto	u381
+   511  028C  2A8E               	goto	u380
+   512  028D                     u381:
+   513  028D  2A81               	goto	l1007
+   514  028E                     u380:
+   515  028E                     l81:
+   516  028E  0008               	return
+   517  028F                     __end_of_single_inc:
+   518                           
+   519                           	psect	text3
+   520  0272                     __ptext3:	
+   521 ;; *************** function _single_dec *****************
+   522 ;; Defined at:
+   523 ;;		line 166 in file "code_generator.c"
+   524 ;; Parameters:    Size  Location     Type
+   525 ;;		None
+   526 ;; Auto vars:     Size  Location     Type
+   527 ;;		None
+   528 ;; Return value:  Size  Location     Type
+   529 ;;                  1    wreg      void 
+   530 ;; Registers used:
+   531 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   532 ;; Tracked objects:
+   533 ;;		On entry : 0/0
+   534 ;;		On exit  : 0/0
+   535 ;;		Unchanged: 0/0
+   536 ;; Data sizes:     COMMON   BANK0
+   537 ;;      Params:         0       0
+   538 ;;      Locals:         0       0
+   539 ;;      Temps:          0       0
+   540 ;;      Totals:         0       0
+   541 ;;Total ram usage:        0 bytes
+   542 ;; Hardware stack levels used:    1
+   543 ;; Hardware stack levels required when called:    3
+   544 ;; This function calls:
+   545 ;;		_wait_with_check
+   546 ;; This function is called by:
+   547 ;;		_main
+   548 ;; This function uses a non-reentrant model
+   549 ;;
+   550                           
+   551                           
+   552                           ;psect for function _single_dec
+   553  0272                     _single_dec:
+   554  0272                     l1015:	
+   555                           ;incstack = 0
+   556                           ; Regs used in _single_dec: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   557                           
+   558                           
+   559                           ;code_generator.c: 168:     while(key== 2)
+   560  0272  2A78               	goto	l1023
+   561  0273                     l1017:
+   562                           
+   563                           ;code_generator.c: 169:     {;code_generator.c: 170:       PORTA = logic_bits;
+   564  0273  081F               	movf	_logic_bits,w
+   565  0274  0085               	movwf	5	;volatile
+   566  0275                     l1019:
+   567                           
+   568                           ;code_generator.c: 171:       logic_bits--;
+   569  0275  3001               	movlw	1
+   570  0276  029F               	subwf	_logic_bits,f
+   571  0277                     l1021:
+   572                           
+   573                           ;code_generator.c: 172:       wait_with_check();
+   574  0277  22BB               	fcall	_wait_with_check
+   575  0278                     l1023:
+   576                           
+   577                           ;code_generator.c: 168:     while(key== 2)
+   578  0278  3002               	movlw	2
+   579  0279  1283               	bcf	3,5	;RP0=0, select bank0
+   580  027A  061D               	xorwf	_key,w
+   581  027B  1903               	btfsc	3,2
+   582  027C  2A7E               	goto	u391
+   583  027D  2A7F               	goto	u390
+   584  027E                     u391:
+   585  027E  2A73               	goto	l1017
+   586  027F                     u390:
+   587  027F                     l111:
+   588  027F  0008               	return
+   589  0280                     __end_of_single_dec:
+   590                           
+   591                           	psect	text4
+   592  02DB                     __ptext4:	
+   593 ;; *************** function _only_one *****************
+   594 ;; Defined at:
+   595 ;;		line 126 in file "code_generator.c"
+   596 ;; Parameters:    Size  Location     Type
+   597 ;;		None
+   598 ;; Auto vars:     Size  Location     Type
+   599 ;;		None
+   600 ;; Return value:  Size  Location     Type
+   601 ;;                  1    wreg      void 
+   602 ;; Registers used:
+   603 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   604 ;; Tracked objects:
+   605 ;;		On entry : 0/0
+   606 ;;		On exit  : 0/0
+   607 ;;		Unchanged: 0/0
+   608 ;; Data sizes:     COMMON   BANK0
+   609 ;;      Params:         0       0
+   610 ;;      Locals:         0       0
+   611 ;;      Temps:          0       2
+   612 ;;      Totals:         0       2
+   613 ;;Total ram usage:        2 bytes
+   614 ;; Hardware stack levels used:    1
+   615 ;; Hardware stack levels required when called:    3
+   616 ;; This function calls:
+   617 ;;		_wait_with_check
+   618 ;; This function is called by:
+   619 ;;		_main
+   620 ;; This function uses a non-reentrant model
+   621 ;;
+   622                           
+   623                           
+   624                           ;psect for function _only_one
+   625  02DB                     _only_one:
+   626  02DB                     l1037:	
+   627                           ;incstack = 0
+   628                           ; Regs used in _only_one: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   629                           
+   630                           
+   631                           ;code_generator.c: 128:     if(logic_bits==0)
+   632  02DB  1283               	bcf	3,5	;RP0=0, select bank0
+   633  02DC  081F               	movf	_logic_bits,w
+   634  02DD  1D03               	btfss	3,2
+   635  02DE  2AE0               	goto	u411
+   636  02DF  2AE1               	goto	u410
+   637  02E0                     u411:
+   638  02E0  2AF5               	goto	l1051
+   639  02E1                     u410:
+   640  02E1                     l1039:
+   641                           
+   642                           ;code_generator.c: 129:     {;code_generator.c: 130:       logic_bits=1;
+   643  02E1  019F               	clrf	_logic_bits
+   644  02E2  0A9F               	incf	_logic_bits,f
+   645  02E3  2AF5               	goto	l1051
+   646  02E4                     l1041:
+   647                           
+   648                           ;code_generator.c: 133:     {;code_generator.c: 134:       PORTA = logic_bits;
+   649  02E4  081F               	movf	_logic_bits,w
+   650  02E5  0085               	movwf	5	;volatile
+   651  02E6                     l1043:
+   652                           
+   653                           ;code_generator.c: 135:       logic_bits=logic_bits <<1;
+   654  02E6  081F               	movf	_logic_bits,w
+   655  02E7  0094               	movwf	??_only_one
+   656  02E8  0714               	addwf	??_only_one,w
+   657  02E9  0095               	movwf	??_only_one+1
+   658  02EA  0815               	movf	??_only_one+1,w
+   659  02EB  009F               	movwf	_logic_bits
+   660  02EC                     l1045:
+   661                           
+   662                           ;code_generator.c: 136:       if(logic_bits==16) logic_bits=1;
+   663  02EC  3010               	movlw	16
+   664  02ED  061F               	xorwf	_logic_bits,w
+   665  02EE  1D03               	btfss	3,2
+   666  02EF  2AF1               	goto	u421
+   667  02F0  2AF2               	goto	u420
+   668  02F1                     u421:
+   669  02F1  2AF4               	goto	l1049
+   670  02F2                     u420:
+   671  02F2                     l1047:
+   672  02F2  019F               	clrf	_logic_bits
+   673  02F3  0A9F               	incf	_logic_bits,f
+   674  02F4                     l1049:
+   675                           
+   676                           ;code_generator.c: 137:       wait_with_check();
+   677  02F4  22BB               	fcall	_wait_with_check
+   678  02F5                     l1051:
+   679                           
+   680                           ;code_generator.c: 132: while(key== 4)
+   681  02F5  3004               	movlw	4
+   682  02F6  1283               	bcf	3,5	;RP0=0, select bank0
+   683  02F7  061D               	xorwf	_key,w
+   684  02F8  1903               	btfsc	3,2
+   685  02F9  2AFB               	goto	u431
+   686  02FA  2AFC               	goto	u430
+   687  02FB                     u431:
+   688  02FB  2AE4               	goto	l1041
+   689  02FC                     u430:
+   690  02FC                     l95:
+   691  02FC  0008               	return
+   692  02FD                     __end_of_only_one:
+   693                           
+   694                           	psect	text5
+   695  035C                     __ptext5:	
+   696 ;; *************** function _johnson *****************
+   697 ;; Defined at:
+   698 ;;		line 140 in file "code_generator.c"
+   699 ;; Parameters:    Size  Location     Type
+   700 ;;		None
+   701 ;; Auto vars:     Size  Location     Type
+   702 ;;		None
+   703 ;; Return value:  Size  Location     Type
+   704 ;;                  1    wreg      void 
+   705 ;; Registers used:
+   706 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   707 ;; Tracked objects:
+   708 ;;		On entry : 0/0
+   709 ;;		On exit  : 0/0
+   710 ;;		Unchanged: 0/0
+   711 ;; Data sizes:     COMMON   BANK0
+   712 ;;      Params:         0       0
+   713 ;;      Locals:         0       0
+   714 ;;      Temps:          0       3
+   715 ;;      Totals:         0       3
+   716 ;;Total ram usage:        3 bytes
+   717 ;; Hardware stack levels used:    1
+   718 ;; Hardware stack levels required when called:    3
+   719 ;; This function calls:
+   720 ;;		_invert_byte
+   721 ;;		_wait_with_check
+   722 ;; This function is called by:
+   723 ;;		_main
+   724 ;; This function uses a non-reentrant model
+   725 ;;
+   726                           
+   727                           
+   728                           ;psect for function _johnson
+   729  035C                     _johnson:
+   730  035C                     l1053:	
+   731                           ;incstack = 0
+   732                           ; Regs used in _johnson: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   733                           
+   734                           
+   735                           ;code_generator.c: 142:       while(key== 5)
+   736  035C  2BA0               	goto	l98
+   737  035D                     l1055:
+   738                           
+   739                           ;code_generator.c: 143:      {;code_generator.c: 144:       if(logic_bits==0)
+   740  035D  081F               	movf	_logic_bits,w
+   741  035E  1D03               	btfss	3,2
+   742  035F  2B61               	goto	u441
+   743  0360  2B62               	goto	u440
+   744  0361                     u441:
+   745  0361  2B66               	goto	l1059
+   746  0362                     u440:
+   747  0362                     l1057:
+   748                           
+   749                           ;code_generator.c: 145:       {;code_generator.c: 146:         logic_bits=0b10001111;
+   750  0362  308F               	movlw	143
+   751  0363  0094               	movwf	??_johnson
+   752  0364  0814               	movf	??_johnson,w
+   753  0365  009F               	movwf	_logic_bits
+   754  0366                     l1059:
+   755                           
+   756                           ;code_generator.c: 148:       if(logic_bits==16)
+   757  0366  3010               	movlw	16
+   758  0367  061F               	xorwf	_logic_bits,w
+   759  0368  1D03               	btfss	3,2
+   760  0369  2B6B               	goto	u451
+   761  036A  2B6C               	goto	u450
+   762  036B                     u451:
+   763  036B  2B70               	goto	l101
+   764  036C                     u450:
+   765  036C                     l1061:
+   766                           
+   767                           ;code_generator.c: 149:       {;code_generator.c: 150:         logic_bits=0b00001111;
+   768  036C  300F               	movlw	15
+   769  036D  0094               	movwf	??_johnson
+   770  036E  0814               	movf	??_johnson,w
+   771  036F  009F               	movwf	_logic_bits
+   772  0370                     l101:	
+   773                           ;code_generator.c: 151:       }
+   774                           
+   775                           
+   776                           ;code_generator.c: 153:       if(logic_bits>16)
+   777  0370  3011               	movlw	17
+   778  0371  021F               	subwf	_logic_bits,w
+   779  0372  1C03               	skipc
+   780  0373  2B75               	goto	u461
+   781  0374  2B76               	goto	u460
+   782  0375                     u461:
+   783  0375  2B85               	goto	l1065
+   784  0376                     u460:
+   785  0376                     l1063:
+   786                           
+   787                           ;code_generator.c: 154:       {;code_generator.c: 155:         logic_bits= (logic_bits <
+      +                          < 1) | (logic_bits >> (7));
+   788  0376  081F               	movf	_logic_bits,w
+   789  0377  0094               	movwf	??_johnson
+   790  0378  3007               	movlw	7
+   791  0379                     u475:
+   792  0379  1003               	clrc
+   793  037A  0C94               	rrf	??_johnson,f
+   794  037B  3EFF               	addlw	-1
+   795  037C  1D03               	skipz
+   796  037D  2B79               	goto	u475
+   797  037E  081F               	movf	_logic_bits,w
+   798  037F  0095               	movwf	??_johnson+1
+   799  0380  0715               	addwf	??_johnson+1,w
+   800  0381  0414               	iorwf	??_johnson,w
+   801  0382  0096               	movwf	??_johnson+2
+   802  0383  0816               	movf	??_johnson+2,w
+   803  0384  009F               	movwf	_logic_bits
+   804  0385                     l1065:
+   805                           
+   806                           ;code_generator.c: 157:        if(logic_bits<16)
+   807  0385  3010               	movlw	16
+   808  0386  021F               	subwf	_logic_bits,w
+   809  0387  1803               	skipnc
+   810  0388  2B8A               	goto	u481
+   811  0389  2B8B               	goto	u480
+   812  038A                     u481:
+   813  038A  2B9B               	goto	l1069
+   814  038B                     u480:
+   815  038B                     l1067:
+   816                           
+   817                           ;code_generator.c: 158:       {;code_generator.c: 159:         logic_bits = (logic_bits 
+      +                          >> 1) | (logic_bits << (7));
+   818  038B  081F               	movf	_logic_bits,w
+   819  038C  0094               	movwf	??_johnson
+   820  038D  3007               	movlw	7
+   821  038E                     u495:
+   822  038E  1003               	clrc
+   823  038F  0D94               	rlf	??_johnson,f
+   824  0390  3EFF               	addlw	-1
+   825  0391  1D03               	skipz
+   826  0392  2B8E               	goto	u495
+   827  0393  081F               	movf	_logic_bits,w
+   828  0394  0095               	movwf	??_johnson+1
+   829  0395  1003               	clrc
+   830  0396  0C15               	rrf	??_johnson+1,w
+   831  0397  0414               	iorwf	??_johnson,w
+   832  0398  0096               	movwf	??_johnson+2
+   833  0399  0816               	movf	??_johnson+2,w
+   834  039A  009F               	movwf	_logic_bits
+   835  039B                     l1069:
+   836                           
+   837                           ;code_generator.c: 161:       PORTA = invert_byte(logic_bits);
+   838  039B  081F               	movf	_logic_bits,w
+   839  039C  22FD               	fcall	_invert_byte
+   840  039D  1283               	bcf	3,5	;RP0=0, select bank0
+   841  039E  0085               	movwf	5	;volatile
+   842  039F                     l1071:
+   843                           
+   844                           ;code_generator.c: 162:       wait_with_check();
+   845  039F  22BB               	fcall	_wait_with_check
+   846  03A0                     l98:	
+   847                           ;code_generator.c: 163:     }
+   848                           
+   849                           
+   850                           ;code_generator.c: 142:       while(key== 5)
+   851  03A0  3005               	movlw	5
+   852  03A1  1283               	bcf	3,5	;RP0=0, select bank0
+   853  03A2  061D               	xorwf	_key,w
+   854  03A3  1903               	btfsc	3,2
+   855  03A4  2BA6               	goto	u501
+   856  03A5  2BA7               	goto	u500
+   857  03A6                     u501:
+   858  03A6  2B5D               	goto	l1055
+   859  03A7                     u500:
+   860  03A7                     l105:
+   861  03A7  0008               	return
+   862  03A8                     __end_of_johnson:
+   863                           
+   864                           	psect	text6
+   865  02FD                     __ptext6:	
+   866 ;; *************** function _invert_byte *****************
+   867 ;; Defined at:
+   868 ;;		line 206 in file "code_generator.c"
+   869 ;; Parameters:    Size  Location     Type
+   870 ;;  a               1    wreg     unsigned char 
+   871 ;; Auto vars:     Size  Location     Type
+   872 ;;  a               1    4[BANK0 ] unsigned char 
+   873 ;;  i               2    2[BANK0 ] int 
+   874 ;;  b               1    5[BANK0 ] unsigned char 
+   875 ;; Return value:  Size  Location     Type
+   876 ;;                  1    wreg      unsigned char 
+   877 ;; Registers used:
+   878 ;;		wreg, status,2, status,0, btemp+1
+   879 ;; Tracked objects:
+   880 ;;		On entry : 0/0
+   881 ;;		On exit  : 0/0
+   882 ;;		Unchanged: 0/0
+   883 ;; Data sizes:     COMMON   BANK0
+   884 ;;      Params:         0       0
+   885 ;;      Locals:         0       4
+   886 ;;      Temps:          0       2
+   887 ;;      Totals:         0       6
+   888 ;;Total ram usage:        6 bytes
+   889 ;; Hardware stack levels used:    1
+   890 ;; This function calls:
+   891 ;;		Nothing
+   892 ;; This function is called by:
+   893 ;;		_johnson
+   894 ;; This function uses a non-reentrant model
+   895 ;;
+   896                           
+   897                           
+   898                           ;psect for function _invert_byte
+   899  02FD                     _invert_byte:
+   900                           
+   901                           ;incstack = 0
+   902                           ; Regs used in _invert_byte: [wreg+status,2+status,0+btemp+1]
+   903                           ;invert_byte@a stored from wreg
+   904  02FD  1283               	bcf	3,5	;RP0=0, select bank0
+   905  02FE  0090               	movwf	invert_byte@a
+   906  02FF                     l989:
+   907                           
+   908                           ;code_generator.c: 206: unsigned char invert_byte(unsigned char a);code_generator.c: 207
+      +                          : {;code_generator.c: 208:     unsigned char b;;code_generator.c: 209:     for(int i = 0
+      +                          ; i < 8; i++)
+   909  02FF  018E               	clrf	invert_byte@i
+   910  0300  018F               	clrf	invert_byte@i+1
+   911  0301                     l995:
+   912                           
+   913                           ;code_generator.c: 210:     {;code_generator.c: 211:       b = b<<1;
+   914  0301  1283               	bcf	3,5	;RP0=0, select bank0
+   915  0302  0811               	movf	invert_byte@b,w
+   916  0303  008C               	movwf	??_invert_byte
+   917  0304  070C               	addwf	??_invert_byte,w
+   918  0305  008D               	movwf	??_invert_byte+1
+   919  0306  080D               	movf	??_invert_byte+1,w
+   920  0307  0091               	movwf	invert_byte@b
+   921                           
+   922                           ;code_generator.c: 212:       b += a%2;
+   923  0308  0810               	movf	invert_byte@a,w
+   924  0309  3901               	andlw	1
+   925  030A  008C               	movwf	??_invert_byte
+   926  030B  080C               	movf	??_invert_byte,w
+   927  030C  0791               	addwf	invert_byte@b,f
+   928                           
+   929                           ;code_generator.c: 213:       a = a>>1;
+   930  030D  0810               	movf	invert_byte@a,w
+   931  030E  008C               	movwf	??_invert_byte
+   932  030F  1003               	clrc
+   933  0310  0C0C               	rrf	??_invert_byte,w
+   934  0311  008D               	movwf	??_invert_byte+1
+   935  0312  080D               	movf	??_invert_byte+1,w
+   936  0313  0090               	movwf	invert_byte@a
+   937  0314                     l997:
+   938                           
+   939                           ;code_generator.c: 214:     }
+   940  0314  3001               	movlw	1
+   941  0315  078E               	addwf	invert_byte@i,f
+   942  0316  1803               	skipnc
+   943  0317  0A8F               	incf	invert_byte@i+1,f
+   944  0318  3000               	movlw	0
+   945  0319  078F               	addwf	invert_byte@i+1,f
+   946  031A                     l999:
+   947  031A  080F               	movf	invert_byte@i+1,w
+   948  031B  3A80               	xorlw	128
+   949  031C  00CF               	movwf	btemp+1
+   950  031D  3080               	movlw	128
+   951  031E  024F               	subwf	btemp+1,w
+   952  031F  1D03               	skipz
+   953  0320  2B23               	goto	u375
+   954  0321  3008               	movlw	8
+   955  0322  020E               	subwf	invert_byte@i,w
+   956  0323                     u375:
+   957  0323  1C03               	skipc
+   958  0324  2B26               	goto	u371
+   959  0325  2B27               	goto	u370
+   960  0326                     u371:
+   961  0326  2B01               	goto	l995
+   962  0327                     u370:
+   963  0327                     l1001:
+   964                           
+   965                           ;code_generator.c: 215:     return b;
+   966  0327  1283               	bcf	3,5	;RP0=0, select bank0
+   967  0328  0811               	movf	invert_byte@b,w
+   968  0329                     l129:
+   969  0329  0008               	return
+   970  032A                     __end_of_invert_byte:
+   971                           
+   972                           	psect	text7
+   973  02A3                     __ptext7:	
+   974 ;; *************** function _grayencode *****************
+   975 ;; Defined at:
+   976 ;;		line 114 in file "code_generator.c"
+   977 ;; Parameters:    Size  Location     Type
+   978 ;;		None
+   979 ;; Auto vars:     Size  Location     Type
+   980 ;;		None
+   981 ;; Return value:  Size  Location     Type
+   982 ;;                  1    wreg      void 
+   983 ;; Registers used:
+   984 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   985 ;; Tracked objects:
+   986 ;;		On entry : 0/0
+   987 ;;		On exit  : 0/0
+   988 ;;		Unchanged: 0/0
+   989 ;; Data sizes:     COMMON   BANK0
+   990 ;;      Params:         0       0
+   991 ;;      Locals:         0       0
+   992 ;;      Temps:          0       2
+   993 ;;      Totals:         0       2
+   994 ;;Total ram usage:        2 bytes
+   995 ;; Hardware stack levels used:    1
+   996 ;; Hardware stack levels required when called:    3
+   997 ;; This function calls:
+   998 ;;		_wait_with_check
+   999 ;; This function is called by:
+  1000 ;;		_main
+  1001 ;; This function uses a non-reentrant model
+  1002 ;;
+  1003                           
+  1004                           
+  1005                           ;psect for function _grayencode
+  1006  02A3                     _grayencode:
+  1007  02A3                     l1025:	
+  1008                           ;incstack = 0
+  1009                           ; Regs used in _grayencode: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+  1010                           
+  1011                           
+  1012                           ;code_generator.c: 116:      while(key==3)
+  1013  02A3  2AB3               	goto	l1035
+  1014  02A4                     l1027:
+  1015                           
+  1016                           ;code_generator.c: 117:     {;code_generator.c: 118:         gray = logic_bits ^ (logic_
+      +                          bits >> 1);
+  1017  02A4  081F               	movf	_logic_bits,w
+  1018  02A5  0094               	movwf	??_grayencode
+  1019  02A6  1003               	clrc
+  1020  02A7  0C14               	rrf	??_grayencode,w
+  1021  02A8  061F               	xorwf	_logic_bits,w
+  1022  02A9  0095               	movwf	??_grayencode+1
+  1023  02AA  0815               	movf	??_grayencode+1,w
+  1024  02AB  009E               	movwf	_gray
+  1025  02AC                     l1029:
+  1026                           
+  1027                           ;code_generator.c: 120:         PORTA = gray;
+  1028  02AC  081E               	movf	_gray,w
+  1029  02AD  0085               	movwf	5	;volatile
+  1030  02AE                     l1031:
+  1031                           
+  1032                           ;code_generator.c: 121:         logic_bits++;
+  1033  02AE  3001               	movlw	1
+  1034  02AF  0094               	movwf	??_grayencode
+  1035  02B0  0814               	movf	??_grayencode,w
+  1036  02B1  079F               	addwf	_logic_bits,f
+  1037  02B2                     l1033:
+  1038                           
+  1039                           ;code_generator.c: 122:         wait_with_check();
+  1040  02B2  22BB               	fcall	_wait_with_check
+  1041  02B3                     l1035:
+  1042                           
+  1043                           ;code_generator.c: 116:      while(key==3)
+  1044  02B3  3003               	movlw	3
+  1045  02B4  1283               	bcf	3,5	;RP0=0, select bank0
+  1046  02B5  061D               	xorwf	_key,w
+  1047  02B6  1903               	btfsc	3,2
+  1048  02B7  2AB9               	goto	u401
+  1049  02B8  2ABA               	goto	u400
+  1050  02B9                     u401:
+  1051  02B9  2AA4               	goto	l1027
+  1052  02BA                     u400:
+  1053  02BA                     l87:
+  1054  02BA  0008               	return
+  1055  02BB                     __end_of_grayencode:
+  1056                           
+  1057                           	psect	text8
+  1058  02BB                     __ptext8:	
+  1059 ;; *************** function _wait_with_check *****************
+  1060 ;; Defined at:
+  1061 ;;		line 194 in file "code_generator.c"
+  1062 ;; Parameters:    Size  Location     Type
+  1063 ;;		None
+  1064 ;; Auto vars:     Size  Location     Type
+  1065 ;;  i               2    6[BANK0 ] int 
+  1066 ;; Return value:  Size  Location     Type
+  1067 ;;                  1    wreg      void 
+  1068 ;; Registers used:
+  1069 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+  1070 ;; Tracked objects:
+  1071 ;;		On entry : 0/0
+  1072 ;;		On exit  : 0/0
+  1073 ;;		Unchanged: 0/0
+  1074 ;; Data sizes:     COMMON   BANK0
+  1075 ;;      Params:         0       0
+  1076 ;;      Locals:         0       2
+  1077 ;;      Temps:          0       0
+  1078 ;;      Totals:         0       2
+  1079 ;;Total ram usage:        2 bytes
+  1080 ;; Hardware stack levels used:    1
+  1081 ;; Hardware stack levels required when called:    2
+  1082 ;; This function calls:
+  1083 ;;		_is_mode_changed
+  1084 ;; This function is called by:
+  1085 ;;		_single_inc
+  1086 ;;		_grayencode
+  1087 ;;		_only_one
+  1088 ;;		_johnson
+  1089 ;;		_single_dec
+  1090 ;; This function uses a non-reentrant model
+  1091 ;;
+  1092                           
+  1093                           
+  1094                           ;psect for function _wait_with_check
+  1095  02BB                     _wait_with_check:
+  1096  02BB                     l975:	
+  1097                           ;incstack = 0
+  1098                           ; Regs used in _wait_with_check: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+  1099                           
+  1100                           
+  1101                           ;code_generator.c: 196:     for(int i=0; i<800; i++)
+  1102  02BB  1283               	bcf	3,5	;RP0=0, select bank0
+  1103  02BC  0192               	clrf	wait_with_check@i
+  1104  02BD  0193               	clrf	wait_with_check@i+1
+  1105  02BE                     l981:
+  1106                           
+  1107                           ;code_generator.c: 197:     {;code_generator.c: 198:         if(is_mode_changed())
+  1108  02BE  228F               	fcall	_is_mode_changed
+  1109  02BF  3A00               	xorlw	0
+  1110  02C0  1903               	skipnz
+  1111  02C1  2AC3               	goto	u351
+  1112  02C2  2AC4               	goto	u350
+  1113  02C3                     u351:
+  1114  02C3  2AC5               	goto	l123
+  1115  02C4                     u350:
+  1116  02C4  2ADA               	goto	l124
+  1117  02C5                     l123:	
+  1118                           ;code_generator.c: 201:         }
+  1119                           
+  1120                           
+  1121                           ;code_generator.c: 202:         _delay((unsigned long)((1)*(8000/4000.0)));
+  1122  02C5  2AC6               	nop2	;2 cycle nop
+  1123  02C6                     l985:
+  1124                           
+  1125                           ;code_generator.c: 203:     }
+  1126  02C6  3001               	movlw	1
+  1127  02C7  1283               	bcf	3,5	;RP0=0, select bank0
+  1128  02C8  0792               	addwf	wait_with_check@i,f
+  1129  02C9  1803               	skipnc
+  1130  02CA  0A93               	incf	wait_with_check@i+1,f
+  1131  02CB  3000               	movlw	0
+  1132  02CC  0793               	addwf	wait_with_check@i+1,f
+  1133  02CD                     l987:
+  1134  02CD  0813               	movf	wait_with_check@i+1,w
+  1135  02CE  3A80               	xorlw	128
+  1136  02CF  00CF               	movwf	btemp+1
+  1137  02D0  3083               	movlw	131
+  1138  02D1  024F               	subwf	btemp+1,w
+  1139  02D2  1D03               	skipz
+  1140  02D3  2AD6               	goto	u365
+  1141  02D4  3020               	movlw	32
+  1142  02D5  0212               	subwf	wait_with_check@i,w
+  1143  02D6                     u365:
+  1144  02D6  1C03               	skipc
+  1145  02D7  2AD9               	goto	u361
+  1146  02D8  2ADA               	goto	u360
+  1147  02D9                     u361:
+  1148  02D9  2ABE               	goto	l981
+  1149  02DA                     u360:
+  1150  02DA                     l124:
+  1151  02DA  0008               	return
+  1152  02DB                     __end_of_wait_with_check:
+  1153                           
+  1154                           	psect	text9
+  1155  028F                     __ptext9:	
+  1156 ;; *************** function _is_mode_changed *****************
+  1157 ;; Defined at:
+  1158 ;;		line 181 in file "code_generator.c"
+  1159 ;; Parameters:    Size  Location     Type
+  1160 ;;		None
+  1161 ;; Auto vars:     Size  Location     Type
+  1162 ;;  temp_key        1    5[BANK0 ] unsigned char 
+  1163 ;; Return value:  Size  Location     Type
+  1164 ;;                  1    wreg      unsigned char 
+  1165 ;; Registers used:
+  1166 ;;		wreg, status,2, status,0, pclath, cstack
+  1167 ;; Tracked objects:
+  1168 ;;		On entry : 0/0
+  1169 ;;		On exit  : 0/0
+  1170 ;;		Unchanged: 0/0
+  1171 ;; Data sizes:     COMMON   BANK0
+  1172 ;;      Params:         0       0
+  1173 ;;      Locals:         0       1
+  1174 ;;      Temps:          0       1
+  1175 ;;      Totals:         0       2
+  1176 ;;Total ram usage:        2 bytes
+  1177 ;; Hardware stack levels used:    1
+  1178 ;; Hardware stack levels required when called:    1
+  1179 ;; This function calls:
+  1180 ;;		_get_key
+  1181 ;; This function is called by:
+  1182 ;;		_stop_gen
+  1183 ;;		_wait_with_check
+  1184 ;; This function uses a non-reentrant model
+  1185 ;;
+  1186                           
+  1187                           
+  1188                           ;psect for function _is_mode_changed
+  1189  028F                     _is_mode_changed:
+  1190  028F                     l959:	
+  1191                           ;incstack = 0
+  1192                           ; Regs used in _is_mode_changed: [wreg+status,2+status,0+pclath+cstack]
+  1193                           
+  1194                           
+  1195                           ;code_generator.c: 183:     unsigned char temp_key = get_key();
+  1196  028F  23A8               	fcall	_get_key
+  1197  0290  1283               	bcf	3,5	;RP0=0, select bank0
+  1198  0291  0090               	movwf	??_is_mode_changed
+  1199  0292  0810               	movf	??_is_mode_changed,w
+  1200  0293  0091               	movwf	is_mode_changed@temp_key
+  1201  0294                     l961:
+  1202                           
+  1203                           ;code_generator.c: 184:     if(temp_key!=0xff )
+  1204  0294  0A11               	incf	is_mode_changed@temp_key,w
+  1205  0295  1903               	btfsc	3,2
+  1206  0296  2A98               	goto	u341
+  1207  0297  2A99               	goto	u340
+  1208  0298                     u341:
+  1209  0298  2AA1               	goto	l971
+  1210  0299                     u340:
+  1211  0299                     l963:
+  1212                           
+  1213                           ;code_generator.c: 185:     {;code_generator.c: 186:         key=temp_key;
+  1214  0299  0811               	movf	is_mode_changed@temp_key,w
+  1215  029A  0090               	movwf	??_is_mode_changed
+  1216  029B  0810               	movf	??_is_mode_changed,w
+  1217  029C  009D               	movwf	_key
+  1218  029D                     l965:
+  1219                           
+  1220                           ;code_generator.c: 187:         logic_bits=0;
+  1221  029D  019F               	clrf	_logic_bits
+  1222  029E                     l967:
+  1223                           
+  1224                           ;code_generator.c: 188:         PORTA = 0;
+  1225  029E  0185               	clrf	5	;volatile
+  1226                           
+  1227                           ;code_generator.c: 189:         return 1;
+  1228  029F  3001               	movlw	1
+  1229  02A0  2AA2               	goto	l118
+  1230  02A1                     l971:
+  1231                           
+  1232                           ;code_generator.c: 191:     return 0;
+  1233  02A1  3000               	movlw	0
+  1234  02A2                     l118:
+  1235  02A2  0008               	return
+  1236  02A3                     __end_of_is_mode_changed:
+  1237                           
+  1238                           	psect	text10
+  1239  03A8                     __ptext10:	
+  1240 ;; *************** function _get_key *****************
+  1241 ;; Defined at:
+  1242 ;;		line 61 in file "code_generator.c"
+  1243 ;; Parameters:    Size  Location     Type
+  1244 ;;		None
+  1245 ;; Auto vars:     Size  Location     Type
+  1246 ;;  key             1    3[BANK0 ] unsigned char 
+  1247 ;;  template        1    2[BANK0 ] unsigned char 
+  1248 ;; Return value:  Size  Location     Type
+  1249 ;;                  1    wreg      unsigned char 
+  1250 ;; Registers used:
+  1251 ;;		wreg, status,2, status,0
+  1252 ;; Tracked objects:
+  1253 ;;		On entry : 0/0
+  1254 ;;		On exit  : 0/0
+  1255 ;;		Unchanged: 0/0
+  1256 ;; Data sizes:     COMMON   BANK0
+  1257 ;;      Params:         0       0
+  1258 ;;      Locals:         0       2
+  1259 ;;      Temps:          0       2
+  1260 ;;      Totals:         0       4
+  1261 ;;Total ram usage:        4 bytes
+  1262 ;; Hardware stack levels used:    1
+  1263 ;; This function calls:
+  1264 ;;		Nothing
+  1265 ;; This function is called by:
+  1266 ;;		_is_mode_changed
+  1267 ;; This function uses a non-reentrant model
+  1268 ;;
+  1269                           
+  1270                           
+  1271                           ;psect for function _get_key
+  1272  03A8                     _get_key:
+  1273  03A8                     l927:	
+  1274                           ;incstack = 0
+  1275                           ; Regs used in _get_key: [wreg+status,2+status,0]
+  1276                           
+  1277                           
+  1278                           ;code_generator.c: 63:     char key, template;;code_generator.c: 64:     key =1; templat
+      +                          e=0b11101111;
+  1279  03A8  1283               	bcf	3,5	;RP0=0, select bank0
+  1280  03A9  018F               	clrf	get_key@key
+  1281  03AA  0A8F               	incf	get_key@key,f
+  1282  03AB                     l929:
+  1283  03AB  30EF               	movlw	239
+  1284  03AC  008C               	movwf	??_get_key
+  1285  03AD  080C               	movf	??_get_key,w
+  1286  03AE  008E               	movwf	get_key@template
+  1287                           
+  1288                           ;code_generator.c: 65:     while(key<13)
+  1289  03AF  2BE8               	goto	l951
+  1290  03B0                     l931:
+  1291                           
+  1292                           ;code_generator.c: 66:     {;code_generator.c: 67:         PORTB = template;
+  1293  03B0  080E               	movf	get_key@template,w
+  1294  03B1  0086               	movwf	6	;volatile
+  1295  03B2                     l933:
+  1296                           
+  1297                           ;code_generator.c: 68:         if(!PORTBbits.RB2)
+  1298  03B2  1906               	btfsc	6,2	;volatile
+  1299  03B3  2BB5               	goto	u261
+  1300  03B4  2BB6               	goto	u260
+  1301  03B5                     u261:
+  1302  03B5  2BBE               	goto	l937
+  1303  03B6                     u260:
+  1304  03B6  2BB8               	goto	l62
+  1305  03B7                     l63:
+  1306                           
+  1307                           ;code_generator.c: 71:             {;code_generator.c: 72:               _delay((unsigne
+      +                          d long)((1)*(8000/4000.0)));
+  1308  03B7  2BB8               	nop2	;2 cycle nop
+  1309  03B8                     l62:	
+  1310                           ;code_generator.c: 73:             }
+  1311                           
+  1312                           
+  1313                           ;code_generator.c: 70:             while(!PORTBbits.RB2)
+  1314  03B8  1283               	bcf	3,5	;RP0=0, select bank0
+  1315  03B9  1D06               	btfss	6,2	;volatile
+  1316  03BA  2BBC               	goto	u271
+  1317  03BB  2BBD               	goto	u270
+  1318  03BC                     u271:
+  1319  03BC  2BB7               	goto	l63
+  1320  03BD                     u270:
+  1321  03BD  2BEE               	goto	l953
+  1322  03BE                     l937:
+  1323                           
+  1324                           ;code_generator.c: 76:         key++;
+  1325  03BE  3001               	movlw	1
+  1326  03BF  008C               	movwf	??_get_key
+  1327  03C0  080C               	movf	??_get_key,w
+  1328  03C1  078F               	addwf	get_key@key,f
+  1329  03C2                     l939:
+  1330                           
+  1331                           ;code_generator.c: 77:         if(!PORTBbits.RB1)
+  1332  03C2  1886               	btfsc	6,1	;volatile
+  1333  03C3  2BC5               	goto	u281
+  1334  03C4  2BC6               	goto	u280
+  1335  03C5                     u281:
+  1336  03C5  2BCE               	goto	l943
+  1337  03C6                     u280:
+  1338  03C6  2BC8               	goto	l67
+  1339  03C7                     l68:
+  1340                           
+  1341                           ;code_generator.c: 81:             {;code_generator.c: 82:               _delay((unsigne
+      +                          d long)((1)*(8000/4000.0)));
+  1342  03C7  2BC8               	nop2	;2 cycle nop
+  1343  03C8                     l67:	
+  1344                           ;code_generator.c: 83:             }
+  1345                           
+  1346                           
+  1347                           ;code_generator.c: 80:             while(!PORTBbits.RB1)
+  1348  03C8  1283               	bcf	3,5	;RP0=0, select bank0
+  1349  03C9  1C86               	btfss	6,1	;volatile
+  1350  03CA  2BCC               	goto	u291
+  1351  03CB  2BCD               	goto	u290
+  1352  03CC                     u291:
+  1353  03CC  2BC7               	goto	l68
+  1354  03CD                     u290:
+  1355  03CD  2BEE               	goto	l953
+  1356  03CE                     l943:
+  1357                           
+  1358                           ;code_generator.c: 87:         key++;
+  1359  03CE  3001               	movlw	1
+  1360  03CF  008C               	movwf	??_get_key
+  1361  03D0  080C               	movf	??_get_key,w
+  1362  03D1  078F               	addwf	get_key@key,f
+  1363  03D2                     l945:
+  1364                           
+  1365                           ;code_generator.c: 88:         if(!PORTBbits.RB0)
+  1366  03D2  1806               	btfsc	6,0	;volatile
+  1367  03D3  2BD5               	goto	u301
+  1368  03D4  2BD6               	goto	u300
+  1369  03D5                     u301:
+  1370  03D5  2BDE               	goto	l949
+  1371  03D6                     u300:
+  1372  03D6  2BD8               	goto	l71
+  1373  03D7                     l72:
+  1374                           
+  1375                           ;code_generator.c: 91:             {;code_generator.c: 92:               _delay((unsigne
+      +                          d long)((1)*(8000/4000.0)));
+  1376  03D7  2BD8               	nop2	;2 cycle nop
+  1377  03D8                     l71:	
+  1378                           ;code_generator.c: 93:             }
+  1379                           
+  1380                           
+  1381                           ;code_generator.c: 90:           while(!PORTBbits.RB0)
+  1382  03D8  1283               	bcf	3,5	;RP0=0, select bank0
+  1383  03D9  1C06               	btfss	6,0	;volatile
+  1384  03DA  2BDC               	goto	u311
+  1385  03DB  2BDD               	goto	u310
+  1386  03DC                     u311:
+  1387  03DC  2BD7               	goto	l72
+  1388  03DD                     u310:
+  1389  03DD  2BEE               	goto	l953
+  1390  03DE                     l949:
+  1391                           
+  1392                           ;code_generator.c: 96:         key++;
+  1393  03DE  3001               	movlw	1
+  1394  03DF  008C               	movwf	??_get_key
+  1395  03E0  080C               	movf	??_get_key,w
+  1396  03E1  078F               	addwf	get_key@key,f
+  1397                           
+  1398                           ;code_generator.c: 97:         template=template <<1;
+  1399  03E2  080E               	movf	get_key@template,w
+  1400  03E3  008C               	movwf	??_get_key
+  1401  03E4  070C               	addwf	??_get_key,w
+  1402  03E5  008D               	movwf	??_get_key+1
+  1403  03E6  080D               	movf	??_get_key+1,w
+  1404  03E7  008E               	movwf	get_key@template
+  1405  03E8                     l951:
+  1406                           
+  1407                           ;code_generator.c: 65:     while(key<13)
+  1408  03E8  300D               	movlw	13
+  1409  03E9  020F               	subwf	get_key@key,w
+  1410  03EA  1C03               	skipc
+  1411  03EB  2BED               	goto	u321
+  1412  03EC  2BEE               	goto	u320
+  1413  03ED                     u321:
+  1414  03ED  2BB0               	goto	l931
+  1415  03EE                     u320:
+  1416  03EE                     l953:
+  1417                           
+  1418                           ;code_generator.c: 100:     if(key==13) {key=0xff;}
+  1419  03EE  300D               	movlw	13
+  1420  03EF  060F               	xorwf	get_key@key,w
+  1421  03F0  1D03               	btfss	3,2
+  1422  03F1  2BF3               	goto	u331
+  1423  03F2  2BF4               	goto	u330
+  1424  03F3                     u331:
+  1425  03F3  2BF8               	goto	l74
+  1426  03F4                     u330:
+  1427  03F4                     l955:
+  1428  03F4  30FF               	movlw	255
+  1429  03F5  008C               	movwf	??_get_key
+  1430  03F6  080C               	movf	??_get_key,w
+  1431  03F7  008F               	movwf	get_key@key
+  1432  03F8                     l74:
+  1433                           
+  1434                           ;code_generator.c: 101:     return key;
+  1435  03F8  080F               	movf	get_key@key,w
+  1436  03F9                     l75:
+  1437  03F9  0008               	return
+  1438  03FA                     __end_of_get_key:
+  1439  004E                     btemp	set	78	;btemp
+  1440  004E                     wtemp0	set	78
+  1441                           
+  1442                           	psect	config
+  1443                           
+  1444                           ;Config register CONFIG @ 0x2007
+  1445                           ;	Oscillator Selection bits
+  1446                           ;	FOSC = EXTRC, RC oscillator
+  1447                           ;	Watchdog Timer
+  1448                           ;	WDTE = OFF, WDT disabled
+  1449                           ;	Power-up Timer Enable bit
+  1450                           ;	PWRTE = OFF, Power-up Timer is disabled
+  1451                           ;	Code Protection bit
+  1452                           ;	CP = OFF, Code protection disabled
+  1453  2007                     	org	8199
+  1454  2007  3FFB               	dw	16379
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         3
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON            0      0       0
+    BANK0            66     17      20
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMMON
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_johnson
+    _stop_gen->_is_mode_changed
+    _single_inc->_wait_with_check
+    _single_dec->_wait_with_check
+    _only_one->_wait_with_check
+    _johnson->_wait_with_check
+    _grayencode->_wait_with_check
+    _wait_with_check->_is_mode_changed
+    _is_mode_changed->_get_key
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 6     2      4    1339
+                                             11 BANK0      6     2      4
+                         _grayencode
+                            _johnson
+                           _only_one
+                         _single_dec
+                         _single_inc
+                           _stop_gen
+ ---------------------------------------------------------------------------------
+ (1) _stop_gen                                             0     0      0     162
+                    _is_mode_changed
+ ---------------------------------------------------------------------------------
+ (1) _single_inc                                           1     1      0     208
+                                              8 BANK0      1     1      0
+                    _wait_with_check
+ ---------------------------------------------------------------------------------
+ (1) _single_dec                                           0     0      0     208
+                    _wait_with_check
+ ---------------------------------------------------------------------------------
+ (1) _only_one                                             2     2      0     208
+                                              8 BANK0      2     2      0
+                    _wait_with_check
+ ---------------------------------------------------------------------------------
+ (1) _johnson                                              3     3      0     345
+                                              8 BANK0      3     3      0
+                        _invert_byte
+                    _wait_with_check
+ ---------------------------------------------------------------------------------
+ (2) _invert_byte                                          6     6      0     137
+                                              0 BANK0      6     6      0
+ ---------------------------------------------------------------------------------
+ (1) _grayencode                                           2     2      0     208
+                                              8 BANK0      2     2      0
+                    _wait_with_check
+ ---------------------------------------------------------------------------------
+ (2) _wait_with_check                                      2     2      0     208
+                                              6 BANK0      2     2      0
+                    _is_mode_changed
+ ---------------------------------------------------------------------------------
+ (2) _is_mode_changed                                      2     2      0     162
+                                              4 BANK0      2     2      0
+                            _get_key
+ ---------------------------------------------------------------------------------
+ (3) _get_key                                              4     4      0     117
+                                              0 BANK0      4     4      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _grayencode
+     _wait_with_check
+       _is_mode_changed
+         _get_key
+   _johnson
+     _invert_byte
+     _wait_with_check
+       _is_mode_changed
+         _get_key
+   _only_one
+     _wait_with_check
+       _is_mode_changed
+         _get_key
+   _single_dec
+     _wait_with_check
+       _is_mode_changed
+         _get_key
+   _single_inc
+     _wait_with_check
+       _is_mode_changed
+         _get_key
+   _stop_gen
+     _is_mode_changed
+       _get_key
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            0      0       0       0        0.0%
+EEDATA              40      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+COMMON               0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+BANK0               42     11      14       3       30.3%
+ABS                  0      0      14       4        0.0%
+BITBANK0            42      0       0       5        0.0%
+DATA                 0      0      14       6        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.30 build 20200825195618 
+Symbol Table                                                                                   Sun Oct 11 17:58:54 2020
+
+                      l62 03B8                        l71 03D8                        l63 03B7  
+                      l72 03D7                        l81 028E                        l74 03F8  
+                      l75 03F9                        l67 03C8                        l68 03C7  
+                      l87 02BA                        l95 02FC                        l98 03A0  
+                     l101 0370                       l111 027F                       l105 03A7  
+                     l114 0271                       l123 02C5                       l124 02DA  
+                     l118 02A2                       l129 0329                       l931 03B0  
+                     l933 03B2                       l943 03CE                       l951 03E8  
+                     l927 03A8                       l945 03D2                       l953 03EE  
+                     l937 03BE                       l929 03AB                       l961 0294  
+                     l955 03F4                       l939 03C2                       l963 0299  
+                     l971 02A1                       l949 03DE                       l965 029D  
+                     l981 02BE                       l967 029E                       l959 028F  
+                     l975 02BB                       l985 02C6                       l987 02CD  
+                     l995 0301                       l997 0314                       l989 02FF  
+                     l999 031A                       u300 03D6                       u301 03D5  
+                     u310 03DD                       u311 03DC                       u320 03EE  
+                     u400 02BA                       u321 03ED                       u401 02B9  
+                     u330 03F4                       u410 02E1                       u331 03F3  
+                     u411 02E0                       u260 03B6                       u340 0299  
+                     u500 03A7                       u420 02F2                       u261 03B5  
+                     u341 0298                       u501 03A6                       u421 02F1  
+                     u270 03BD                       u350 02C4                       u430 02FC  
+                     u271 03BC                       u351 02C3                       u431 02FB  
+                     u280 03C6                       u360 02DA                       u440 0362  
+                     u281 03C5                       u361 02D9                       u441 0361  
+                     u290 03CD                       u370 0327                       u450 036C  
+                     u291 03CC                       u371 0326                       u451 036B  
+                     u460 0376                       u380 028E                       u365 02D6  
+                     u461 0375                       u381 028D                       u390 027F  
+                     u375 0323                       u391 027E                       u480 038B  
+                     u481 038A                       u475 0379                       u495 038E  
+                     _key 001D                      l1001 0327                      l1011 0287  
+                    l1021 0277                      l1013 0288                      l1005 0280  
+                    l1031 02AE                      l1023 0278                      l1015 0272  
+                    l1007 0281                      l1033 02B2                      l1025 02A3  
+                    l1041 02E4                      l1017 0273                      l1009 0283  
+                    l1027 02A4                      l1035 02B3                      l1043 02E6  
+                    l1051 02F5                      l1019 0275                      l1029 02AC  
+                    l1061 036C                      l1053 035C                      l1045 02EC  
+                    l1037 02DB                      l1133 034A                      l1071 039F  
+                    l1063 0376                      l1055 035D                      l1047 02F2  
+                    l1039 02E1                      l1065 0385                      l1057 0362  
+                    l1049 02F4                      l1073 0270                      l1081 0331  
+                    l1067 038B                      l1059 0366                      l1091 033E  
+                    l1083 0336                      l1075 032A                      l1069 039B  
+                    l1093 0340                      l1085 0338                      l1077 032E  
+                    l1087 033A                      l1095 0341                      l1079 032F  
+                    l1089 033C                      _main 032A                      _gray 001E  
+                    btemp 004E                      start 0000                     ?_main 0017  
+                   _PORTA 0005                     _PORTB 0006                     _TRISA 0085  
+                   _TRISB 0086           __end_of_get_key 03FA   is_mode_changed@temp_key 0011  
+         __end_of_johnson 03A8                     status 0003                     wtemp0 004E  
+         __initialization 03FA         ??_wait_with_check 0000              __end_of_main 035C  
+            ?_invert_byte 000C                    ??_main 001B           _is_mode_changed 028F  
+               ??_get_key 000C                 ??_johnson 0014          __end_of_only_one 02FD  
+        __end_of_stop_gen 0272   __end_of__initialization 03FE            __pcstackCOMMON 0000  
+ __end_of_is_mode_changed 02A3            _OPTION_REGbits 0081                __pbssBANK0 001D  
+              __pmaintext 032A      __size_of_invert_byte 002D           _wait_with_check 02BB  
+         get_key@template 000E                 ?_only_one 000C                _grayencode 02A3  
+        ?_is_mode_changed 000C                 ?_stop_gen 000C                   __ptext1 0270  
+                 __ptext2 0280                   __ptext3 0272                   __ptext4 02DB  
+                 __ptext5 035C                   __ptext6 02FD                   __ptext7 02A3  
+                 __ptext8 02BB                   __ptext9 028F                   _get_key 03A8  
+              _logic_bits 001F                   _johnson 035C      end_of_initialization 03FE  
+              ??_only_one 0014                _single_dec 0272                _single_inc 0280  
+              ??_stop_gen 0000                 _PORTBbits 0006   __end_of_wait_with_check 02DB  
+              get_key@key 000F               ?_grayencode 000C       start_initialization 03FA  
+             ?_single_dec 000C               ?_single_inc 000C              invert_byte@a 0010  
+            invert_byte@b 0011              invert_byte@i 000E                 ___latbits 0000  
+           __pcstackBANK0 000C          ?_wait_with_check 000C       __size_of_grayencode 0018  
+           ??_invert_byte 000C         __size_of_only_one 0022          wait_with_check@i 0012  
+                ?_get_key 000C         __size_of_stop_gen 0002                  ?_johnson 000C  
+     __size_of_single_dec 000E       __size_of_single_inc 000F       __end_of_invert_byte 032A  
+__size_of_is_mode_changed 0014              ??_grayencode 0014          __size_of_get_key 0052  
+        __size_of_johnson 004C                  __ptext10 03A8        __end_of_grayencode 02BB  
+           __size_of_main 0032                  _only_one 02DB               _invert_byte 02FD  
+            ??_single_dec 0000              ??_single_inc 0014                  main@argc 0017  
+                main@argv 0019                  _stop_gen 0270                _INTCONbits 000B  
+       ??_is_mode_changed 0010        __end_of_single_dec 0280        __end_of_single_inc 028F  
+__size_of_wait_with_check 0020  

@@ -1,0 +1,20 @@
+MPASM 5.87              NEWPIC_8B_SIMPLE.ASM   9-15-2020  11:38:47         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Error[129]  : Expected (END)
+MPASM 5.87              NEWPIC_8B_SIMPLE.ASM   9-15-2020  11:38:47         PAGE  2
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+__16F84A                          00000001
+
+Errors   :     1
+Warnings :     0 reported,     0 suppressed
+Messages :     0 reported,     0 suppressed
+
+

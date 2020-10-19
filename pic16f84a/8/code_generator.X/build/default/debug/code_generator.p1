@@ -1,0 +1,838 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[p mainexit ]
+"313 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 313:     struct {
+[s S17 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S17 . RBIF INTF T0IF RBIE INTE T0IE EEIE GIE ]
+"323
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 323:     struct {
+[s S18 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S18 . . TMR0IF . TMR0IE ]
+"312
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 312: typedef union {
+[u S16 `S17 1 `S18 1 ]
+[n S16 . . . ]
+"330
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 330: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS16 ~T0 @X0 0 e@11 ]
+"391
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 391:     struct {
+[s S20 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S20 . PS PSA T0SE T0CS INTEDG nRBPU ]
+"399
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 399:     struct {
+[s S21 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S21 . PS0 PS1 PS2 ]
+"390
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 390: typedef union {
+[u S19 `S20 1 `S21 1 ]
+[n S19 . . . ]
+"405
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 405: extern volatile OPTION_REGbits_t OPTION_REGbits __attribute__((address(0x081)));
+[v _OPTION_REGbits `VS19 ~T0 @X0 0 e@129 ]
+"455
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 455: extern volatile unsigned char TRISA __attribute__((address(0x085)));
+[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
+"499
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 499: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"167
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 167: extern volatile unsigned char PORTA __attribute__((address(0x005)));
+[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"211
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 211: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"12 code_generator.c
+[; ;code_generator.c: 12: void single_inc();
+[v _single_inc `(v ~T0 @X0 0 e? ]
+"13
+[; ;code_generator.c: 13: void single_dec();
+[v _single_dec `(v ~T0 @X0 0 e? ]
+"17
+[; ;code_generator.c: 17: void grayencode();
+[v _grayencode `(v ~T0 @X0 0 e? ]
+"18
+[; ;code_generator.c: 18: void only_one();
+[v _only_one `(v ~T0 @X0 0 e? ]
+"19
+[; ;code_generator.c: 19: void johnson();
+[v _johnson `(v ~T0 @X0 0 e? ]
+"14
+[; ;code_generator.c: 14: void stop_gen() ;
+[v _stop_gen `(v ~T0 @X0 0 e? ]
+"217 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 217:     struct {
+[s S13 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S13 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"216
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 216: typedef union {
+[u S12 `S13 1 ]
+[n S12 . . ]
+"228
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 228: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
+[v _PORTBbits `VS12 ~T0 @X0 0 e@6 ]
+[v F217 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:\Program Files\Microchip\xc8\v2.30\pic\include\builtins.h
+[v __delay `JF217 ~T0 @X0 0 e ]
+[p i __delay ]
+"16 code_generator.c
+[; ;code_generator.c: 16: void wait_with_check();
+[v _wait_with_check `(v ~T0 @X0 0 e? ]
+"20
+[; ;code_generator.c: 20: unsigned char invert_byte(unsigned char a);
+[v _invert_byte `(uc ~T0 @X0 0 ef1`uc ]
+"15
+[; ;code_generator.c: 15: unsigned char is_mode_changed();
+[v _is_mode_changed `(uc ~T0 @X0 0 e? ]
+"2 code_generator.c
+[p x FOSC  =  EXTRC      ]
+"3
+[p x WDTE  =  OFF        ]
+"4
+[p x PWRTE  =  OFF       ]
+"5
+[p x CP  =  OFF          ]
+"55 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 55: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"62
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 62: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"69
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 69: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"76
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 76: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"162
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 162: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"169
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 169: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"213
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 213: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"275
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 275: __asm("EEDATA equ 08h");
+[; <" EEDATA equ 08h ;# ">
+"282
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 282: __asm("EEADR equ 09h");
+[; <" EEADR equ 09h ;# ">
+"289
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 289: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"309
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 309: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"387
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 387: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"457
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 457: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"501
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 501: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"563
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 563: __asm("EECON1 equ 088h");
+[; <" EECON1 equ 088h ;# ">
+"607
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 607: __asm("EECON2 equ 089h");
+[; <" EECON2 equ 089h ;# ">
+"21 code_generator.c
+[; ;code_generator.c: 21: char logic_bits=0;
+[v _logic_bits `uc ~T0 @X0 1 e ]
+[i _logic_bits
+-> -> 0 `i `uc
+]
+"22
+[; ;code_generator.c: 22: unsigned char gray=0;
+[v _gray `uc ~T0 @X0 1 e ]
+[i _gray
+-> -> 0 `i `uc
+]
+"23
+[; ;code_generator.c: 23: unsigned char key=0;
+[v _key `uc ~T0 @X0 1 e ]
+[i _key
+-> -> 0 `i `uc
+]
+"24
+[; ;code_generator.c: 24: unsigned char johnson_mode=0;
+[v _johnson_mode `uc ~T0 @X0 1 e ]
+[i _johnson_mode
+-> -> 0 `i `uc
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"26
+[; ;code_generator.c: 26: int main(int argc, char** argv) {
+[v _main `(i ~T0 @X0 1 ef2`i`**uc ]
+{
+[e :U _main ]
+[v _argc `i ~T0 @X0 1 r1 ]
+[v _argv `**uc ~T0 @X0 1 r2 ]
+[f ]
+"28
+[; ;code_generator.c: 28:     INTCONbits.GIE=0;
+[e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
+"29
+[; ;code_generator.c: 29:     INTCONbits.RBIE=1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"30
+[; ;code_generator.c: 30:     OPTION_REGbits.nRBPU=0;
+[e = . . _OPTION_REGbits 0 5 -> -> 0 `i `uc ]
+"31
+[; ;code_generator.c: 31:     TRISA = 0X0;
+[e = _TRISA -> -> 0 `i `uc ]
+"32
+[; ;code_generator.c: 32:     TRISB = 0b111;
+[e = _TRISB -> -> 7 `i `uc ]
+"33
+[; ;code_generator.c: 33:     PORTA = 0b11111100;
+[e = _PORTA -> -> 252 `i `uc ]
+"34
+[; ;code_generator.c: 34:     PORTB = 0X0;
+[e = _PORTB -> -> 0 `i `uc ]
+"37
+[; ;code_generator.c: 37:     while(1)
+[e :U 30 ]
+"38
+[; ;code_generator.c: 38:     {
+{
+"39
+[; ;code_generator.c: 39:         switch(key) {
+[e $U 33  ]
+{
+"40
+[; ;code_generator.c: 40:     case 1:
+[e :U 34 ]
+"41
+[; ;code_generator.c: 41:        single_inc();
+[e ( _single_inc ..  ]
+"42
+[; ;code_generator.c: 42:      break;
+[e $U 32  ]
+"43
+[; ;code_generator.c: 43:     case 2:
+[e :U 35 ]
+"44
+[; ;code_generator.c: 44:        single_dec();
+[e ( _single_dec ..  ]
+"45
+[; ;code_generator.c: 45:      break;
+[e $U 32  ]
+"46
+[; ;code_generator.c: 46:     case 3:
+[e :U 36 ]
+"47
+[; ;code_generator.c: 47:        grayencode();
+[e ( _grayencode ..  ]
+"48
+[; ;code_generator.c: 48:      break;
+[e $U 32  ]
+"49
+[; ;code_generator.c: 49:     case 4:
+[e :U 37 ]
+"50
+[; ;code_generator.c: 50:        only_one();
+[e ( _only_one ..  ]
+"51
+[; ;code_generator.c: 51:      break;
+[e $U 32  ]
+"52
+[; ;code_generator.c: 52:     case 5:
+[e :U 38 ]
+"53
+[; ;code_generator.c: 53:       johnson();
+[e ( _johnson ..  ]
+"54
+[; ;code_generator.c: 54:      break;
+[e $U 32  ]
+"55
+[; ;code_generator.c: 55:     default :
+[e :U 39 ]
+"56
+[; ;code_generator.c: 56:       stop_gen(); ;
+[e ( _stop_gen ..  ]
+"57
+[; ;code_generator.c: 57:   }
+}
+[e $U 32  ]
+[e :U 33 ]
+[e [\ -> _key `i , $ -> 1 `i 34
+ , $ -> 2 `i 35
+ , $ -> 3 `i 36
+ , $ -> 4 `i 37
+ , $ -> 5 `i 38
+ 39 ]
+[e :U 32 ]
+"58
+[; ;code_generator.c: 58: }
+}
+[e :U 29 ]
+[e $U 30  ]
+[e :U 31 ]
+"59
+[; ;code_generator.c: 59:     return (0);
+[e ) -> 0 `i ]
+[e $UE 28  ]
+"60
+[; ;code_generator.c: 60: }
+[e :UE 28 ]
+}
+"62
+[; ;code_generator.c: 62: unsigned char get_key(void)
+[v _get_key `(uc ~T0 @X0 1 ef ]
+"63
+[; ;code_generator.c: 63: {
+{
+[e :U _get_key ]
+[f ]
+"64
+[; ;code_generator.c: 64:     char key, template;
+[v _key `uc ~T0 @X0 1 a ]
+[v _template `uc ~T0 @X0 1 a ]
+"65
+[; ;code_generator.c: 65:     key =1; template=0b11101111;
+[e = _key -> -> 1 `i `uc ]
+[e = _template -> -> 239 `i `uc ]
+"66
+[; ;code_generator.c: 66:     while(key<13)
+[e $U 41  ]
+[e :U 42 ]
+"67
+[; ;code_generator.c: 67:     {
+{
+"68
+[; ;code_generator.c: 68:         PORTB = template;
+[e = _PORTB -> _template `uc ]
+"69
+[; ;code_generator.c: 69:         if(!PORTBbits.RB2)
+[e $ ! ! != -> . . _PORTBbits 0 2 `i -> 0 `i 44  ]
+"70
+[; ;code_generator.c: 70:         {
+{
+"71
+[; ;code_generator.c: 71:             while(!PORTBbits.RB2)
+[e $U 45  ]
+[e :U 46 ]
+"72
+[; ;code_generator.c: 72:             {
+{
+"73
+[; ;code_generator.c: 73:               _delay((unsigned long)((1)*(8000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000 `i `d .4000.0 `ul ]
+"74
+[; ;code_generator.c: 74:             }
+}
+[e :U 45 ]
+"71
+[; ;code_generator.c: 71:             while(!PORTBbits.RB2)
+[e $ ! != -> . . _PORTBbits 0 2 `i -> 0 `i 46  ]
+[e :U 47 ]
+"75
+[; ;code_generator.c: 75:         break;
+[e $U 43  ]
+"76
+[; ;code_generator.c: 76:         }
+}
+[e :U 44 ]
+"77
+[; ;code_generator.c: 77:         key++;
+[e ++ _key -> -> 1 `i `uc ]
+"78
+[; ;code_generator.c: 78:         if(!PORTBbits.RB1)
+[e $ ! ! != -> . . _PORTBbits 0 1 `i -> 0 `i 48  ]
+"79
+[; ;code_generator.c: 79:         {
+{
+"80
+[; ;code_generator.c: 80:          {
+{
+"81
+[; ;code_generator.c: 81:             while(!PORTBbits.RB1)
+[e $U 49  ]
+[e :U 50 ]
+"82
+[; ;code_generator.c: 82:             {
+{
+"83
+[; ;code_generator.c: 83:               _delay((unsigned long)((1)*(8000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000 `i `d .4000.0 `ul ]
+"84
+[; ;code_generator.c: 84:             }
+}
+[e :U 49 ]
+"81
+[; ;code_generator.c: 81:             while(!PORTBbits.RB1)
+[e $ ! != -> . . _PORTBbits 0 1 `i -> 0 `i 50  ]
+[e :U 51 ]
+"85
+[; ;code_generator.c: 85:         break;
+[e $U 43  ]
+"86
+[; ;code_generator.c: 86:          }
+}
+"87
+[; ;code_generator.c: 87:         }
+}
+[e :U 48 ]
+"88
+[; ;code_generator.c: 88:         key++;
+[e ++ _key -> -> 1 `i `uc ]
+"89
+[; ;code_generator.c: 89:         if(!PORTBbits.RB0)
+[e $ ! ! != -> . . _PORTBbits 0 0 `i -> 0 `i 52  ]
+"90
+[; ;code_generator.c: 90:         {
+{
+"91
+[; ;code_generator.c: 91:           while(!PORTBbits.RB0)
+[e $U 53  ]
+[e :U 54 ]
+"92
+[; ;code_generator.c: 92:             {
+{
+"93
+[; ;code_generator.c: 93:               _delay((unsigned long)((1)*(8000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000 `i `d .4000.0 `ul ]
+"94
+[; ;code_generator.c: 94:             }
+}
+[e :U 53 ]
+"91
+[; ;code_generator.c: 91:           while(!PORTBbits.RB0)
+[e $ ! != -> . . _PORTBbits 0 0 `i -> 0 `i 54  ]
+[e :U 55 ]
+"95
+[; ;code_generator.c: 95:         break;
+[e $U 43  ]
+"96
+[; ;code_generator.c: 96:         }
+}
+[e :U 52 ]
+"97
+[; ;code_generator.c: 97:         key++;
+[e ++ _key -> -> 1 `i `uc ]
+"98
+[; ;code_generator.c: 98:         template=template <<1;
+[e = _template -> << -> _template `i -> 1 `i `uc ]
+"99
+[; ;code_generator.c: 99:     }
+}
+[e :U 41 ]
+"66
+[; ;code_generator.c: 66:     while(key<13)
+[e $ < -> _key `i -> 13 `i 42  ]
+[e :U 43 ]
+"101
+[; ;code_generator.c: 101:     if(key==13) {key=0xff;}
+[e $ ! == -> _key `i -> 13 `i 56  ]
+{
+[e = _key -> -> 255 `i `uc ]
+}
+[e :U 56 ]
+"102
+[; ;code_generator.c: 102:     return key;
+[e ) -> _key `uc ]
+[e $UE 40  ]
+"103
+[; ;code_generator.c: 103: }
+[e :UE 40 ]
+}
+"105
+[; ;code_generator.c: 105: void single_inc()
+[v _single_inc `(v ~T0 @X0 1 ef ]
+"106
+[; ;code_generator.c: 106: {
+{
+[e :U _single_inc ]
+[f ]
+"107
+[; ;code_generator.c: 107:     while(key==1)
+[e $U 58  ]
+[e :U 59 ]
+"108
+[; ;code_generator.c: 108:     {
+{
+"109
+[; ;code_generator.c: 109:         PORTA = logic_bits;
+[e = _PORTA -> _logic_bits `uc ]
+"110
+[; ;code_generator.c: 110:         logic_bits++;
+[e ++ _logic_bits -> -> 1 `i `uc ]
+"111
+[; ;code_generator.c: 111:         wait_with_check();
+[e ( _wait_with_check ..  ]
+"112
+[; ;code_generator.c: 112:     }
+}
+[e :U 58 ]
+"107
+[; ;code_generator.c: 107:     while(key==1)
+[e $ == -> _key `i -> 1 `i 59  ]
+[e :U 60 ]
+"113
+[; ;code_generator.c: 113: }
+[e :UE 57 ]
+}
+"115
+[; ;code_generator.c: 115: void grayencode()
+[v _grayencode `(v ~T0 @X0 1 ef ]
+"116
+[; ;code_generator.c: 116: {
+{
+[e :U _grayencode ]
+[f ]
+"117
+[; ;code_generator.c: 117:      while(key==3)
+[e $U 62  ]
+[e :U 63 ]
+"118
+[; ;code_generator.c: 118:     {
+{
+"119
+[; ;code_generator.c: 119:         gray = logic_bits ^ (logic_bits >> 1);
+[e = _gray -> ^ -> _logic_bits `i >> -> _logic_bits `i -> 1 `i `uc ]
+"121
+[; ;code_generator.c: 121:         PORTA = gray;
+[e = _PORTA _gray ]
+"122
+[; ;code_generator.c: 122:         logic_bits++;
+[e ++ _logic_bits -> -> 1 `i `uc ]
+"123
+[; ;code_generator.c: 123:         wait_with_check();
+[e ( _wait_with_check ..  ]
+"124
+[; ;code_generator.c: 124:      }
+}
+[e :U 62 ]
+"117
+[; ;code_generator.c: 117:      while(key==3)
+[e $ == -> _key `i -> 3 `i 63  ]
+[e :U 64 ]
+"125
+[; ;code_generator.c: 125: }
+[e :UE 61 ]
+}
+"127
+[; ;code_generator.c: 127: void only_one()
+[v _only_one `(v ~T0 @X0 1 ef ]
+"128
+[; ;code_generator.c: 128: {
+{
+[e :U _only_one ]
+[f ]
+"129
+[; ;code_generator.c: 129:     if(logic_bits==0)
+[e $ ! == -> _logic_bits `i -> 0 `i 66  ]
+"130
+[; ;code_generator.c: 130:     {
+{
+"131
+[; ;code_generator.c: 131:       logic_bits=1;
+[e = _logic_bits -> -> 1 `i `uc ]
+"132
+[; ;code_generator.c: 132:     }
+}
+[e :U 66 ]
+"133
+[; ;code_generator.c: 133: while(key== 4)
+[e $U 67  ]
+[e :U 68 ]
+"134
+[; ;code_generator.c: 134:     {
+{
+"135
+[; ;code_generator.c: 135:       PORTA = logic_bits;
+[e = _PORTA -> _logic_bits `uc ]
+"136
+[; ;code_generator.c: 136:       logic_bits=logic_bits <<1;
+[e = _logic_bits -> << -> _logic_bits `i -> 1 `i `uc ]
+"137
+[; ;code_generator.c: 137:       if(logic_bits==16) logic_bits=1;
+[e $ ! == -> _logic_bits `i -> 16 `i 70  ]
+[e = _logic_bits -> -> 1 `i `uc ]
+[e :U 70 ]
+"138
+[; ;code_generator.c: 138:       wait_with_check();
+[e ( _wait_with_check ..  ]
+"139
+[; ;code_generator.c: 139:     }
+}
+[e :U 67 ]
+"133
+[; ;code_generator.c: 133: while(key== 4)
+[e $ == -> _key `i -> 4 `i 68  ]
+[e :U 69 ]
+"140
+[; ;code_generator.c: 140: }
+[e :UE 65 ]
+}
+"141
+[; ;code_generator.c: 141: void johnson()
+[v _johnson `(v ~T0 @X0 1 ef ]
+"142
+[; ;code_generator.c: 142: {
+{
+[e :U _johnson ]
+[f ]
+"143
+[; ;code_generator.c: 143:       while(key== 5)
+[e $U 72  ]
+[e :U 73 ]
+"144
+[; ;code_generator.c: 144:      {
+{
+"145
+[; ;code_generator.c: 145:       if(logic_bits==0)
+[e $ ! == -> _logic_bits `i -> 0 `i 75  ]
+"146
+[; ;code_generator.c: 146:       {
+{
+"147
+[; ;code_generator.c: 147:           johnson_mode=0;
+[e = _johnson_mode -> -> 0 `i `uc ]
+"148
+[; ;code_generator.c: 148:           logic_bits=0b10001111;
+[e = _logic_bits -> -> 143 `i `uc ]
+"149
+[; ;code_generator.c: 149:       }
+}
+[e :U 75 ]
+"151
+[; ;code_generator.c: 151:       if(johnson_mode==0)
+[e $ ! == -> _johnson_mode `i -> 0 `i 76  ]
+"152
+[; ;code_generator.c: 152:       {
+{
+"153
+[; ;code_generator.c: 153:         logic_bits= (logic_bits << 1) | (logic_bits >> (7));
+[e = _logic_bits -> | << -> _logic_bits `i -> 1 `i >> -> _logic_bits `i -> 7 `i `uc ]
+"154
+[; ;code_generator.c: 154:       }
+}
+[e :U 76 ]
+"155
+[; ;code_generator.c: 155:        if(johnson_mode==1)
+[e $ ! == -> _johnson_mode `i -> 1 `i 77  ]
+"156
+[; ;code_generator.c: 156:       {
+{
+"157
+[; ;code_generator.c: 157:         logic_bits = (logic_bits >> 1) | (logic_bits << (7));
+[e = _logic_bits -> | >> -> _logic_bits `i -> 1 `i << -> _logic_bits `i -> 7 `i `uc ]
+"158
+[; ;code_generator.c: 158:       }
+}
+[e :U 77 ]
+"159
+[; ;code_generator.c: 159:       PORTA = invert_byte(logic_bits);
+[e = _PORTA ( _invert_byte (1 -> _logic_bits `uc ]
+"160
+[; ;code_generator.c: 160:       wait_with_check();
+[e ( _wait_with_check ..  ]
+"161
+[; ;code_generator.c: 161:     }
+}
+[e :U 72 ]
+"143
+[; ;code_generator.c: 143:       while(key== 5)
+[e $ == -> _key `i -> 5 `i 73  ]
+[e :U 74 ]
+"162
+[; ;code_generator.c: 162: }
+[e :UE 71 ]
+}
+"164
+[; ;code_generator.c: 164: void single_dec()
+[v _single_dec `(v ~T0 @X0 1 ef ]
+"165
+[; ;code_generator.c: 165: {
+{
+[e :U _single_dec ]
+[f ]
+"166
+[; ;code_generator.c: 166:     while(key== 2)
+[e $U 79  ]
+[e :U 80 ]
+"167
+[; ;code_generator.c: 167:     {
+{
+"168
+[; ;code_generator.c: 168:       PORTA = logic_bits;
+[e = _PORTA -> _logic_bits `uc ]
+"169
+[; ;code_generator.c: 169:       logic_bits--;
+[e -- _logic_bits -> -> 1 `i `uc ]
+"170
+[; ;code_generator.c: 170:       wait_with_check();
+[e ( _wait_with_check ..  ]
+"171
+[; ;code_generator.c: 171:     }
+}
+[e :U 79 ]
+"166
+[; ;code_generator.c: 166:     while(key== 2)
+[e $ == -> _key `i -> 2 `i 80  ]
+[e :U 81 ]
+"172
+[; ;code_generator.c: 172: }
+[e :UE 78 ]
+}
+"174
+[; ;code_generator.c: 174: void stop_gen()
+[v _stop_gen `(v ~T0 @X0 1 ef ]
+"175
+[; ;code_generator.c: 175: {
+{
+[e :U _stop_gen ]
+[f ]
+"176
+[; ;code_generator.c: 176:   is_mode_changed();
+[e ( _is_mode_changed ..  ]
+"177
+[; ;code_generator.c: 177: }
+[e :UE 82 ]
+}
+"179
+[; ;code_generator.c: 179: unsigned char is_mode_changed()
+[v _is_mode_changed `(uc ~T0 @X0 1 ef ]
+"180
+[; ;code_generator.c: 180: {
+{
+[e :U _is_mode_changed ]
+[f ]
+"181
+[; ;code_generator.c: 181:     unsigned char temp_key = get_key();
+[v _temp_key `uc ~T0 @X0 1 a ]
+[e = _temp_key ( _get_key ..  ]
+"182
+[; ;code_generator.c: 182:     if(temp_key!=0xff )
+[e $ ! != -> _temp_key `i -> 255 `i 84  ]
+"183
+[; ;code_generator.c: 183:     {
+{
+"184
+[; ;code_generator.c: 184:         key=temp_key;
+[e = _key _temp_key ]
+"185
+[; ;code_generator.c: 185:         logic_bits=0;
+[e = _logic_bits -> -> 0 `i `uc ]
+"186
+[; ;code_generator.c: 186:         PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
+"187
+[; ;code_generator.c: 187:         return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 83  ]
+"188
+[; ;code_generator.c: 188:     }
+}
+[e :U 84 ]
+"189
+[; ;code_generator.c: 189:     return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 83  ]
+"190
+[; ;code_generator.c: 190: }
+[e :UE 83 ]
+}
+"192
+[; ;code_generator.c: 192: void wait_with_check()
+[v _wait_with_check `(v ~T0 @X0 1 ef ]
+"193
+[; ;code_generator.c: 193: {
+{
+[e :U _wait_with_check ]
+[f ]
+"194
+[; ;code_generator.c: 194:     for(int i=0; i<800; i++)
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 800 `i 86  ]
+[e $U 87  ]
+[e :U 86 ]
+"195
+[; ;code_generator.c: 195:     {
+{
+"196
+[; ;code_generator.c: 196:         if(is_mode_changed())
+[e $ ! != -> ( _is_mode_changed ..  `i -> 0 `i 89  ]
+"197
+[; ;code_generator.c: 197:         {
+{
+"198
+[; ;code_generator.c: 198:             break;
+[e $U 87  ]
+"199
+[; ;code_generator.c: 199:         }
+}
+[e :U 89 ]
+"200
+[; ;code_generator.c: 200:         _delay((unsigned long)((1)*(8000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000 `i `d .4000.0 `ul ]
+"201
+[; ;code_generator.c: 201:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 800 `i 86  ]
+[e :U 87 ]
+}
+"202
+[; ;code_generator.c: 202: }
+[e :UE 85 ]
+}
+"204
+[; ;code_generator.c: 204: unsigned char invert_byte(unsigned char a)
+[v _invert_byte `(uc ~T0 @X0 1 ef1`uc ]
+"205
+[; ;code_generator.c: 205: {
+{
+[e :U _invert_byte ]
+"204
+[; ;code_generator.c: 204: unsigned char invert_byte(unsigned char a)
+[v _a `uc ~T0 @X0 1 r1 ]
+"205
+[; ;code_generator.c: 205: {
+[f ]
+"206
+[; ;code_generator.c: 206:     unsigned char b;
+[v _b `uc ~T0 @X0 1 a ]
+"207
+[; ;code_generator.c: 207:     for(int i = 0; i < 8; i++)
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 8 `i 91  ]
+[e $U 92  ]
+[e :U 91 ]
+"208
+[; ;code_generator.c: 208:     {
+{
+"209
+[; ;code_generator.c: 209:       b = b<<1;
+[e = _b -> << -> _b `i -> 1 `i `uc ]
+"210
+[; ;code_generator.c: 210:       b += a%2;
+[e =+ _b -> % -> _a `i -> 2 `i `uc ]
+"211
+[; ;code_generator.c: 211:       a = a>>1;
+[e = _a -> >> -> _a `i -> 1 `i `uc ]
+"212
+[; ;code_generator.c: 212:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 8 `i 91  ]
+[e :U 92 ]
+}
+"213
+[; ;code_generator.c: 213:     return b;
+[e ) _b ]
+[e $UE 90  ]
+"214
+[; ;code_generator.c: 214: }
+[e :UE 90 ]
+}

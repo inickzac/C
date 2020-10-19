@@ -1,0 +1,560 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[p mainexit ]
+"455 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 455: extern volatile unsigned char TRISA __attribute__((address(0x085)));
+[v _TRISA `Vuc ~T0 @X0 0 e@133 ]
+"499
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 499: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
+"167
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 167: extern volatile unsigned char PORTA __attribute__((address(0x005)));
+[v _PORTA `Vuc ~T0 @X0 0 e@5 ]
+"211
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 211: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"313
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 313:     struct {
+[s S17 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S17 . RBIF INTF T0IF RBIE INTE T0IE EEIE GIE ]
+"323
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 323:     struct {
+[s S18 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S18 . . TMR0IF . TMR0IE ]
+"312
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 312: typedef union {
+[u S16 `S17 1 `S18 1 ]
+[n S16 . . . ]
+"330
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 330: extern volatile INTCONbits_t INTCONbits __attribute__((address(0x00B)));
+[v _INTCONbits `VS16 ~T0 @X0 0 e@11 ]
+"391
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 391:     struct {
+[s S20 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S20 . PS PSA T0SE T0CS INTEDG nRBPU ]
+"399
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 399:     struct {
+[s S21 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S21 . PS0 PS1 PS2 ]
+"390
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 390: typedef union {
+[u S19 `S20 1 `S21 1 ]
+[n S19 . . . ]
+"405
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 405: extern volatile OPTION_REGbits_t OPTION_REGbits __attribute__((address(0x081)));
+[v _OPTION_REGbits `VS19 ~T0 @X0 0 e@129 ]
+"14 lock.c
+[; ;lock.c: 14: unsigned char get_key(void);
+[v _get_key `(uc ~T0 @X0 0 ef ]
+"13
+[; ;lock.c: 13: unsigned char check_imput_string(char keys[10]);
+[v _check_imput_string `(uc ~T0 @X0 0 ef1`*uc ]
+"217 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 217:     struct {
+[s S13 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S13 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"216
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 216: typedef union {
+[u S12 `S13 1 ]
+[n S12 . . ]
+"228
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 228: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x006)));
+[v _PORTBbits `VS12 ~T0 @X0 0 e@6 ]
+[v F217 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:\Program Files\Microchip\xc8\v2.30\pic\include\builtins.h
+[v __delay `JF217 ~T0 @X0 0 e ]
+[p i __delay ]
+"12 lock.c
+[; ;lock.c: 12: void check_user(char keys[10]);
+[v _check_user `(v ~T0 @X0 0 ef1`*uc ]
+"115 C:\Program Files\Microchip\xc8\v2.30\pic\include\eeprom_routines.h
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\eeprom_routines.h: 115: extern unsigned char eeprom_read(unsigned char addr);
+[v _eeprom_read `(uc ~T0 @X0 0 ef1`uc ]
+"55 C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 55: __asm("INDF equ 00h");
+[; <" INDF equ 00h ;# ">
+"62
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 62: __asm("TMR0 equ 01h");
+[; <" TMR0 equ 01h ;# ">
+"69
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 69: __asm("PCL equ 02h");
+[; <" PCL equ 02h ;# ">
+"76
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 76: __asm("STATUS equ 03h");
+[; <" STATUS equ 03h ;# ">
+"162
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 162: __asm("FSR equ 04h");
+[; <" FSR equ 04h ;# ">
+"169
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 169: __asm("PORTA equ 05h");
+[; <" PORTA equ 05h ;# ">
+"213
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 213: __asm("PORTB equ 06h");
+[; <" PORTB equ 06h ;# ">
+"275
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 275: __asm("EEDATA equ 08h");
+[; <" EEDATA equ 08h ;# ">
+"282
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 282: __asm("EEADR equ 09h");
+[; <" EEADR equ 09h ;# ">
+"289
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 289: __asm("PCLATH equ 0Ah");
+[; <" PCLATH equ 0Ah ;# ">
+"309
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 309: __asm("INTCON equ 0Bh");
+[; <" INTCON equ 0Bh ;# ">
+"387
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 387: __asm("OPTION_REG equ 081h");
+[; <" OPTION_REG equ 081h ;# ">
+"457
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 457: __asm("TRISA equ 085h");
+[; <" TRISA equ 085h ;# ">
+"501
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 501: __asm("TRISB equ 086h");
+[; <" TRISB equ 086h ;# ">
+"563
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 563: __asm("EECON1 equ 088h");
+[; <" EECON1 equ 088h ;# ">
+"607
+[; ;C:\Program Files\Microchip\xc8\v2.30\pic\include\proc\pic16f84a.h: 607: __asm("EECON2 equ 089h");
+[; <" EECON2 equ 089h ;# ">
+"6 lock.c
+[; ;lock.c: 6: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "10" "," "1" "," "2" "," "3" "," "4" "," "12" "," "1" "," "1");
+[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
+[; <" 	db	10,1,2,3,4,12,1,1 ;# ">
+"7
+[; ;lock.c: 7: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "1" "," "1" "," "10" "," "1" "," "1" "," "1" "," "1" "," "12");
+[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
+[; <" 	db	1,1,10,1,1,1,1,12 ;# ">
+"8
+[; ;lock.c: 8: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "2" "," "2" "," "2" "," "2" "," "10" "," "2" "," "2" "," "2");
+[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
+[; <" 	db	2,2,2,2,10,2,2,2 ;# ">
+"9
+[; ;lock.c: 9: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "2" "," "12" "," "3" "," "3" "," "3" "," "3" "," "10" "," "3");
+[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
+[; <" 	db	2,12,3,3,3,3,10,3 ;# ">
+"10
+[; ;lock.c: 10: __asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); __asm("\tdb\t" "3" "," "3" "," "3" "," "12" "," "4" "," "4" "," "4" "," "4");
+[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
+[; <" 	db	3,3,3,12,4,4,4,4 ;# ">
+[v $root$_main `(v ~T0 @X0 0 e ]
+"16
+[; ;lock.c: 16: int main(void) {
+[v _main `(i ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"17
+[; ;lock.c: 17: unsigned char data;
+[v _data `uc ~T0 @X0 1 a ]
+"18
+[; ;lock.c: 18: char keys[10];
+[v _keys `uc ~T0 @X0 -> 10 `i a ]
+"19
+[; ;lock.c: 19: unsigned char key;
+[v _key `uc ~T0 @X0 1 a ]
+"20
+[; ;lock.c: 20: unsigned char quantityChar;
+[v _quantityChar `uc ~T0 @X0 1 a ]
+"22
+[; ;lock.c: 22:     TRISA = 0X0;
+[e = _TRISA -> -> 0 `i `uc ]
+"23
+[; ;lock.c: 23:     TRISB = 0b111;
+[e = _TRISB -> -> 7 `i `uc ]
+"24
+[; ;lock.c: 24:     PORTA = 0b11111100;
+[e = _PORTA -> -> 252 `i `uc ]
+"25
+[; ;lock.c: 25:     PORTB = 0X0;
+[e = _PORTB -> -> 0 `i `uc ]
+"26
+[; ;lock.c: 26:     INTCONbits.GIE=0;
+[e = . . _INTCONbits 0 7 -> -> 0 `i `uc ]
+"27
+[; ;lock.c: 27:     INTCONbits.RBIE=1;
+[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
+"28
+[; ;lock.c: 28:     OPTION_REGbits.nRBPU=0;
+[e = . . _OPTION_REGbits 0 5 -> -> 0 `i `uc ]
+"30
+[; ;lock.c: 30:     while(1)
+[e :U 30 ]
+"31
+[; ;lock.c: 31:     {
+{
+"32
+[; ;lock.c: 32:         key= get_key();
+[e = _key ( _get_key ..  ]
+"33
+[; ;lock.c: 33:         if(key!=0xff)
+[e $ ! != -> _key `i -> 255 `i 32  ]
+"34
+[; ;lock.c: 34:           {
+{
+"35
+[; ;lock.c: 35:             if(quantityChar<10)
+[e $ ! < -> _quantityChar `i -> 10 `i 33  ]
+"36
+[; ;lock.c: 36:             {
+{
+"37
+[; ;lock.c: 37:                keys[quantityChar] = key;
+[e = *U + &U _keys * -> _quantityChar `ux -> -> # *U &U _keys `ui `ux -> _key `uc ]
+"38
+[; ;lock.c: 38:                quantityChar++;
+[e ++ _quantityChar -> -> 1 `i `uc ]
+"39
+[; ;lock.c: 39:             }
+}
+[e :U 33 ]
+"40
+[; ;lock.c: 40:             if(quantityChar==10)
+[e $ ! == -> _quantityChar `i -> 10 `i 34  ]
+"41
+[; ;lock.c: 41:             {
+{
+"42
+[; ;lock.c: 42:                check_imput_string(keys);
+[e ( _check_imput_string (1 &U _keys ]
+"43
+[; ;lock.c: 43:                quantityChar=0;
+[e = _quantityChar -> -> 0 `i `uc ]
+"44
+[; ;lock.c: 44:             }
+}
+[e :U 34 ]
+"45
+[; ;lock.c: 45:         }
+}
+[e :U 32 ]
+"46
+[; ;lock.c: 46:       PORTA = 0b00001001;
+[e = _PORTA -> -> 9 `i `uc ]
+"47
+[; ;lock.c: 47:     }
+}
+[e :U 29 ]
+[e $U 30  ]
+[e :U 31 ]
+"49
+[; ;lock.c: 49:     return (0);
+[e ) -> 0 `i ]
+[e $UE 28  ]
+"50
+[; ;lock.c: 50: }
+[e :UE 28 ]
+}
+"53
+[; ;lock.c: 53: unsigned char get_key(void)
+[v _get_key `(uc ~T0 @X0 1 ef ]
+"54
+[; ;lock.c: 54: {
+{
+[e :U _get_key ]
+[f ]
+"55
+[; ;lock.c: 55:     char key, template;
+[v _key `uc ~T0 @X0 1 a ]
+[v _template `uc ~T0 @X0 1 a ]
+"56
+[; ;lock.c: 56:     key =1; template=0b11101111;
+[e = _key -> -> 1 `i `uc ]
+[e = _template -> -> 239 `i `uc ]
+"57
+[; ;lock.c: 57:     while(key<13)
+[e $U 36  ]
+[e :U 37 ]
+"58
+[; ;lock.c: 58:     {
+{
+"59
+[; ;lock.c: 59:         PORTB = template;
+[e = _PORTB -> _template `uc ]
+"60
+[; ;lock.c: 60:         if(!PORTBbits.RB2)
+[e $ ! ! != -> . . _PORTBbits 0 2 `i -> 0 `i 39  ]
+"61
+[; ;lock.c: 61:         {
+{
+"62
+[; ;lock.c: 62:             while(!PORTBbits.RB2)
+[e $U 40  ]
+[e :U 41 ]
+"63
+[; ;lock.c: 63:             {
+{
+"64
+[; ;lock.c: 64:               _delay((unsigned long)((1)*(8000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000 `i `d .4000.0 `ul ]
+"65
+[; ;lock.c: 65:             }
+}
+[e :U 40 ]
+"62
+[; ;lock.c: 62:             while(!PORTBbits.RB2)
+[e $ ! != -> . . _PORTBbits 0 2 `i -> 0 `i 41  ]
+[e :U 42 ]
+"66
+[; ;lock.c: 66:         break;
+[e $U 38  ]
+"67
+[; ;lock.c: 67:         }
+}
+[e :U 39 ]
+"68
+[; ;lock.c: 68:         key++;
+[e ++ _key -> -> 1 `i `uc ]
+"69
+[; ;lock.c: 69:         if(!PORTBbits.RB1)
+[e $ ! ! != -> . . _PORTBbits 0 1 `i -> 0 `i 43  ]
+"70
+[; ;lock.c: 70:         {
+{
+"71
+[; ;lock.c: 71:          {
+{
+"72
+[; ;lock.c: 72:             while(!PORTBbits.RB1)
+[e $U 44  ]
+[e :U 45 ]
+"73
+[; ;lock.c: 73:             {
+{
+"74
+[; ;lock.c: 74:               _delay((unsigned long)((1)*(8000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000 `i `d .4000.0 `ul ]
+"75
+[; ;lock.c: 75:             }
+}
+[e :U 44 ]
+"72
+[; ;lock.c: 72:             while(!PORTBbits.RB1)
+[e $ ! != -> . . _PORTBbits 0 1 `i -> 0 `i 45  ]
+[e :U 46 ]
+"76
+[; ;lock.c: 76:         break;
+[e $U 38  ]
+"77
+[; ;lock.c: 77:          }
+}
+"78
+[; ;lock.c: 78:         }
+}
+[e :U 43 ]
+"79
+[; ;lock.c: 79:         key++;
+[e ++ _key -> -> 1 `i `uc ]
+"80
+[; ;lock.c: 80:         if(!PORTBbits.RB0)
+[e $ ! ! != -> . . _PORTBbits 0 0 `i -> 0 `i 47  ]
+"81
+[; ;lock.c: 81:         {
+{
+"82
+[; ;lock.c: 82:           while(!PORTBbits.RB0)
+[e $U 48  ]
+[e :U 49 ]
+"83
+[; ;lock.c: 83:             {
+{
+"84
+[; ;lock.c: 84:               _delay((unsigned long)((1)*(8000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000 `i `d .4000.0 `ul ]
+"85
+[; ;lock.c: 85:             }
+}
+[e :U 48 ]
+"82
+[; ;lock.c: 82:           while(!PORTBbits.RB0)
+[e $ ! != -> . . _PORTBbits 0 0 `i -> 0 `i 49  ]
+[e :U 50 ]
+"86
+[; ;lock.c: 86:         break;
+[e $U 38  ]
+"87
+[; ;lock.c: 87:         }
+}
+[e :U 47 ]
+"88
+[; ;lock.c: 88:         key++;
+[e ++ _key -> -> 1 `i `uc ]
+"89
+[; ;lock.c: 89:         template=template <<1;
+[e = _template -> << -> _template `i -> 1 `i `uc ]
+"90
+[; ;lock.c: 90:     }
+}
+[e :U 36 ]
+"57
+[; ;lock.c: 57:     while(key<13)
+[e $ < -> _key `i -> 13 `i 37  ]
+[e :U 38 ]
+"92
+[; ;lock.c: 92:     if(key==13) {key=0xff;}
+[e $ ! == -> _key `i -> 13 `i 51  ]
+{
+[e = _key -> -> 255 `i `uc ]
+}
+[e :U 51 ]
+"93
+[; ;lock.c: 93:     return key;
+[e ) -> _key `uc ]
+[e $UE 35  ]
+"94
+[; ;lock.c: 94: }
+[e :UE 35 ]
+}
+"96
+[; ;lock.c: 96: unsigned char check_imput_string(char keys[10])
+[v _check_imput_string `(uc ~T0 @X0 1 ef1`*uc ]
+"97
+[; ;lock.c: 97: {
+{
+[e :U _check_imput_string ]
+"96
+[; ;lock.c: 96: unsigned char check_imput_string(char keys[10])
+[v _keys `*uc ~T0 @X0 1 r1 ]
+"97
+[; ;lock.c: 97: {
+[f ]
+"98
+[; ;lock.c: 98:     if(keys[0]==10 && keys[5]==12)
+[e $ ! && == -> *U + _keys * -> -> 0 `i `x -> -> # *U _keys `i `x `i -> 10 `i == -> *U + _keys * -> -> 5 `i `x -> -> # *U _keys `i `x `i -> 12 `i 53  ]
+"99
+[; ;lock.c: 99:     {
+{
+"100
+[; ;lock.c: 100:         check_user(keys);
+[e ( _check_user (1 _keys ]
+"102
+[; ;lock.c: 102:     }
+}
+[e :U 53 ]
+"103
+[; ;lock.c: 103:     return 0xff;
+[e ) -> -> 255 `i `uc ]
+[e $UE 52  ]
+"104
+[; ;lock.c: 104: }
+[e :UE 52 ]
+}
+"107
+[; ;lock.c: 107: void check_user(char keys[10])
+[v _check_user `(v ~T0 @X0 1 ef1`*uc ]
+"108
+[; ;lock.c: 108: {
+{
+[e :U _check_user ]
+"107
+[; ;lock.c: 107: void check_user(char keys[10])
+[v _keys `*uc ~T0 @X0 1 r1 ]
+"108
+[; ;lock.c: 108: {
+[f ]
+"109
+[; ;lock.c: 109:     char is_exist=0;
+[v _is_exist `uc ~T0 @X0 1 a ]
+[e = _is_exist -> -> 0 `i `uc ]
+"110
+[; ;lock.c: 110:     volatile unsigned char value = 0x00;
+[v _value `Vuc ~T0 @X0 1 a ]
+[e = _value -> -> 0 `i `uc ]
+"111
+[; ;lock.c: 111:     unsigned char address = 0x00;
+[v _address `uc ~T0 @X0 1 a ]
+[e = _address -> -> 0 `i `uc ]
+"112
+[; ;lock.c: 112:     for(int j=0; j<40; j=j+10)
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 40 `i 55  ]
+[e $U 56  ]
+[e :U 55 ]
+"113
+[; ;lock.c: 113:     {
+{
+"114
+[; ;lock.c: 114:      for(int i =0+j; i<10+j; i++)
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i + -> 0 `i _j ]
+[e $U 61  ]
+[e :U 58 ]
+"115
+[; ;lock.c: 115:     {
+{
+"116
+[; ;lock.c: 116:          value=eeprom_read(i);
+[e = _value ( _eeprom_read (1 -> _i `uc ]
+"117
+[; ;lock.c: 117:         if(keys[i-j]!=value)
+[e $ ! != -> *U + _keys * -> - _i _j `x -> -> # *U _keys `i `x `i -> _value `i 62  ]
+"118
+[; ;lock.c: 118:         {
+{
+"119
+[; ;lock.c: 119:             is_exist=0;
+[e = _is_exist -> -> 0 `i `uc ]
+"120
+[; ;lock.c: 120:             break;
+[e $U 59  ]
+"121
+[; ;lock.c: 121:         }
+}
+[e $U 63  ]
+"122
+[; ;lock.c: 122:         else
+[e :U 62 ]
+"123
+[; ;lock.c: 123:         {
+{
+"124
+[; ;lock.c: 124:             address++;
+[e ++ _address -> -> 1 `i `uc ]
+"125
+[; ;lock.c: 125:         }
+}
+[e :U 63 ]
+"126
+[; ;lock.c: 126:         is_exist=1;
+[e = _is_exist -> -> 1 `i `uc ]
+"127
+[; ;lock.c: 127:     }
+}
+[e ++ _i -> 1 `i ]
+[e :U 61 ]
+[e $ < _i + -> 10 `i _j 58  ]
+[e :U 59 ]
+}
+"129
+[; ;lock.c: 129:       if(is_exist==1)
+[e $ ! == -> _is_exist `i -> 1 `i 64  ]
+"130
+[; ;lock.c: 130:     {
+{
+"131
+[; ;lock.c: 131:           PORTA = 0b00000000;
+[e = _PORTA -> -> 0 `i `uc ]
+"132
+[; ;lock.c: 132:           _delay((unsigned long)((1000)*(8000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000 `i `d .4000.0 `ul ]
+"133
+[; ;lock.c: 133:           break;
+[e $U 56  ]
+"134
+[; ;lock.c: 134:     }
+}
+[e :U 64 ]
+"137
+[; ;lock.c: 137:     }
+}
+[e = _j + _j -> 10 `i ]
+[e $ < _j -> 40 `i 55  ]
+[e :U 56 ]
+}
+"138
+[; ;lock.c: 138: }
+[e :UE 54 ]
+}

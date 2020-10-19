@@ -1,0 +1,404 @@
+MPASM 5.82                            CL.ASM   9-23-2020  17:49:01         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[215]: Processor superseded by command line.  Verify processor symbol.
+                      00001            LIST p=16F84A
+                      00002            #INCLUDE <p16f84a.inc>
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ; Build date : Sep 19 2018
+                      00005 ;  MPASM PIC16F84A processor include
+                      00006 ; 
+                      00007 ;  (c) Copyright 1999-2018 Microchip Technology, All rights reserved
+                      00008 ;==========================================================================
+                      00009 
+Message[301]: MESSAGE: (Processor-header file mismatch.  Verify selected processor.)
+                      00209         LIST
+2007   3FF1           00003             __CONFIG _XT_OSC & _WDT_OFF & _PWRTE_ON & _CP_OFF
+  00000010            00004 SEG_1      equ 10h
+  00000011            00005 SEG_2      equ 11h
+  00000012            00006 SEG_3      equ 12h
+  00000013            00007 SEG_4      equ 13h
+  00000014            00008 SEG_5      equ 14h
+  00000015            00009 SEG_6      equ 15h
+  00000016            00010 SEG_7      equ 16h   
+  00000020            00011 STATUS_C   equ 20h
+  00000021            00012 W_C        equ 21h
+  00000022            00013 CLICK_ST   equ 22h
+                      00014            org 0   
+0000   2???           00015            goto START
+                      00016            org 4                           
+0004   2???           00017            goto TIC        
+                      00018 
+                      00019            
+0005   1683           00020 START      bsf STATUS,5
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0006   0186           00021            clrf TRISB
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0007   0185           00022            clrf TRISA
+0008   3000           00023            movlw b'00000000'
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0009   0081           00024            movwf OPTION_REG
+000A   1283           00025            bcf STATUS,5
+000B   0186           00026            clrf PORTB
+000C   0185           00027            clrf PORTA      
+000D   1283           00028            bcf STATUS,RP0          
+000E   0185           00029            clrf PORTA
+000F   0186           00030            clrf PORTB
+0010   168B           00031            bsf INTCON, T0IE
+0011   178B           00032            bsf INTCON, GIE
+0012   1605           00033            bsf PORTA, 4
+0013   0181           00034            clrf TMR0
+0014   2???           00035            call INIT_TIME
+0015   3005           00036            movlw d'5'
+0016   0090           00037            movwf SEG_1
+                      00038 
+MPASM 5.82                            CL.ASM   9-23-2020  17:49:01         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0017   0811           00039 LOOP       movfw SEG_2
+0018   2???           00040            call NUM_MASS
+0019   1386           00041            bcf PORTB,7
+001A   2???           00042            call DISP_WAIT
+001B   1786           00043            bsf PORTB,7
+001C   0812           00044            movfw SEG_3
+001D   2???           00045            call NUM_MASS
+001E   1306           00046            bcf PORTB,6
+001F   2???           00047            call DISP_WAIT
+0020   1706           00048            bsf PORTB,6
+0021   0813           00049            movfw SEG_4
+0022   2???           00050            call NUM_MASS
+0023   1286           00051            bcf PORTB,5
+0024   2???           00052            call DISP_WAIT
+0025   1686           00053            bsf PORTB,5
+0026   0814           00054            movfw SEG_5
+0027   2???           00055            call NUM_MASS
+0028   1206           00056            bcf PORTB,4
+0029   2???           00057            call DISP_WAIT
+002A   1606           00058            bsf PORTB,4
+002B   0815           00059            movfw SEG_6
+002C   2???           00060            call NUM_MASS
+002D   1186           00061            bcf PORTB,3   
+002E   2???           00062            call DISP_WAIT
+002F   1586           00063            bsf PORTB,3
+0030   0816           00064            movfw SEG_7
+0031   2???           00065            call NUM_MASS
+0032   1106           00066            bcf PORTB,2
+0033   2???           00067            call DISP_WAIT
+0034   1506           00068            bsf PORTB,2
+0035   2???           00069            goto LOOP
+                      00070 
+0036   0782           00071 NUM_MASS   addwf PCL,f     
+0037   2???           00072            goto NUME_0
+0038   2???           00073            goto NUME_1
+0039   2???           00074            goto NUME_2
+003A   2???           00075            goto NUME_3
+003B   2???           00076            goto NUME_4
+003C   2???           00077            goto NUME_5
+003D   2???           00078            goto NUME_6
+003E   2???           00079            goto NUME_7
+003F   2???           00080            goto NUME_8
+0040   2???           00081            goto NUME_9
+                      00082             
+0041   301F           00083 NUME_0     movlw b'11111'
+0042   0085           00084            movwf PORTA
+0043   30FD           00085            movlw b'11111101'
+0044   0086           00086            movwf PORTB
+0045   0008           00087            return
+0046   3006           00088 NUME_1     movlw b'00110'
+0047   0085           00089            movwf PORTA
+0048   30FC           00090            movlw b'11111100'
+0049   0086           00091            movwf PORTB
+MPASM 5.82                            CL.ASM   9-23-2020  17:49:01         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+004A   0008           00092            return
+004B   301B           00093 NUME_2     movlw b'11011'
+004C   0085           00094            movwf PORTA
+004D   30FE           00095            movlw b'11111110'
+004E   0086           00096            movwf PORTB
+004F   0008           00097            return
+0050   300F           00098 NUME_3     movlw b'01111'
+0051   0085           00099            movwf PORTA
+0052   30FE           00100            movlw b'11111110'
+0053   0086           00101            movwf PORTB
+0054   0008           00102            return
+0055   3006           00103 NUME_4     movlw b'00110'
+0056   0085           00104            movwf PORTA
+0057   30FF           00105            movlw b'11111111'
+0058   0086           00106            movwf PORTB
+0059   0008           00107            return
+005A   300D           00108 NUME_5     movlw b'01101'
+005B   0085           00109            movwf PORTA
+005C   30FF           00110            movlw b'11111111'
+005D   0086           00111            movwf PORTB
+005E   0008           00112            return
+005F   301D           00113 NUME_6     movlw b'11101'
+0060   0085           00114            movwf PORTA
+0061   30FF           00115            movlw b'11111111'
+0062   0086           00116            movwf PORTB
+0063   0008           00117            return
+0064   3007           00118 NUME_7     movlw b'00111'
+0065   0085           00119            movwf PORTA
+0066   30FC           00120            movlw b'11111100'
+0067   0086           00121            movwf PORTB
+0068   0008           00122            return
+0069   301F           00123 NUME_8     movlw b'11111'
+006A   0085           00124            movwf PORTA
+006B   30FF           00125            movlw b'11111111'
+006C   0086           00126            movwf PORTB
+006D   0008           00127            return
+006E   300F           00128 NUME_9     movlw b'01111'
+006F   0085           00129            movwf PORTA
+0070   30FF           00130            movlw b'11111111'
+0071   0086           00131            movwf PORTB
+0072   0008           00132            return
+                      00133            
+0073                  00134 TIC               
+0073   00A1           00135            movwf W_C
+0074   0E03           00136            swapf STATUS,w
+0075   00A0           00137            movwf STATUS_C
+                      00138 ;-------------------------------------
+0076   0A90           00139            incf  SEG_1,f
+0077   300A           00140            movlw d'10'
+0078   0210           00141            subwf SEG_1,w
+0079   1D03           00142            btfss STATUS,Z
+007A   2???           00143            goto  INTE_EXIT
+007B   0190           00144            clrf SEG_1
+MPASM 5.82                            CL.ASM   9-23-2020  17:49:01         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+007C   0A91           00145            incf  SEG_2,f
+007D   300A           00146            movlw d'10'
+007E   0211           00147            subwf SEG_2,w
+007F   1D03           00148            btfss STATUS,Z
+0080   2???           00149            goto  INTE_EXIT
+0081   0191           00150            clrf SEG_2
+0082   0A92           00151            incf  SEG_3,f
+0083   3006           00152            movlw d'6'
+0084   0212           00153            subwf SEG_3,w
+0085   1D03           00154            btfss STATUS,Z
+0086   2???           00155            goto  INTE_EXIT
+0087   0192           00156            clrf SEG_3
+0088   0A93           00157            incf  SEG_4,f
+0089   300A           00158            movlw d'10'
+008A   0213           00159            subwf SEG_4,w
+008B   1D03           00160            btfss STATUS,Z
+008C   2???           00161            goto  INTE_EXIT
+008D   0193           00162            clrf SEG_4
+008E   0A94           00163            incf  SEG_5,f
+008F   3006           00164            movlw d'6'
+0090   0214           00165            subwf SEG_5,w
+0091   1D03           00166            btfss STATUS,Z
+0092   2???           00167            goto  INTE_EXIT
+0093   0194           00168            clrf SEG_5
+0094   0A95           00169            incf  SEG_6,f
+0095   3004           00170            movlw d'4'
+0096   0215           00171            subwf SEG_6,w
+0097   1D03           00172            btfss STATUS,Z
+0098   2???           00173            goto  INTE_EXIT
+0099   0195           00174            clrf SEG_6
+009A   0A96           00175            incf  SEG_7,f
+009B   3003           00176            movlw d'3'
+009C   0216           00177            subwf SEG_7,w
+009D   1D03           00178            btfss STATUS,Z
+009E   2???           00179            goto  INTE_EXIT
+009F   0196           00180            clrf SEG_7     
+                      00181 ;-------------------------------------
+00A0   0E20           00182 INTE_EXIT  swapf STATUS_C,w
+00A1   0083           00183            movwf STATUS
+00A2   0EA1           00184            swapf W_C,f
+00A3   0E21           00185            swapf W_C,w
+00A4   110B           00186            bcf INTCON,T0IF
+00A5   0009           00187            retfie
+                      00188            
+00A6   0000           00189 DISP_WAIT  nop
+00A7   0000           00190            nop
+00A8   0000           00191            nop     
+00A9   0008           00192            return
+                      00193            
+00AA   3006           00194 INIT_TIME  movlw d'6'
+00AB   00??           00195            movwf NUME_1
+00AC   3005           00196            movlw d'5'
+00AD   00??           00197            movwf NUME_2
+MPASM 5.82                            CL.ASM   9-23-2020  17:49:01         PAGE  5
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+00AE   3008           00198            movlw d'8'
+00AF   00??           00199            movwf NUME_3
+00B0   3004           00200            movlw d'4'
+00B1   00??           00201            movwf NUME_4
+00B2   3003           00202            movlw d'3'
+00B3   00??           00203            movwf NUME_5
+00B4   3002           00204            movlw d'2'
+00B5   00??           00205            movwf NUME_6
+00B6   0008           00206            return
+                      00207            
+3FF1                  00208            end      
+MPASM 5.82                            CL.ASM   9-23-2020  17:49:01         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+C                                 00000000
+CLICK_ST                          00000022
+DC                                00000001
+DISP_WAIT                         000000A6
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INIT_TIME                         000000AA
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTE_EXIT                         000000A0
+INTF                              00000001
+IRP                               00000007
+LOOP                              00000017
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+NUME_0                            00000041
+NUME_1                            00000046
+NUME_2                            0000004B
+NUME_3                            00000050
+NUME_4                            00000055
+NUME_5                            0000005A
+NUME_6                            0000005F
+NUME_7                            00000064
+NUME_8                            00000069
+NUME_9                            0000006E
+NUM_MASS                          00000036
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+MPASM 5.82                            CL.ASM   9-23-2020  17:49:01         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+SEG_1                             00000010
+SEG_2                             00000011
+SEG_3                             00000012
+SEG_4                             00000013
+SEG_5                             00000014
+SEG_6                             00000015
+SEG_7                             00000016
+START                             00000005
+STATUS                            00000003
+STATUS_C                          00000020
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TIC                               00000073
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+W_C                               00000021
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+MPASM 5.82                            CL.ASM   9-23-2020  17:49:01         PAGE  8
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F874A                         00000001
+__DEBUG                           
+__MPLAB_DEBUGGER_SIMULATOR        1
+
+Errors   :     0
+Warnings :     1 reported,     0 suppressed
+Messages :     4 reported,     0 suppressed
+
+
